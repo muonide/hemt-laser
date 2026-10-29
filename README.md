@@ -13,19 +13,19 @@ Live: https://muonide.github.io/hemt-laser/ (append `#hemt` or `#laser` to open 
 
 Basic mode (introductory notes) and Advanced mode (graduate notes, full layer editing).
 
-**Laser tab.** Placeholder; physics arrives in phase 3.
+**Laser tab (phase 3).** Edge-emitting laser cross-section under forward bias: self-consistent electron and heavy-hole subbands with light holes and biaxial strain, TE/TM modal gain spectra from the subband pairs, the fundamental slab mode and confinement factor, a background injection sweep (peak gain versus recombination current, including the confinement layers), threshold and the above-threshold light–current curve. Cavity length, facet reflectivities, stripe width, internal loss, injection efficiency and line broadening are adjustable. Exemplars: 976 nm InGaAs/AlGaAs pump laser, 1550 nm InGaAs/InGaAsP MQW telecom laser, 450 nm InGaN/GaN blue laser diode.
 
 ## Roadmap
 
 | Phase | Content |
 |---|---|
 | 2 ✓ | Self-consistent hole subbands; gate dielectrics and p-GaN gates; nine more HEMT exemplars (listed above) |
-| 3 | Laser physics: gain spectrum with strain, 1D waveguide mode and confinement factor, threshold and L–I. Exemplars: 9xx nm InGaAs/AlGaAs, 1310/1550 nm InP MQW, 450 nm InGaN |
-| 4 | 650 nm AlGaInP red, InGaN green, interband cascade (GaSb), AlGaN UV-C laser diode |
+| 3 ✓ | Laser physics: gain spectrum with strain, 1D waveguide mode and confinement factor, threshold and L–I. Exemplars: 976 nm InGaAs/AlGaAs, 1550 nm InP MQW, 450 nm InGaN |
+| 4 | 1310 nm AlGaInAs, 650 nm AlGaInP red, InGaN green, interband cascade (GaSb), AlGaN UV-C laser diode |
 | 5 | Model sections, UX pass, publish |
 
 **Deferred (noted, not scheduled):** vertical-cavity surface-emitting lasers (need a DBR/cavity solver) and quantum cascade lasers (need intersubband transitions and injector alignment under bias). Quantum-dot lasers on Si are out of scope for a 1D solver.
 
 ## Model limits
 
-The transistor model has no short-channel effects, self-heating, trapping or gate leakage; f_T is an intrinsic estimate with a lumped parasitic capacitance. Only the heavy-hole band is quantized. ScAlN, (AlGa)₂O₃ and H-diamond parameters are less settled than the III–V and AlGaN values. Material constants are 300 K literature values (Vurgaftman et al. 2001 and others cited in the page).
+The transistor model has no short-channel effects, self-heating, trapping or gate leakage; f_T is an intrinsic estimate with a lumped parasitic capacitance. Holes use one in-plane mass per band (no k·p band mixing); the L–I curve has no heating or current spreading. ScAlN, (AlGa)₂O₃ and H-diamond parameters are less settled than the III–V and AlGaN values. Material constants are 300 K literature values (Vurgaftman et al. 2001 and others cited in the page).

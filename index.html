@@ -313,37 +313,40 @@ svg .efc{fill:var(--ef)}
     <h4>1 · Materials and band alignment</h4>
     <p>Composition-dependent parameters follow Vurgaftman, Meyer &amp; Ram-Mohan. Al<sub>x</sub>Ga<sub>1−x</sub>As uses ΔE<sub>V</sub> = 0.53x eV against GaAs, with Γ and X valleys (X is lowest above x ≈ 0.45). Pseudomorphic In<sub>x</sub>Ga<sub>1−x</sub>As on GaAs uses ΔE<sub>C</sub> ≈ 0.65ΔE<sub>g</sub>. On InP, In<sub>0.52</sub>Al<sub>0.48</sub>As (E<sub>g</sub> = 1.46 eV) and In<sub>x</sub>Ga<sub>1−x</sub>As give ΔE<sub>C</sub> ≈ 0.52 eV at the lattice-matched x = 0.53, rising to ≈0.63 eV for a strained In<sub>0.7</sub>Ga<sub>0.3</sub>As channel. Ga-face Al<sub>x</sub>Ga<sub>1−x</sub>N on GaN uses ΔE<sub>C</sub> ≈ 0.7ΔE<sub>g</sub> plus a polarization sheet at each interface,</p>
     <div class="eq"><span>σ<sub>pol</sub> = (P<sub>sp</sub> + P<sub>pz</sub>)<sub>below</sub> − (P<sub>sp</sub> + P<sub>pz</sub>)<sub>above</sub> ≈ 5.4×10¹³·x q/cm²</span><span class="eqn">(1)</span></div>
-    <p>A 1 nm AlN interlayer, as in most commercial GaN HEMTs, raises the local sheet and pushes the electrons away from the alloy-disordered AlGaN, which raises mobility. Strain shifts of band gaps and the light-hole band are not included.</p>
+    <p>A 1 nm AlN interlayer, as in most commercial GaN HEMTs, raises the local sheet and pushes the electrons away from the alloy-disordered AlGaN, which raises mobility. N-polar AlGaN uses the same parameters with every polarization reversed, so the 2DEG forms in GaN <i>above</i> an AlGaN layer. Lattice-matched In<sub>0.17</sub>Al<sub>0.83</sub>N (σ ≈ 2.7×10¹³ cm⁻², ΔE<sub>C</sub> ≈ 0.9 eV) and Sc<sub>0.18</sub>Al<sub>0.82</sub>N (σ ≈ 4.8×10¹³ cm⁻², ΔE<sub>C</sub> ≈ 1.1 eV, ε<sub>r</sub> ≈ 14) are fixed-composition barriers; the ScAlN numbers are the least certain in the tab.</p>
+    <p>Other channels: β-(Al<sub>x</sub>Ga<sub>1−x</sub>)<sub>2</sub>O<sub>3</sub> with ΔE<sub>C</sub> ≈ 2x eV and m* ≈ 0.28 against Ga<sub>2</sub>O<sub>3</sub>; Si<sub>x</sub>Ge<sub>1−x</sub> on a relaxed Si<sub>0.2</sub>Ge<sub>0.8</sub> buffer, interpolated so that strained Ge (x = 0) has ΔE<sub>V</sub> ≈ 0.15 eV to the buffer; and H-terminated diamond with its valence-band maximum at 4.2 eV below vacuum. SiN (χ ≈ 2.1 eV, ε<sub>r</sub> 7.5) and Al<sub>2</sub>O<sub>3</sub> (χ ≈ 1.0 eV, ε<sub>r</sub> 9) are gate dielectrics. A p-doped Al<sub>2</sub>O<sub>3</sub> layer is a sheet of fixed negative charge, which stands in for the surface acceptors of transfer-doped diamond. At a dielectric/nitride interface the polarization charge is assumed to be compensated by interface donors, so no sheet appears there. Strain shifts of band gaps and the light-hole band are not included.</p>
 
     <h4>2 · Electrostatics and the quantized channel</h4>
     <p>Poisson's equation, d/dz(ε dφ/dz) = −q[p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup>] + dP/dz, is solved by Newton iteration on a mesh refined to 0.1 nm at interfaces. The Schottky gate fixes E<sub>C</sub> = E<sub>F,gate</sub> + qφ<sub>B</sub> at the surface. In the layers ticked Q, electrons obey the BenDaniel–Duke equation,</p>
     <div class="eq"><span>−<span class="fr"><span>ħ²</span><span>2</span></span><span class="fr"><span>d</span><span>dz</span></span>(<span class="fr"><span>1</span><span>m*(z)</span></span><span class="fr"><span>dψ</span><span>dz</span></span>) + E<sub>C</sub>(z)ψ = Eψ, &nbsp; n<sub>s</sub> = Σ<sub>i</sub> <span class="fr"><span>m*kT</span><span>πħ²</span></span>ln(1 + e<sup>(E<sub>F</sub> − E<sub>i</sub>)/kT</sup>)</span><span class="eqn">(2)</span></div>
-    <p>and the two equations are iterated to self-consistency. The channel quasi-Fermi level is tied to the source (E<sub>F</sub> = 0); holes near the surface follow the gate, so no spurious hole inversion forms.</p>
+    <p>and the two equations are iterated to self-consistency. The channel quasi-Fermi level is tied to the source (E<sub>F</sub> = 0); holes near the surface follow the gate, so no spurious hole inversion forms. In a p-GaN gate the hole quasi-Fermi level of the p-GaN and the barrier equals the gate's, as for an ohmic p-GaN contact.</p>
+    <p>For the p-channel exemplars the roles swap: holes are tied to the source, electrons near the gate follow the gate, and the heavy-hole band is quantized with the same equation (E<sub>C</sub> → −E<sub>V</sub>, m* → m<sub>hh</sub>), giving p<sub>s</sub> = Σ<sub>j</sub> (m<sub>hh</sub>kT/πħ²) ln(1 + e<sup>(E<sub>j</sub> − E<sub>F</sub>)/kT</sup>). Only one hole band is used; light and split-off holes, and the strong non-parabolicity of the 2DHG, are not.</p>
 
     <h4>3 · Charge control</h4>
     <p>Above threshold the 2DEG and the gate form a parallel-plate capacitor,</p>
     <div class="eq"><span>qn<sub>s</sub> ≈ <span class="fr"><span>ε</span><span>d + Δd</span></span>(V<sub>G</sub> − V<sub>T</sub>)</span><span class="eqn">(3)</span></div>
-    <p>where d is the gate-to-channel distance (barrier plus spacer) and Δd ≈ 1–3 nm combines the wavefunction centroid and the finite density of states (quantum capacitance). Fig. 5's C–V view plots C<sub>g</sub> = q·dn<sub>s</sub>/dV<sub>G</sub> from the self-consistent sweep. In AlGaN/GaN devices V<sub>T</sub> is set mainly by the polarization sheet; in GaAs and InP devices by the δ-doping plane and the gate barrier.</p>
+    <p>where d is the gate-to-channel distance (barrier plus spacer) and Δd ≈ 1–3 nm combines the wavefunction centroid and the finite density of states (quantum capacitance). Fig. 5's C–V view plots C<sub>g</sub> = q·dn<sub>s</sub>/dV<sub>G</sub> from the self-consistent sweep. In AlGaN/GaN devices V<sub>T</sub> is set mainly by the polarization sheet; in GaAs and InP devices by the δ-doping plane and the gate barrier; in the p-GaN gate by the ionized acceptors and the built-in voltage of the p-GaN/AlGaN/GaN junction.</p>
 
     <h4>4 · Transistor model (deliberately simple)</h4>
     <p>The drain current per unit gate width uses the gradual-channel approximation with the solved n<sub>s</sub>(V<sub>G</sub>) and a field-dependent velocity v(E) = μE/(1 + μE/v<sub>sat</sub>). Integrating along the channel from source to drain gives</p>
     <div class="eq"><span>I<sub>D</sub>(V′) = <span class="fr"><span>qμ ∫<sub>0</sub><sup>V′</sup> n<sub>s</sub>(V<sub>GS</sub>′ − V) dV</span><span>L<sub>g</sub> + μV′/v<sub>sat</sub></span></span></span><span class="eqn">(4)</span></div>
     <p>The current saturates at the maximum of Eq. (4) over the drain-end channel voltage V′. Access resistances R<sub>s</sub> = R<sub>d</sub> are added in series (V<sub>GS</sub>′ = V<sub>GS</sub> − I<sub>D</sub>R<sub>s</sub>, V′ = V<sub>DS</sub> − 2I<sub>D</sub>R<sub>s</sub>). In the short-gate limit Eq. (4) approaches the velocity-saturated result I<sub>D</sub> ≈ qn<sub>s</sub>v<sub>sat</sub> and g<sub>m</sub> ≈ C<sub>g</sub>v<sub>sat</sub>. The current-gain cutoff frequency is</p>
     <div class="eq"><span>f<sub>T</sub> ≈ <span class="fr"><span>g<sub>m</sub></span><span>2π(C<sub>g</sub>L<sub>g</sub> + C<sub>par</sub>)</span></span> &nbsp; → &nbsp; <span class="fr"><span>v<sub>sat</sub></span><span>2πL<sub>g</sub></span></span> (intrinsic, saturated)</span><span class="eqn">(5)</span></div>
-    <p>C<sub>par</sub> lumps the fringing and pad capacitances that roughly halve f<sub>T</sub> in real devices. v<sub>sat</sub> here is an <i>effective</i> velocity under the gate, lower than the peak drift velocity of the bulk material.</p>
+    <p>C<sub>par</sub> lumps the fringing and pad capacitances that roughly halve f<sub>T</sub> in real devices. v<sub>sat</sub> here is an <i>effective</i> velocity under the gate, lower than the peak drift velocity of the bulk material; for the high-density nitride exemplars it is set lower still so that the currents land near measured values, standing in for self-heating. p-channel devices use the same model with p<sub>s</sub> against the gate drive −V<sub>GS</sub>, and Fig. 5 plots −I<sub>D</sub> against V<sub>GS</sub> and −V<sub>DS</sub>.</p>
 
     <h4>5 · What the model leaves out</h4>
     <ul class="nlist"><li>Short-channel effects (drain-induced barrier lowering, output conductance), which need a 2D solver; the output curves are therefore perfectly flat in saturation.</li>
     <li>Self-heating. The dissipated-power readout shows why it matters: GaN HEMTs at 10 V and 1 A/mm dissipate 10 W/mm.</li>
     <li>Trapping and current collapse in GaN, DX centers in AlGaAs, gate leakage and breakdown.</li>
     <li>Velocity overshoot and ballistic transport in sub-100 nm gates, and the field-plate and parasitic network that sets f<sub>max</sub>.</li>
-    <li>Hole quantization: holes are classical. Self-consistent hole subbands are planned for the p-channel exemplars.</li></ul>
+    <li>Gate current: Schottky and p-GaN gates conduct at forward bias, which the V<sub>G</sub> ranges stop short of.</li>
+    <li>Buffers: graded metamorphic, strain-relief and SiGe virtual-substrate buffers are represented only by the relaxed layer at their top.</li></ul>
 
     <h4>Further reading</h4>
     <p class="nlead">Links go to the DOI or to a free copy. Books are cited without links.</p>
     <ol class="refs">
     <li>S. M. Sze and K. K. Ng, <i>Physics of Semiconductor Devices</i>, 3rd ed. (Wiley, 2007), ch. 7 (MESFETs and MODFETs).</li>
-    <li>J. H. Davies, <i>The Physics of Low-Dimensional Semiconductors</i> (Cambridge, 1998). Heterostructures, 2DEGs and the HEMT at graduate level.</li>
+    <li>J. H. Davies, <i>The Physics of Low-Dimensional Semiconductors</i> (Cambridge, 1998), ch. 9.</li>
     <li>T. Mimura <i>et al.</i>, "A new field-effect transistor with selectively doped GaAs/n-Al<sub>x</sub>Ga<sub>1−x</sub>As heterojunctions," <i>Jpn. J. Appl. Phys.</i> 19, L225 (1980). <a href="https://doi.org/10.1143/JJAP.19.L225" target="_blank" rel="noopener">doi:10.1143/JJAP.19.L225</a></li>
     <li>J. A. del Alamo, "Nanometre-scale electronics with III–V compound semiconductors," <i>Nature</i> 479, 317 (2011). <a href="https://dx.doi.org/10.1038/nature10677" target="_blank" rel="noopener">doi:10.1038/nature10677</a></li>
     <li>U. K. Mishra, P. Parikh and Y.-F. Wu, "AlGaN/GaN HEMTs — an overview of device operation and applications," <i>Proc. IEEE</i> 90, 1022 (2002). <a href="https://doi.org/10.1109/JPROC.2002.1021567" target="_blank" rel="noopener">doi:10.1109/JPROC.2002.1021567</a></li>
@@ -351,6 +354,11 @@ svg .efc{fill:var(--ef)}
     <li>I. Vurgaftman, J. R. Meyer and L. R. Ram-Mohan, "Band parameters for III–V compound semiconductors and their alloys," <i>J. Appl. Phys.</i> 89, 5815 (2001). <a href="https://doi.org/10.1063/1.1368156" target="_blank" rel="noopener">doi:10.1063/1.1368156</a></li>
     <li>D. J. BenDaniel and C. B. Duke, "Space-charge effects on electron tunneling," <i>Phys. Rev.</i> 152, 683 (1966). <a href="https://doi.org/10.1103/PhysRev.152.683" target="_blank" rel="noopener">doi:10.1103/PhysRev.152.683</a></li>
     <li>I.-H. Tan, G. L. Snider, L. D. Chang and E. L. Hu, "A self-consistent solution of Schrödinger–Poisson equations using a nonuniform mesh," <i>J. Appl. Phys.</i> 68, 4071 (1990). <a href="https://djena.engineering.cornell.edu/hws/jap90_snider_1dPoisson.pdf" target="_blank" rel="noopener">PDF (Cornell)</a></li>
+    <li>J. Kuzmik, "Power electronics on InAlN/(In)GaN: prospect for a record performance," <i>IEEE Electron Device Lett.</i> 22, 510 (2001).</li>
+    <li>Y. Uemoto <i>et al.</i>, "Gate injection transistor (GIT) — a normally-off AlGaN/GaN power transistor using conductivity modulation," <i>IEEE Trans. Electron Devices</i> 54, 3393 (2007).</li>
+    <li>R. Chaudhuri <i>et al.</i>, "A polarization-induced 2D hole gas in undoped gallium nitride quantum wells," <i>Science</i> 365, 1454 (2019). <a href="https://doi.org/10.1126/science.aau8623" target="_blank" rel="noopener">doi:10.1126/science.aau8623</a></li>
+    <li>Y. Zhang <i>et al.</i>, "High mobility two-dimensional electron gas in modulation-doped β-(Al<sub>x</sub>Ga<sub>1−x</sub>)<sub>2</sub>O<sub>3</sub>/Ga<sub>2</sub>O<sub>3</sub> heterostructures." <a href="https://arxiv.org/abs/1802.04426" target="_blank" rel="noopener">arXiv:1802.04426</a></li>
+    <li>M. Myronov <i>et al.</i>, "An extremely high room temperature mobility of two-dimensional holes in a strained Ge quantum well heterostructure grown by reduced pressure chemical vapor deposition," <i>Jpn. J. Appl. Phys.</i> 53, 04EH02 (2014). <a href="https://doi.org/10.7567/JJAP.53.04EH02" target="_blank" rel="noopener">doi:10.7567/JJAP.53.04EH02</a></li>
     <li>Ioffe Institute, <a href="https://www.ioffe.ru/SVA/NSM/index.html" target="_blank" rel="noopener">semiconductor materials database</a>.</li>
     </ol>
   </details>
@@ -467,6 +475,22 @@ const FAMS={
     prop(){const Ec=-4.01,Eg=1.46;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:12.4,meG:0.075,mhC:0.6,Nc:NC0*0.075**1.5,Nv:NC0*0.6**1.5,Pz:0,Ed:0.008,Ea:0.03,ind:false,Brad:1e-10}}},
   InP:{name:'InP',fixed:true,x:[0,0],lab:()=>'InP',
     prop(){const Ec=-4.29,Eg=1.344;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:12.5,meG:0.08,mhC:0.6,Nc:5.7e17,Nv:1.1e19,Pz:0,Ed:0.0057,Ea:0.035,ind:false,Brad:1e-10}}},
+  AlGaNN:{name:'AlₓGa₁₋ₓN, N-polar (on GaN)',x:[0,1],lab:x=>x<=0?'GaN (N-polar)':`Al${sub(fx(x))}Ga${sub(fx(1-x))}N (N-polar)`,
+    prop(x){const p=FAMS.AlGaN.prop(x);return {...p,Pz:-p.Pz}}},
+  InAlN:{name:'In₀.₁₇Al₀.₈₃N (lattice-matched to GaN)',fixed:true,x:[0,0],lab:()=>'In₀.₁₇Al₀.₈₃N',
+    prop(){const Ec=-3.2,Eg=4.6;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:10.6,meG:0.3,mhC:1.5,Nc:NC0*0.3**1.5,Nv:NC0*1.5**1.5,Pz:(0.029+2.7e13*1.602e-19*1e4)*1e-4,Ed:0.05,Ea:0.4,ind:false,Brad:1e-11}}},
+  ScAlN:{name:'Sc₀.₁₈Al₀.₈₂N (lattice-matched to GaN)',fixed:true,x:[0,0],lab:()=>'Sc₀.₁₈Al₀.₈₂N',
+    prop(){const Ec=-3.0,Eg=5.2;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:14,meG:0.35,mhC:1.5,Nc:NC0*0.35**1.5,Nv:NC0*1.5**1.5,Pz:(0.029+4.8e13*1.602e-19*1e4)*1e-4,Ed:0.06,Ea:0.5,ind:false,Brad:1e-11}}},
+  AlGaO:{name:'β-(AlₓGa₁₋ₓ)₂O₃ (on Ga₂O₃)',x:[0,0.3],lab:x=>x<=0?'β-Ga₂O₃':`β-(Al${sub(fx(x))}Ga${sub(fx(1-x))})₂O₃`,
+    prop(x){const Ec=-4.0+2.0*x,Eg=4.85+2.0*x,meG=0.28+0.1*x;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:10-0.5*x,meG,mhC:3,Nc:NC0*meG**1.5,Nv:NC0*3**1.5,Pz:0,Ed:0.03+0.05*x,Ea:1.0,ind:false,Brad:1e-12}}},
+  SiGe:{name:'SiₓGe₁₋ₓ (on relaxed Si₀.₂Ge₀.₈)',x:[0,0.4],lab:x=>x<=0?'strained Ge':`Si${sub(fx(x))}Ge${sub(fx(1-x))}`,
+    prop(x){const Ev=-4.60-0.75*x,Eg=0.6+1.75*x,mh=0.2+0.1*x;return {Ec:Ev+Eg,EcG:Ev+Eg,Ev,Eg,EgG:Eg,er:16.2-4.5*x,meG:0.2,mhC:mh,Nc:1.0e19,Nv:NC0*(0.3+0.2*x)**1.5,Pz:0,Ed:0.012,Ea:0.011+0.02*x,ind:true,Brad:1e-14}}},
+  Dia:{name:'Diamond (H-terminated surface)',fixed:true,x:[0,0],lab:()=>'diamond',
+    prop(){const Ev=-4.2,Eg=5.47;return {Ec:Ev+Eg,EcG:Ev+Eg,Ev,Eg,EgG:Eg,er:5.7,meG:0.57,mhC:0.6,Nc:1e20,Nv:NC0*0.8**1.5,Pz:0,Ed:0.6,Ea:0.37,ind:true,Brad:1e-14}}},
+  SiN:{name:'SiN (dielectric)',fixed:true,ins:true,x:[0,0],lab:()=>'SiN',
+    prop(){const Ec=-2.1,Eg=5.3;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:7.5,meG:0.5,mhC:1,Nc:2e19,Nv:2e19,Pz:0,Ed:0,Ea:0,fullIon:true,ind:false,Brad:0}}},
+  Al2O3:{name:'Al₂O₃ (dielectric; p = fixed negative charge)',fixed:true,ins:true,x:[0,0],lab:()=>'Al₂O₃',
+    prop(){const Ec=-1.0,Eg=7.0;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:9,meG:0.4,mhC:1,Nc:2e19,Nv:2e19,Pz:0,Ed:0,Ea:0,fullIon:true,ind:false,Brad:0}}},
   ITO:{name:'ITO (In₂O₃:Sn)',fixed:true,conductor:true,x:[0,0],lab:()=>'ITO',
     prop(){const Ec=-5.0,Eg=3.6;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:9,meG:0.4,mhC:1,Nc:NC0*0.4**1.5,Nv:NC0,Pz:0,Ed:0.03,Ea:0.3,ind:false,Brad:0,ab:['d',2e5,3.6],gen:false}}},
   ITOt:{name:'ITO, UV-ozone treated (φ ≈ 4.7 eV)',fixed:true,conductor:true,x:[0,0],lab:()=>'ITO (treated)',
@@ -504,6 +528,11 @@ function build(layers){
       const pa=shp(FAMS[ly.f].prop(compAt(ly,za-z0)),sh),pb=shp(FAMS[ly.f].prop(compAt(ly,zb-z0)),sh);
       E.push({li,za,zb,h:zb-za,pa,pb,eps:(pa.er+pb.er)/2*EPS0,Pz:(pa.Pz+pb.Pz)/2,d:ly.d,N:ly.d==='i'?0:+ly.N,me:(pa.meG+pb.meG)/2,mh:(pa.mhC+pb.mhC)/2});z.push(zb)}
     z0+=t;z[z.length-1]=z0;E[E.length-1].zb=z0;});
+  // dielectrics take the polarization of the adjacent semiconductor: interface donors are assumed to
+  // compensate the bound charge at a dielectric/nitride interface (otherwise ≈ −1.8×10¹³ cm⁻² on Ga-polar GaN)
+  const ins=layers.map(l=>!!FAMS[l.f].ins);
+  layers.forEach((l,li)=>{if(!ins[li])return;let j=li+1;while(j<layers.length&&ins[j])j++;if(j>=layers.length){j=li-1;while(j>=0&&ins[j])j--}if(j<0)return;
+    const ref=E.find(e=>e.li===j&&(j>li?true:false))||[...E].reverse().find(e=>e.li===j);const pz=ref.Pz;for(const e of E)if(e.li===li)e.Pz=pz});
   return {layers,z,E,nn:z.length,ne:E.length,len:z0};
 }
 
@@ -513,7 +542,8 @@ const ST=(p,e)=>{if(p.mol){e=Math.max(-700,Math.min(700,e));const f=1/(1+Math.ex
 function rhoHalf(p,d,N,phi,EFn,EFp,q){
   const Ec=p.Ec-phi,Ev=p.Ev-phi;let n,dn;
   if(q){const Ee=Math.max(Ec,q.Ecut),[f,fd]=FD((EFn-Ee)/kT);n=q.n+p.Nc*f;dn=q.dn+(Ec>q.Ecut?p.Nc*fd/kT:0)}else{const [f,fd]=ST(p,(EFn-Ec)/kT);n=p.Nc*f;dn=p.Nc*fd/kT}
-  const [g,gd]=ST(p,(Ev-EFp)/kT);const pp=p.Nv*g,dp=-p.Nv*gd/kT;
+  let pp,dp;if(q&&q.hq){const Ev2=Math.min(Ev,q.EcutH),[g,gd]=FD((Ev2-EFp)/kT);pp=q.p+p.Nv*g;dp=q.dp+(Ev<q.EcutH?-p.Nv*gd/kT:0)}
+  else{const [g,gd]=ST(p,(Ev-EFp)/kT);pp=p.Nv*g;dp=-p.Nv*gd/kT}
   let Nd=0,dNd=0,Na=0,dNa=0;
   if(d==='n'&&N>0){const Ed=mottE(p,'n',N);if(Ed===null)Nd=N;else{const u=Math.max(-700,Math.min(700,(EFn-(Ec-Ed))/kT)),ei=Math.exp(-u);Nd=N*ei/(ei+2);dNd=-N*2*ei/((ei+2)**2)/kT}}
   if(d==='p'&&N>0){const Ea=mottE(p,'p',N);if(Ea===null)Na=N;else{const w=Math.max(-700,Math.min(700,((Ev+Ea)-EFp)/kT)),ei=Math.exp(-w);Na=N*ei/(ei+4);dNa=N*4*ei/((ei+4)**2)/kT}}
@@ -522,11 +552,13 @@ function rhoHalf(p,d,N,phi,EFn,EFp,q){
 function neutral(p,d,N,EFn,EFp){let lo=-25,hi=25;for(let i=0;i<90;i++){const m=(lo+hi)/2;if(rhoHalf(p,d,N,m,EFn,EFp,null)[0]>0)lo=m;else hi=m}return (lo+hi)/2}
 
 /* ---------- quantum density predictor ---------- */
-function qDen(qd,i,phi,EFn){
-  let n=0,dn=0;const dphi=phi-qd.phiRef[i];
+function qDen(qd,i,phi,EFn,EFp){
+  let n=0,dn=0,p=0,dp=0;const dphi=phi-qd.phiRef[i];
   for(const s of qd.st){const w=s.psi2[i]*1e7;if(w<=0)continue;const a=(EFn-s.E+dphi)/kT;
     const ln=a>40?a:Math.log1p(Math.exp(a)),f=1/(1+Math.exp(-a));n+=s.N2D*kT*ln*w;dn+=s.N2D*f*w}
-  return {n,dn,Ecut:qd.st.Ecut};
+  if(qd.sth)for(const s of qd.sth){const w=s.psi2[i]*1e7;if(w<=0)continue;const a=(s.E-dphi-EFp)/kT;
+    const ln=a>40?a:Math.log1p(Math.exp(a)),f=1/(1+Math.exp(-a));p+=s.N2D*kT*ln*w;dp-=s.N2D*f*w}
+  return {n,dn,Ecut:qd.st.Ecut,hq:!!qd.sth,p,dp,EcutH:qd.sth?qd.sth.Ecut:0};
 }
 
 /* ---------- Poisson (Newton, finite volume, nonuniform mesh) ---------- */
@@ -536,7 +568,7 @@ function poisson(S,phi,EFn,EFp,qd){
   let it=0,maxd=1;
   for(it=0;it<400&&maxd>1e-7;it++){
     for(let i=1;i<nn-1;i++){const eL=E[i-1],eR=E[i];
-      const q=qd&&i>qd.i0&&i<qd.i1?qDen(qd,i,phi[i],EFn[i]):null;
+      const q=qd&&i>qd.i0&&i<qd.i1?qDen(qd,i,phi[i],EFn[i],EFp[i]):null;
       const r1=rhoHalf(eL.pb,eL.d,eL.N,phi[i],EFn[i],EFp[i],q),r2=rhoHalf(eR.pa,eR.d,eR.N,phi[i],EFn[i],EFp[i],q);
       const Qi=(r1[0]*eL.h+r2[0]*eR.h)*0.5e-7,dQ=(r1[1]*eL.h+r2[1]*eR.h)*0.5e-7;
       F[i]=a[i]*(phi[i+1]-phi[i])-a[i-1]*(phi[i]-phi[i-1])-(eR.Pz-eL.Pz)+Qi;
@@ -561,7 +593,7 @@ function schr(S,phi,i0,i1,car,maxStates){
     const d=HB2M/(mL*eL.h)+HB2M/(mR*eR.h)+(V(eL.pb,phi[i])*eL.h+V(eR.pa,phi[i])*eR.h)/2;
     dd[k]=d;if(k<n-1)oo[k]=-HB2M/(mR*eR.h);}
   for(let k=0;k<n;k++){dd[k]/=Bm[k];if(k<n-1)oo[k]/=Math.sqrt(Bm[k]*Bm[k+1])}
-  const Vedge=Math.min(V(S.E[i0].pa,phi[i0]),V(S.E[i1-1].pb,phi[i1]));
+  const Vedge=Math.min(Math.max(V(S.E[i0].pa,phi[i0]),i0>0?V(S.E[i0-1].pb,phi[i0]):-1e9),Math.max(V(S.E[i1-1].pb,phi[i1]),i1<S.ne?V(S.E[i1].pa,phi[i1]):-1e9));
   let vmin=Infinity;for(let k=0;k<n;k++){const i=i0+1+k;vmin=Math.min(vmin,V(S.E[i-1].pb,phi[i]),V(S.E[i].pa,phi[i]))}
   const cnt=x=>{let c=0,q=dd[0]-x;if(q<0)c++;for(let k=1;k<n;k++){q=dd[k]-x-oo[k-1]*oo[k-1]/(q===0?1e-300:q);if(q<0)c++}return c};
   const Emax=Math.min(Vedge,vmin+1.2);const nb=Math.min(cnt(Emax),maxStates);
@@ -688,7 +720,7 @@ function gummel(S,phi,EFn,EFp,info,EL,ER,cfg){
 function run(S,cfg,warm){
   const info=biasInfo(S.layers,cfg.contact);
   const V=info.mode==='bipolar'||info.mode==='unipolar'||info.mode==='oled'?cfg.V:0;
-  const {EFn,EFp,EL,ER}=info.mode==='gate'?{EFn:cfg.pch?Float64Array.from(S.z,z=>z<cfg.pch-1e-9?-cfg.VG:0):new Float64Array(S.nn),EFp:cfg.pch?new Float64Array(S.nn):Float64Array.from(S.z,z=>-cfg.VG*(1-z/S.len)),EL:0,ER:0}:qfl(S,info,V);
+  const {EFn,EFp,EL,ER}=info.mode==='gate'?{EFn:cfg.pch?Float64Array.from(S.z,z=>z<cfg.pch-1e-9?-cfg.VG:0):new Float64Array(S.nn),EFp:cfg.pch?new Float64Array(S.nn):cfg.ptie?Float64Array.from(S.z,z=>z<cfg.ptie-1e-9?-cfg.VG:0):Float64Array.from(S.z,z=>-cfg.VG*(1-z/S.len)),EL:0,ER:0}:qfl(S,info,V);
   const nn=S.nn,E=S.E;
   let phi;
   if(warm&&warm.length===nn)phi=Float64Array.from(warm);
@@ -704,7 +736,7 @@ function run(S,cfg,warm){
     if(cfg.sp){let ch=1;
       for(outer=0;outer<(cfg.maxOuter||80)&&ch>(cfg.tol||1e-4);outer++){
         const st=schr(S,phi,win.i0,win.i1,'e',cfg.nst);
-        const qd={i0:win.i0,i1:win.i1,phiRef:Float64Array.from(phi),st};
+        const qd={i0:win.i0,i1:win.i1,phiRef:Float64Array.from(phi),st};if(cfg.hq)qd.sth=schr(S,phi,win.i0,win.i1,'h',cfg.nst);
         const old=Float64Array.from(phi);res=poisson(S,phi,EFn,EFp,qd);phi=res.phi;
         ch=0;for(let i=0;i<nn;i++)ch=Math.max(ch,Math.abs(phi[i]-old[i]));
         if(outer>=12){const a=outer>=30?0.3:0.5;for(let i=0;i<nn;i++)phi[i]=old[i]+a*(phi[i]-old[i])}}
@@ -712,13 +744,14 @@ function run(S,cfg,warm){
     est=schr(S,phi,win.i0,win.i1,'e',cfg.nst);hst=schr(S,phi,win.i0,win.i1,'h',cfg.nst);
   }
   // densities
-  const qd=win&&cfg.sp?{i0:win.i0,i1:win.i1,phiRef:phi,st:est}:null;
+  const qd=win&&cfg.sp?{i0:win.i0,i1:win.i1,phiRef:phi,st:est,sth:cfg.hq?hst:undefined}:null;
   const gp_=cfg.sun&&info.mode==='oled'?genProfile(S):null;
   const nod=[];for(let i=0;i<nn;i++){const parts=[];
-    for(const [e,p] of [[E[i-1],'pb'],[E[i],'pa']]){if(!e)continue;const q=qd&&i>qd.i0&&i<qd.i1?qDen(qd,i,phi[i],EFn[i]):null;
+    for(const [e,p] of [[E[i-1],'pb'],[E[i],'pa']]){if(!e)continue;const q=qd&&i>qd.i0&&i<qd.i1?qDen(qd,i,phi[i],EFn[i],EFp[i]):null;
       const r=rhoHalf(e[p],e.d,e.N,phi[i],EFn[i],EFp[i],q);parts.push({n:r[2],p:r[3],Nd:r[4],Na:r[5],R:Bef(e[p],r[2],r[3])*r[2]*r[3]*(-Math.expm1(-(EFn[i]-EFp[i])/kT)),G:gp_?gp_.Gel[e===E[i]?i:i-1]*cfg.sun:0})}
     const av=k=>parts.reduce((s,o)=>s+o[k],0)/parts.length;nod.push({n:av('n'),p:av('p'),Nd:av('Nd'),Na:av('Na'),R:av('R'),G:av('G')})}
   for(const s of est){const a=(EFn[Math.round((win.i0+win.i1)/2)]-s.E)/kT;s.ns=s.N2D*kT*(a>40?a:Math.log1p(Math.exp(a)))}
+  for(const s of hst){const a=(s.E-EFp[Math.round((win.i0+win.i1)/2)])/kT;s.ns=s.N2D*kT*(a>40?a:Math.log1p(Math.exp(a)))}
   let nsW=0,psW=0;if(win)for(let i=win.i0;i<win.i1;i++){const h=(S.z[i+1]-S.z[i])*1e-7;nsW+=(nod[i].n+nod[i+1].n)/2*h;psW+=(nod[i].p+nod[i+1].p)/2*h}
   let twin=win;
   if(info.mode==='unipolar'){const L=S.layers,za=L[info.a].z0+ +L[info.a].t,zb=L[info.b].z0;let i0=0,i1=nn-1;for(let i=0;i<nn;i++){if(S.z[i]<=za+1e-9)i0=i;if(S.z[i]>=zb-1e-9){i1=i;break}}twin={i0,i1,za,zb}}
@@ -787,12 +820,39 @@ const HP=[
  {name:'GaAs pHEMT · AlGaAs/InGaAs',cat:'2DEG · pHEMT',contact:'gate',phiB:0.8,VG:0,vg:[-1.6,0.6],fig5:'tr',
   tr:{Lg:150,mu:6500,vsat:1.5,Rs:0.35,Cp:0.15,VDS:2,VDSmax:3},
   layers:[Ly('AlGaAs',0.24,14,'i',0,0),Ly('AlGaAs',0.24,2,'n',3e19,0),Ly('AlGaAs',0.24,3,'i',0,1),Ly('InGaAs',0.2,12,'i',0,1),Ly('AlGaAs',0,300,'p',1e15,1)],view:[0,60],about:''},
+ {name:'Metamorphic HEMT · InAlAs/InGaAs on GaAs',cat:'2DEG · mHEMT',contact:'gate',phiB:0.6,VG:0,vg:[-1.4,0.5],fig5:'tr',
+  tr:{Lg:70,mu:10000,vsat:2.2,Rs:0.2,Cp:0.15,VDS:1,VDSmax:2},
+  layers:[Ly('InAlAs',0,8,'i',0,0),Ly('InAlAs',0,2,'n',2.5e19,0),Ly('InAlAs',0,4,'i',0,1),Ly('InGaAsInP',0.53,15,'i',0,1),Ly('InAlAs',0,4,'i',0,1),Ly('InAlAs',0,2,'n',1e19,1),Ly('InAlAs',0,200,'p',1e15,1)],view:[0,60],about:''},
+ {name:'InP HEMT · InAlAs/In₀.₇GaAs',cat:'2DEG · InP HEMT',contact:'gate',phiB:0.6,VG:0,vg:[-1.0,0.5],fig5:'tr',
+  tr:{Lg:100,mu:11000,vsat:2.5,Rs:0.15,Cp:0.15,VDS:0.8,VDSmax:1.5},
+  layers:[Ly('InAlAs',0,8,'i',0,0),Ly('InAlAs',0,2,'n',3.5e19,0),Ly('InAlAs',0,3,'i',0,1),Ly('InGaAsInP',0.7,10,'i',0,1),Ly('InAlAs',0,200,'p',1e15,1)],view:[0,50],about:''},
  {name:'AlGaN/GaN HEMT on SiC',cat:'2DEG · polarization',contact:'gate',phiB:1.2,VG:0,vg:[-6,1],fig5:'tr',
   tr:{Lg:250,mu:1800,vsat:1.0,Rs:0.5,Cp:0.5,VDS:10,VDSmax:20},
   layers:[Ly('AlGaN',0.22,18,'n',1e16,1),Ly('AlGaN',1,0.8,'i',0,1),Ly('AlGaN',0,1000,'n',1e15,1)],view:[0,50],about:''},
- {name:'InP HEMT · InAlAs/In₀.₇GaAs',cat:'2DEG · InP HEMT',contact:'gate',phiB:0.6,VG:0,vg:[-1.0,0.5],fig5:'tr',
-  tr:{Lg:100,mu:11000,vsat:2.5,Rs:0.15,Cp:0.15,VDS:0.8,VDSmax:1.5},
-  layers:[Ly('InAlAs',0,8,'i',0,0),Ly('InAlAs',0,2,'n',3.5e19,0),Ly('InAlAs',0,3,'i',0,1),Ly('InGaAsInP',0.7,10,'i',0,1),Ly('InAlAs',0,200,'p',1e15,1)],view:[0,50],about:''}
+ {name:'p-GaN gate HEMT · normally-off GaN-on-Si',cat:'2DEG · enhancement mode',contact:'gate',phiB:3.2,ptie:85,VG:0,vg:[-0.5,3.5],fig5:'tr',
+  tr:{Lg:1000,mu:1800,vsat:1.0,Rs:1.0,Cp:0.5,VDS:5,VDSmax:10},
+  layers:[Ly('AlGaN',0,70,'p',3e19,0),Ly('AlGaN',0.15,15,'i',0,1),Ly('AlGaN',0,1000,'n',1e15,1)],view:[0,120],about:''},
+ {name:'InAlN/GaN HEMT · lattice-matched barrier',cat:'2DEG · polarization',contact:'gate',phiB:1.3,VG:0,vg:[-5.5,1],fig5:'tr',
+  tr:{Lg:70,mu:1300,vsat:0.9,Rs:0.35,Cp:0.15,VDS:8,VDSmax:15},
+  layers:[Ly('InAlN',0,8,'i',0,1),Ly('AlGaN',1,1,'i',0,1),Ly('AlGaN',0,1000,'n',1e15,1)],view:[0,40],about:''},
+ {name:'ScAlN/GaN HEMT · ferroelectric nitride barrier',cat:'2DEG · polarization',contact:'gate',phiB:1.3,VG:0,vg:[-7,1],fig5:'tr',
+  tr:{Lg:75,mu:600,vsat:0.45,Rs:1.0,Cp:0.3,VDS:8,VDSmax:15},
+  layers:[Ly('ScAlN',0,10,'i',0,1),Ly('AlGaN',0,1000,'n',1e15,1)],view:[0,40],about:''},
+ {name:'N-polar GaN deep-recess HEMT · W band',cat:'2DEG · N-polar',contact:'gate',phiB:2.6,VG:0,vg:[-6,0.5],fig5:'tr',
+  tr:{Lg:75,mu:1300,vsat:1.0,Rs:0.3,Cp:0.2,VDS:10,VDSmax:20},
+  layers:[Ly('SiN',0,5,'i',0,0),Ly('AlGaNN',0,10,'i',0,1),Ly('AlGaNN',1,0.7,'i',0,1),Ly('AlGaNN',0.38,15,'i',0,1),Ly('AlGaNN',0.38,20,'n',1e19,0,0),Ly('AlGaNN',0,800,'n',1e15,0)],view:[0,75],about:''},
+ {name:'β-(AlGa)₂O₃/Ga₂O₃ MODFET',cat:'2DEG · ultra-wide gap',contact:'gate',phiB:1.2,VG:0,vg:[-1.5,0.6],fig5:'tr',
+  tr:{Lg:700,mu:170,vsat:1.0,Rs:5,Cp:0.3,VDS:10,VDSmax:20},
+  layers:[Ly('AlGaO',0.18,20,'i',0,0),Ly('AlGaO',0.18,2,'n',2e19,0),Ly('AlGaO',0.18,4.5,'i',0,1),Ly('AlGaO',0,300,'n',1e15,1)],view:[0,70],about:''},
+ {name:'GaN/AlN p-channel HEMT (2DHG)',cat:'2DHG · polarization',contact:'gate',phiB:1.0,pch:1,hq:1,VG:0,vg:[-2,6],fig5:'tr',
+  tr:{Lg:200,mu:20,vsat:0.4,Rs:15,Cp:0.3,VDS:10,VDSmax:15},
+  layers:[Ly('AlGaN',0,13,'i',0,1),Ly('AlGaN',1,10,'i',0,1),Ly('AlGaN',1,290,'i',0,0)],view:[0,40],about:''},
+ {name:'Strained Ge/SiGe hole quantum well',cat:'2DHG · modulation-doped',contact:'gate',phiB:0.7,pch:1,hq:1,VG:0,vg:[-0.15,0.8],fig5:'tr',
+  tr:{Lg:100,mu:2500,vsat:0.6,Rs:1.0,Cp:0.2,VDS:1,VDSmax:2},
+  layers:[Ly('SiGe',0.2,20,'i',0,1),Ly('SiGe',0.2,2,'p',1e19,1),Ly('SiGe',0.2,10,'i',0,1),Ly('SiGe',0,16,'i',0,1),Ly('SiGe',0.2,300,'n',1e15,0)],view:[0,80],about:''},
+ {name:'H-terminated diamond MOSFET (2DHG)',cat:'2DHG · surface transfer doping',contact:'gate',phiB:3.2,pch:1,hq:1,VG:0,vg:[-4,4.5],fig5:'tr',
+  tr:{Lg:100,mu:120,vsat:1.0,Rs:2.5,Cp:0.2,VDS:10,VDSmax:15},
+  layers:[Ly('Al2O3',0,10,'i',0,0),Ly('Al2O3',0,1,'p',2e20,1),Ly('Dia',0,40,'i',0,1),Ly('Dia',0,460,'i',0,0)],view:[0,40],about:''}
 ];
 const HSt={pi:0,layers:null,contact:'gate',phiB:0.8,VG:0,V:0,sp:true,psi:true,holes:true,view:'active',abr:false,gam:true,fig5:null,edited:false,sun:false,tr:null};
 let warmPhi=null,warmKey=null,sweepTok=0,sweep={key:null,data:null};
@@ -831,8 +891,9 @@ function onTable(e){
 }
 
 /* ---------- solve ---------- */
-const cfgOf=()=>({contact:HSt.contact,phiB:HSt.phiB,VG:HSt.VG,V:HSt.V,sp:HSt.sp,nst:8,tol:1e-4,sun:HSt.sun?1:0,pch:HSt.pch?+HSt.layers[0].t:0,_key:JSON.stringify([HSt.layers.map(({z0,...r})=>r),HSt.contact])});
-const keyOf=(extra)=>JSON.stringify([HSt.layers,HSt.contact,HSt.phiB,HSt.sp,HSt.sun,extra||0]);
+const cfgOf=()=>({contact:HSt.contact,phiB:HSt.phiB,VG:HSt.VG,V:HSt.V,sp:HSt.sp,nst:8,tol:1e-4,sun:HSt.sun?1:0,pch:HSt.pch?+HSt.layers[0].t:0,ptie:HSt.ptie||0,hq:!!HSt.hq,_key:JSON.stringify([HSt.layers.map(({z0,...r})=>r),HSt.contact])});
+const keyOf=(extra)=>JSON.stringify([HSt.layers,HSt.contact,HSt.phiB,HSt.sp,HSt.sun,HSt.pch,HSt.ptie,HSt.hq,extra||0]);
+const chK=()=>HSt.pch?'ps':'ns',sgV=()=>HSt.pch?-1:1;
 function solveNow(){
   const S=build(clone(HSt.layers));const k=JSON.stringify([HSt.layers,HSt.contact,HSt.sun]);
   const R=run(S,cfgOf(),warmKey===k?warmPhi:null);warmPhi=R.phi;warmKey=k;return R;
@@ -849,12 +910,12 @@ function viewRange(R){
   if(R.win){const pad=Math.max(10,0.2*(R.win.zb-R.win.za));return [Math.max(0,R.win.za-pad),Math.min(len,R.win.zb+pad)]}
   return [0,len];
 }
-const famColor=f=>({AlGaAs:'lyA',InGaAs:'lyB',AlGaN:'lyC',InGaN:'lyD',ITO:'lyF',ITOt:'lyF',ITOo:'lyF',cSi:'lyA',aSi:'lyB',MAPI:'lyD'}[f]||(FAMS[f].metal?'lyG':'lyE'));
+const famColor=f=>({AlGaAs:'lyA',InGaAs:'lyB',AlGaN:'lyC',AlGaNN:'lyC',InGaN:'lyD',InAlN:'lyB',ScAlN:'lyE',AlGaO:'lyD',SiGe:'lyA',InGaAsInP:'lyB',InAlAs:'lyA',InP:'lyC',SiN:'lyF',Al2O3:'lyF',ITO:'lyF',ITOt:'lyF',ITOo:'lyF',cSi:'lyA',aSi:'lyB',MAPI:'lyD'}[f]||(FAMS[f].metal?'lyG':'lyE'));
 const isMetalEl=(S,e)=>!!FAMS[S.layers[S.E[e].li].f].metal;
 const isMetalNode=(S,i)=>(i===0||isMetalEl(S,i-1))&&(i===S.ne||isMetalEl(S,i));
 function shadeLayers(R,xs,top,bot,v0,v1,labels){
   let o='';HSt.layers.forEach((l,i)=>{const a=Math.max(l.z0,v0),b=Math.min(l.z0+ +l.t,v1);if(b<=a)return;
-    const X0=xs(a),X1=xs(b);const xm=(+l.x+(l.x2===''||l.x2==null?+l.x:+l.x2))/2,tone=Math.min(0.85,0.12+xm*0.8);
+    const X0=xs(a),X1=xs(b);const xm=(+l.x+(l.x2===''||l.x2==null?+l.x:+l.x2))/2,tone=FAMS[l.f].fixed?0.5:Math.min(0.85,0.12+xm*0.8);
     o+=`<rect x="${r1(X0)}" y="${top}" width="${r1(X1-X0)}" height="${bot-top}" class="${famColor(l.f)}" fill-opacity="${tone.toFixed(2)}"/>`;
     if(i>0&&l.z0>v0)o+=L(X0,top,X0,bot,'ifl');
     if(labels&&X1-X0>34){const F=FAMS[l.f];const g=l.x2!==''&&l.x2!=null&&+l.x2!==+l.x;const t=g?'graded':F.lab(+l.x);o+=T((X0+X1)/2,top+12,t,'lyt halo','middle')}});
@@ -1076,7 +1137,7 @@ function hdrawJVs(data,cur){
    n_s(V_G) from the self-consistent sweep; gradual-channel current with v(E) = μE/(1+μE/v_sat),
    I = qμ∫n_s(V_GS'−V)dV / (L_g + μV'/v_sat), saturating at its maximum over the drain-end voltage;
    source/drain access resistances R_s = R_d in series; f_T = g_m / 2π(C_gs + C_par). */
-function nsTab(){if(!(sweep.kind==='ns'&&sweep.done&&sweep.data.length>3))return null;if(sweep._pc)return sweep._pc;const d0=sweep.data.slice().sort((a,b)=>a[0]-b[0]);
+function nsTab(){if(!(sweep.kind===chK()&&sweep.done&&sweep.data.length>3))return null;if(sweep._pc)return sweep._pc;const sg0=sgV(),d0=sweep.data.map(p=>[sg0*p[0],p[1]]).sort((a,b)=>a[0]-b[0]); // p-channel: tabulate against the gate drive u = −V_G
   // remove isolated convergence glitches (median of 3), then enforce monotonic increase
   const d=d0.map((p,i)=>{if(i===0||i===d0.length-1)return [p[0],p[1]];const t=[d0[i-1][1],p[1],d0[i+1][1]].sort((a,b)=>a-b);return [p[0],t[1]]});const sg=d.map((p,i)=>i<2||i>d.length-3?p[1]:(-3*d[i-2][1]+12*d[i-1][1]+17*p[1]+12*d[i+1][1]-3*d[i+2][1])/35);sg.forEach((v,i)=>{d[i][1]=Math.max(v,0)});
   for(let i=1;i<d.length;i++)d[i][1]=Math.max(d[i][1],d[i-1][1]);
@@ -1084,7 +1145,8 @@ function nsTab(){if(!(sweep.kind==='ns'&&sweep.done&&sweep.data.length>3))return
   const n=d.length,h=[],dl=[],m=new Array(n).fill(0);for(let i=0;i<n-1;i++){h[i]=d[i+1][0]-d[i][0];dl[i]=(d[i+1][1]-d[i][1])/h[i]}
   m[0]=dl[0];m[n-1]=dl[n-2];for(let i=1;i<n-1;i++){if(dl[i-1]*dl[i]<=0)m[i]=0;else{const w1=2*h[i]+h[i-1],w2=h[i]+2*h[i-1];m[i]=(w1+w2)/(w1/dl[i-1]+w2/dl[i])}}
   d.m=m;sweep._pc=d;return d}
-function nsAt(d,v){const n=d.length;if(v<=d[0][0])return d[0][1]*Math.exp((v-d[0][0])/0.05);
+function nsAt(d,v){const n=d.length;if(v<=d[0][0]){const s0=(d[1][1]-d[0][1])/(d[1][0]-d[0][0]);if(d[0][1]>0.02*d[n-1][1]&&s0>0)return Math.max(0,d[0][1]-s0*(d[0][0]-v)); // sweep stopped before pinch-off: extend linearly
+  return d[0][1]*Math.exp((v-d[0][0])/0.05)}
   if(v>=d[n-1][0]){const s=(d[n-1][1]-d[n-2][1])/(d[n-1][0]-d[n-2][0]);return d[n-1][1]+Math.max(s,0)*(v-d[n-1][0])}
   let lo=0,hi=n-1;while(hi-lo>1){const m=(lo+hi)>>1;if(d[m][0]<=v)lo=m;else hi=m}const hh=d[hi][0]-d[lo][0],t=(v-d[lo][0])/hh;
   if(!d.m)return d[lo][1]+t*(d[hi][1]-d[lo][1]);const t2=t*t,t3=t2*t;return Math.max(0,(2*t3-3*t2+1)*d[lo][1]+(t3-2*t2+t)*hh*d.m[lo]+(-2*t3+3*t2)*d[hi][1]+(t3-t2)*hh*d.m[hi])}
@@ -1114,26 +1176,27 @@ function drawNsCV(d,cur){if(!d||d.length<3)return `<p class="hint" style="paddin
   return plotXY({x:[ds[0][0],ds[ds.length-1][0]],y:[0,nmx/f*1.1],ylab:`n<tspan font-size="72%" dy="3">s</tspan><tspan dy="-3"> (10${sup(e)} cm⁻²)</tspan>`,xlab:'gate voltage V_G (volts) →',
     y2:{r:[0,cmx],lab:'C_g = q·dn_s/dV_G (nF/cm²)'},series:[{pts:ds.map(p=>[p[0],p[1]/f]),cls:'iv'},{pts:C,cls:'ivn',right:true}],leg:[['iv','sheet density n_s'],['ivn','gate capacitance (right axis)']],
     dot:cur?[cur[0],cur[1]/f]:null,label:'Sheet density and gate capacitance versus gate voltage'})}
-function drawTr(R,k){const d=nsTab(),T=HSt.tr;if(!d||!T){$('hf5').innerHTML=`<p class="hint" style="padding:12px">Computing n<sub>s</sub>(V<sub>G</sub>) …</p>`;$('hf5kv').innerHTML='';return}
-  const M=trModel(d,T),[g0,g1]=[d[0][0],d[d.length-1][0]];
-  if(k==='tr'){const pts=[],gp=[];for(let i=0;i<=50;i++){const v=g0+(g1-g0)*i/50;pts.push([v,M.I(v,T.VDS)*100])}
+function drawTr(R,k){const d=nsTab(),T=HSt.tr,sg=sgV(),pc=sg<0,car=pc?'p':'n';if(!d||!T){$('hf5').innerHTML=`<p class="hint" style="padding:12px">Computing ${car}<sub>s</sub>(V<sub>G</sub>) …</p>`;$('hf5kv').innerHTML='';return}
+  const M=trModel(d,T),[g0,g1]=[d[0][0],d[d.length-1][0]],u0=sg*HSt.VG,mI=pc?'−I_D':'I_D',vds=`${pc?'−':''}${T.VDS}`,fv=v=>f2(sg*v);
+  if(k==='tr'){const pts=[],gp=[];for(let i=0;i<=50;i++){const u=g0+(g1-g0)*i/50;pts.push([u,M.I(u,T.VDS)*100])}
     for(let i=1;i<pts.length-1;i++)gp.push([pts[i][0],(pts[i+1][1]-pts[i-1][1])/(pts[i+1][0]-pts[i-1][0])]);
     let gpk=gp.reduce((a,p)=>p[1]>a[1]?p:a,[0,0]);const Imx=Math.max(...pts.map(p=>p[1]));
     const Vth=gpk[1]>0?gpk[0]-pts.find(p=>Math.abs(p[0]-gpk[0])<1e-9||p[0]>=gpk[0])[1]/gpk[1]:NaN;
-    $('hf5').innerHTML=plotXY({x:[g0,g1],y:[0,Imx*1.12||1],ylab:'I_D (mA/mm)',xlab:'gate voltage V_GS (volts) →',y2:{r:[0,(gpk[1]||1)*1.15],lab:'g_m (mS/mm)'},
-      series:[{pts,cls:'iv'},{pts:gp,cls:'ivn',right:true}],leg:[['iv',`drain current at V_DS = ${T.VDS} V`],['ivn','transconductance g_m (right axis)']],dot:[HSt.VG,M.I(HSt.VG,T.VDS)*100],label:'Transfer characteristic'});
+    const X=p=>[sg*p[0],p[1]],P=pts.map(X),G=gp.map(X);if(pc){P.reverse();G.reverse()}
+    $('hf5').innerHTML=plotXY({x:pc?[-g1,-g0]:[g0,g1],y:[0,Imx*1.12||1],ylab:`${mI} (mA/mm)`,xlab:'gate voltage V_GS (volts) →',y2:{r:[0,(gpk[1]||1)*1.15],lab:'g_m (mS/mm)'},
+      series:[{pts:P,cls:'iv'},{pts:G,cls:'ivn',right:true}],leg:[['iv',`${pc?'hole current −I_D':'drain current'} at V_DS = ${vds} V`],['ivn','transconductance g_m (right axis)']],dot:[HSt.VG,M.I(u0,T.VDS)*100],label:'Transfer characteristic'});
     const fpk=M.fT(gpk[0],T.VDS)/1e9;
-    $('hf5kv').innerHTML=kvs([['I_D at V_GS, V_DS',`${(M.I(HSt.VG,T.VDS)*100).toFixed(0)} mA/mm`],['Peak g_m',`${gpk[1].toFixed(0)} mS/mm at V_GS = ${f2(gpk[0])} V`],['Threshold (extrapolated at peak g_m)',`${f2(Vth)} V`],['f_T at peak g_m',`≈ ${fpk.toFixed(0)} GHz`],['Velocity-limited f_T = v_sat/2πL_g',`${(T.vsat*1e7/(2*Math.PI*T.Lg*1e-7)/1e9).toFixed(0)} GHz`]])}
-  else{const vgs=[];const nC=5;for(let i=0;i<nC;i++)vgs.push(g1-(g1-g0)*0.18*i);const ser=[];let mx=0;
-    const curve=v=>{const pts=[];for(let i=0;i<=40;i++){const x=T.VDSmax*(i/40)**1.6;const y=M.I(v,x)*100;pts.push([x,y]);mx=Math.max(mx,y)}return pts};
-    for(const v of vgs)if(Math.abs(v-HSt.VG)>0.04*(g1-g0))ser.push({pts:curve(v),cls:'iv',lab:`V_GS = ${f2(v)} V`});
-    ser.push({pts:curve(HSt.VG),cls:'ivn',lab:`V_GS = ${f2(HSt.VG)} V (slider)`});
-    const op=M.I(HSt.VG,T.VDS)*100;const onR=0.05/(M.I(g1,0.05)*100/1000);
-    $('hf5').innerHTML=plotXY({x:[0,T.VDSmax],y:[0,mx*1.12||1],ylab:'I_D (mA/mm)',xlab:'drain voltage V_DS (volts) →',series:ser,dot:[T.VDS,op],vline:T.VDS,label:'Output characteristics'});
-    $('hf5kv').innerHTML=kvs([['I_max (V_GS = '+f2(g1)+' V)',`${mx.toFixed(0)} mA/mm`],['On-resistance R_on (linear region)',`${onR.toFixed(2)} Ω·mm`],['Operating point',`${f2(HSt.VG)} V, ${T.VDS} V → ${op.toFixed(0)} mA/mm`],['Dissipated power there',`${(op*T.VDS/1000).toFixed(2)} W/mm`]])}}
+    $('hf5kv').innerHTML=kvs([[`${mI} at V_GS, V_DS`,`${(M.I(u0,T.VDS)*100).toFixed(0)} mA/mm`],['Peak g_m',`${gpk[1].toFixed(0)} mS/mm at V_GS = ${fv(gpk[0])} V`],[pc?'Pinch-off (extrapolated at peak g_m)':'Threshold (extrapolated at peak g_m)',`${fv(Vth)} V`],['f_T at peak g_m',`≈ ${fpk.toFixed(fpk<10?1:0)} GHz`],['Velocity-limited f_T = v_sat/2πL_g',`${(T.vsat*1e7/(2*Math.PI*T.Lg*1e-7)/1e9).toFixed(0)} GHz`]])}
+  else{const us=[];const nC=5;for(let i=0;i<nC;i++)us.push(g1-(g1-g0)*0.18*i);const ser=[];let mx=0;
+    const curve=u=>{const pts=[];for(let i=0;i<=40;i++){const x=T.VDSmax*(i/40)**1.6;const y=M.I(u,x)*100;pts.push([x,y]);mx=Math.max(mx,y)}return pts};
+    for(const u of us)if(Math.abs(u-u0)>0.04*(g1-g0))ser.push({pts:curve(u),cls:'iv',lab:`V_GS = ${fv(u)} V`});
+    ser.push({pts:curve(u0),cls:'ivn',lab:`V_GS = ${f2(HSt.VG)} V (slider)`});
+    const op=M.I(u0,T.VDS)*100;const onR=0.05/(M.I(g1,0.05)*100/1000);
+    $('hf5').innerHTML=plotXY({x:[0,T.VDSmax],y:[0,mx*1.12||1],ylab:`${mI} (mA/mm)`,xlab:pc?'drain voltage −V_DS (volts) →':'drain voltage V_DS (volts) →',series:ser,dot:[T.VDS,op],vline:T.VDS,label:'Output characteristics'});
+    $('hf5kv').innerHTML=kvs([[`${pc?'|I|':'I'}_max (V_GS = ${fv(g1)} V)`,`${mx.toFixed(0)} mA/mm`],['On-resistance R_on (linear region)',`${onR.toFixed(2)} Ω·mm`],['Operating point',`${f2(HSt.VG)} V, ${vds} V → ${op.toFixed(0)} mA/mm`],['Dissipated power there',`${(op*T.VDS/1000).toFixed(2)} W/mm`]])}}
 
 /* ---------- Fig 5 ---------- */
-function f5modes(R){const m=[];if(R.info.mode==='oled'&&R.cfg.sun){m.push(['JVs','Illuminated J–V']);m.push(['gen','Generation and recombination'])}else if(R.info.mode==='oled'){m.push(['rec','Recombination profile']);m.push(['JVo','J–V and charge balance'])}else if(R.info.mode==='bipolar')m.push(['rec','Recombination profile']);if(R.cfg.contact==='gate'&&R.win){if(HSt.tr&&!R.cfg.pch){m.push(['tr','Transfer I_D–V_GS']);m.push(['out','Output I_D–V_DS'])}m.push(R.cfg.pch?['ps','p_s vs gate']:['ns','n_s and C–V'])}if(R.win&&R.cfg.contact!=='gate')m.push(['opt','Optical transitions']);if(R.win&&R.cfg.contact!=='gate')m.push(['T','Transmission T(E)']);if(R.win&&R.info.mode==='unipolar')m.push(['JV','Tunneling I–V']);return m}
+function f5modes(R){const m=[];if(R.info.mode==='oled'&&R.cfg.sun){m.push(['JVs','Illuminated J–V']);m.push(['gen','Generation and recombination'])}else if(R.info.mode==='oled'){m.push(['rec','Recombination profile']);m.push(['JVo','J–V and charge balance'])}else if(R.info.mode==='bipolar')m.push(['rec','Recombination profile']);if(R.cfg.contact==='gate'&&R.win){if(HSt.tr){m.push(['tr','Transfer I_D–V_GS']);m.push(['out','Output I_D–V_DS'])}m.push(R.cfg.pch?['ps','p_s vs gate']:['ns','n_s and C–V'])}if(R.win&&R.cfg.contact!=='gate')m.push(['opt','Optical transitions']);if(R.win&&R.cfg.contact!=='gate')m.push(['T','Transmission T(E)']);if(R.win&&R.info.mode==='unipolar')m.push(['JV','Tunneling I–V']);return m}
 function hdrawOpt(R){
   const W=900,H=320,S=R.S,w=R.win;const top=40,bot=H-44;
   const pairs=[];for(let i=0;i<Math.min(R.est.length,3);i++)for(let j=0;j<Math.min(R.hst.length,3);j++){let ov=0;for(let k=w.i0;k<=w.i1;k++){const h=((S.z[k+1]||S.z[k])-(S.z[k-1]||S.z[k]))/2;ov+=R.est[i].psi[k]*R.hst[j].psi[k]*h}
@@ -1210,7 +1273,7 @@ function runSweep(kind,R){
       else{const r=run(S,{...cfgOf(),V:v,sp:false},warm);warm=r.phi;const tr=transmission(r,null,Math.max(r.EL,r.ER)+0.35,900);sweep.data.push([v,tsuEsaki(r,tr)])}
       i++}
     if(i<xs.length)setTimeout(step,0);else sweep.done=true;
-    if(HSt.fig5===kind||(kind==='ns'&&(HSt.fig5==='tr'||HSt.fig5==='out')))drawF5Sweep();};
+    if(HSt.fig5===kind||(kind===chK()&&(HSt.fig5==='tr'||HSt.fig5==='out')))drawF5Sweep();};
   setTimeout(step,0);
 }
 let lastR=null;
@@ -1226,7 +1289,7 @@ function drawF5Sweep(){const R=lastR;if(!R)return;const k=HSt.fig5;
     const Vth=d[bi][0]-d[bi][1]/best;$('hf5kv').innerHTML=kvs([['n_s at V_G',`${sci(R.nsW)} cm⁻²`],['Threshold (linear extrapolation)',`${f2(Vth)} V`],['Max dn_s/dV_G',`${sci(best)} cm⁻²/V`],['Gate capacitance q·dn_s/dV_G',`${(Q*best*1e9).toFixed(1)} nF/cm²`]])}
   if(k==='ps'&&sweep.done&&sweep.data.length>3){const d=sweep.data.filter(p=>p[0]>=-1e-9);let n=0,sx=0,sy=0,sxx=0,sxy=0;for(const [x,y] of d){if(y<=0)continue;n++;sx+=x;sy+=y;sxx+=x*x;sxy+=x*y}
     const sl=n>1?(n*sxy-sx*sy)/(n*sxx-sx*sx):0,ic=n?(sy-sl*sx)/n:0,Vth=sl<0?-ic/sl:NaN,mx=Math.max(...sweep.data.map(p=>p[0]));
-    $('hf5kv').innerHTML=kvs([['p_s at V_G',`${sci(R.psW)} cm⁻²`],['Pinch-off (linear extrapolation)',isFinite(Vth)?`+${Vth.toFixed(1)} V${Vth>mx?' (beyond sweep)':''}`:'—'],['dp_s/dV_G',`${sci(sl)} cm⁻²/V`],['Gate capacitance q·|dp_s/dV_G|',`${(Q*Math.abs(sl)*1e9).toFixed(0)} nF/cm²`],['Sheet resistance at μ_p ≈ 10 cm²/V·s (300 K)',`${(1/(Q*R.psW*10)/1e3).toFixed(1)} kΩ/□`]])}
+    $('hf5kv').innerHTML=kvs([['p_s at V_G',`${sci(R.psW)} cm⁻²`],['Pinch-off (linear extrapolation)',isFinite(Vth)?`+${Vth.toFixed(1)} V${Vth>mx?' (beyond sweep)':''}`:'—'],['dp_s/dV_G',`${sci(sl)} cm⁻²/V`],['Gate capacitance q·|dp_s/dV_G|',`${(Q*Math.abs(sl)*1e9).toFixed(0)} nF/cm²`],[`Sheet resistance at μ_p = ${HSt.tr?HSt.tr.mu:10} cm²/V·s`,`${(1/(Q*R.psW*(HSt.tr?HSt.tr.mu:10))/1e3).toFixed(2)} kΩ/□`]])}
   if(k==='JV'&&sweep.done){const d=sweep.data;let pk=0,pi=0;d.forEach((p,i)=>{if(p[1]>pk){pk=p[1];pi=i}});let vl=pk,vi=pi;for(let i=pi;i<d.length;i++)if(d[i][1]<vl){vl=d[i][1];vi=i}
     $('hf5kv').innerHTML=kvs([['Peak current',`${sci(pk)} A/cm² at ${f2(d[pi][0])} V`],['Valley current',`${sci(vl)} A/cm² at ${f2(d[vi][0])} V`],['Peak-to-valley ratio (coherent)',vl>0?sci(pk/vl):'—']])}}
 const kvs=items=>items.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
@@ -1252,19 +1315,19 @@ function hreadouts(R){
     const wfA=-(R.phi[R.dd.ia]+R.EL)-0,wfC=-(R.phi[R.dd.ib]+R.ER);items.push([R.cfg.sun?'Left / right contact work function':'Anode / cathode work function',`${wfA.toFixed(2)} / ${wfC.toFixed(2)} eV`]);
     items.push([org?'Hole barrier (anode → HOMO)':'Hole barrier (left contact → E_V)',`${(-pa.Ev-wfA).toFixed(2)} eV${R.dd.lowP>0.005?` (−${(R.dd.lowP*1000).toFixed(0)} meV image force)`:''}`]);
     items.push([org?'Electron barrier (cathode → LUMO)':'Electron barrier (right contact → E_C)',`${(wfC+pb.Ec).toFixed(2)} eV${R.dd.lowN>0.005?` (−${(R.dd.lowN*1000).toFixed(0)} meV image force)`:''}`]);}
-  if(R.win&&R.cfg.pch){items.push(['Holes in channel (2DHG)',`${sci(R.psW)} cm⁻²`]);items.push(['Electrons in channel layer',`${sci(R.nsW)} cm⁻²`])}
+  if(R.win&&R.cfg.pch){items.push(['Holes in channel (2DHG)',`${sci(R.psW)} cm⁻²`]);if(R.cfg.hq)R.hst.slice(0,3).forEach((s,i)=>items.push([`hh${i+1} − E_F · p_${i+1}`,`${(s.E>=0?"+":"−")+Math.abs(s.E).toFixed(3)} eV · ${sci(s.ns)} cm⁻²`]));else items.push(['Electrons in channel layer',`${sci(R.nsW)} cm⁻²`])}
   else if(R.win){items.push(['Electrons in quantum region',`${sci(R.nsW)} cm⁻²`]);
     R.est.slice(0,3).forEach((s,i)=>items.push([`e${i+1} − E_F · n_${i+1}`,`${(s.E-R.EFn[Math.round((R.win.i0+R.win.i1)/2)]).toFixed(3)} eV · ${sci(s.ns)} cm⁻²`]));
     if(R.hst[0]&&R.est[0]){const E=R.est[0].E-R.hst[0].E;items.push(['e1–hh1 transition',`${E.toFixed(3)} eV · ${(1239.84/E).toFixed(0)} nm`])}}
   // interfaces
-  const ifs=[];for(let i=1;i<HSt.layers.length;i++){const a=HSt.layers[i-1],b=HSt.layers[i];const pa=FAMS[a.f].prop(compAt(a,+a.t)),pb=FAMS[b.f].prop(compAt(b,0));const dEc=pb.Ec-pa.Ec,dEv=pb.Ev-pa.Ev;if(Math.abs(dEc)>0.005||Math.abs(dEv)>0.005)ifs.push([i,dEc,dEv,(pa.Pz-pb.Pz)/Q])}
+  const ifs=[];for(let i=1;i<HSt.layers.length;i++){const a=HSt.layers[i-1],b=HSt.layers[i];const pa=FAMS[a.f].prop(compAt(a,+a.t)),pb=FAMS[b.f].prop(compAt(b,0));const dEc=pb.Ec-pa.Ec,dEv=pb.Ev-pa.Ev,ins=FAMS[a.f].ins||FAMS[b.f].ins;if(Math.abs(dEc)>0.005||Math.abs(dEv)>0.005)ifs.push([i,dEc,dEv,ins?0:(pa.Pz-pb.Pz)/Q])}
   ifs.slice(0,3).forEach(([i,c,v,s])=>items.push([`Interface ${i}|${i+1}: ΔE_C · ΔE_V`,`${sgn(c)} · ${sgn(v)} eV${Math.abs(s)>5e10?` · σ ${s>0?'+':'−'}${sci(Math.abs(s))}`:''}`]));
   let fmax=0;for(let i=0;i<S.ne;i++){const e=S.E[i];if(e.zb<R.v0||e.za>R.v1)continue;fmax=Math.max(fmax,Math.abs((R.phi[i+1]-R.phi[i])/(e.h*1e-7)))}
   items.push(['Peak |ℰ| in view',fmax>1e5?`${(fmax/1e6).toFixed(2)} MV/cm`:`${(fmax/1e3).toFixed(1)} kV/cm`]);
   $('hkv').innerHTML=kvs(items);
   let t=HSt.edited?'You have edited this structure, so the exemplar notes above describe the original preset.':'';
   const add=x=>{t+=(t?' ':'')+x};
-  if(R.cfg.contact==='gate'&&R.win&&R.cfg.pch){add(`At V_G = ${f2(R.cfg.VG)} V the GaN channel holds ${sci(R.psW)} holes/cm² against the GaN/AlN interface. Positive gate voltage pushes them out; negative voltage pulls more in until the Schottky gate starts to conduct.`)}
+  if(R.cfg.contact==='gate'&&R.win&&R.cfg.pch){const occ=R.hst.filter(s=>s.E>0).length;add(`At V_G = ${f2(R.cfg.VG)} V the channel holds ${sci(R.psW)} holes/cm²${R.cfg.hq?` with ${occ} hole subband${occ===1?'':'s'} above E_F`:''}. Positive gate voltage pushes the holes out; negative voltage pulls more in.`)}
   else if(R.cfg.contact==='gate'&&R.win){const occ=R.est.filter(s=>s.E<0).length;add(`At V_G = ${f2(R.cfg.VG)} V the channel holds ${sci(R.nsW)} electrons/cm² with ${occ} subband${occ===1?'':'s'} below E_F.`)}
   else if(R.info.mode==='oled'&&R.dd&&R.cfg.sun){const J=R.dd.J*1e3;add(`At V = ${f2(R.V)} V under 1 sun the current density is ${J.toFixed(2)} mA/cm², so the device ${J<0&&R.V>0?`delivers ${(-J*R.V).toFixed(1)} mW/cm²`:J<0?'is at short circuit or reverse bias, collecting photocurrent':'is past open circuit and absorbing power'}.`)}
   else if(R.info.mode==='oled'&&R.dd){const rec=recInt(R);add(`At V = ${f2(R.V)} V the stack carries ${sci(R.dd.J)} A/cm²${R.dd.J>1e-12?`, and ${(100*rec.tot*Q/R.dd.J).toFixed(0)} % of the injected carriers recombine inside the device`:''}.`)}
@@ -1285,7 +1348,7 @@ function syncControls(){
   $('hSunc').hidden=info.mode!=='oled';$('hSun').checked=HSt.sun;
   $('hVhint').textContent=info.mode==='oled'&&HSt.sun?'Positive V forward-biases the cell. Under light J < 0 between 0 and V_oc: the cell delivers power.':info.mode==='oled'?'Positive V makes the anode (left) positive: forward bias. Solved by drift–diffusion.':info.mode==='bipolar'?(info.lt==='p'?'Positive V forward-biases this p-on-top junction.':'Negative V forward-biases this n-on-top junction.'):'Electrons tunnel from the higher Fermi level to the lower one.';
   const T=HSt.tr;$('hVDSc').hidden=!T;$('hTrc').hidden=!T;
-  if(T){$('hVDS').max=T.VDSmax;$('hVDS').value=T.VDS;$('hVDSO').textContent=T.VDS.toFixed(2)+' V';
+  if(T){$('hVDS').max=T.VDSmax;$('hVDS').value=T.VDS;$('hVDSO').textContent=(HSt.pch?'−':'')+T.VDS.toFixed(2)+' V';
     $('hLg').value=T.Lg;$('hLgO').textContent=T.Lg+' nm';$('hMu').value=T.mu;$('hMuO').textContent=T.mu+' cm²/V·s';$('hVs').value=T.vsat;$('hVsO').textContent=T.vsat.toFixed(2)+'×10⁷ cm/s';
     $('hRs').value=T.Rs;$('hRsO').textContent=T.Rs.toFixed(2)+' Ω·mm';$('hCp').value=T.Cp;$('hCpO').textContent=T.Cp.toFixed(2)+' fF/µm'}
   $('hSP').checked=HSt.sp;$('hPsi').checked=HSt.psi;$('hHoles').checked=HSt.holes;$('hGam').checked=HSt.gam;
@@ -1314,7 +1377,7 @@ function hupdateNow(){
       if(k==='T'){$('hf5').innerHTML=hdrawT(R,tr);$('hf5kv').innerHTML=kvs((tr?tr.peaks:[]).filter(p=>p.T>1e-3).slice(0,4).map((p,i)=>[`Resonance ${i+1}`,`${p.E.toFixed(4)} eV · T ${p.T.toFixed(2)}${p.G?` · Γ ${(p.G*1000).toPrecision(2)} meV`:''}`]))}
       else{runSweep('JV',R);drawF5Sweep()}}
     else if(k==='ns'||k==='ps'){runSweep(k,R);drawF5Sweep()}
-    else if(k==='tr'||k==='out'){runSweep('ns',R);drawF5Sweep()}
+    else if(k==='tr'||k==='out'){runSweep(chK(),R);drawF5Sweep()}
     else if(k==='rec'){$('hf5').innerHTML=hdrawRec(R);const r=recInt(R),tot=r.tot;const top2=r.per.map((v,i)=>[v,i]).filter(x=>x[0]>0).sort((a,b)=>b[0]-a[0]).slice(0,2);
       $('hf5kv').innerHTML=kvs([['Total ∫R dz',`${sci(tot)} cm⁻² s⁻¹`],['Recombination current q∫R dz',`${sci(tot*Q)} A/cm²`],['Peak',`${sci(r.pk)} cm⁻³ s⁻¹ at z = ${r.zp.toFixed(1)} nm`]].concat(top2.map(([v,i])=>[`Share in layer ${i+1} (${layerLabel(HSt.layers[i]).split(' · ')[0]})`,`${(100*v/tot).toFixed(1)} %`])))}
     else if(k==='JVo'){runSweep('JVo',R);drawF5Sweep()}
@@ -1325,7 +1388,7 @@ function hupdateNow(){
       $('hf5kv').innerHTML=kvs([['Photons in (above 1 eV)',g?`${(g.inc*1e3).toFixed(1)} mA/cm² equivalent`:'—'],['Absorbed in active layers',g?`${(g.Jgen*1e3).toFixed(2)} mA/cm²`:'—'],['Escaped (reflected out or transmitted)',g?`${((g.refl+g.trans)*1e3).toFixed(2)} mA/cm²`:'—']].concat(par.map(([a,i])=>[`Parasitic: layer ${i+1} (${layerLabel(HSt.layers[i]).split(' · ')[0]})`,`${(a*1e3).toFixed(2)} mA/cm²`])).concat([['Recombination q∫R dz',`${(r.tot*Q*1e3).toFixed(2)} mA/cm²`]]))}}
   hreadouts(R);
 }
-function loadPreset(i){const p=HP[i];HSt.pi=i;HSt.layers=clone(p.layers);HSt.contact=p.contact;HSt.phiB=p.phiB||0.8;HSt.VG=p.VG||0;HSt.V=p.V||0;HSt.abr=!!p.abr;HSt.fig5=p.fig5;HSt.sun=!!p.sun;HSt.pch=p.pch||0;HSt.tr=p.tr?{...p.tr}:null;HSt.edited=false;HSt.view='active';warmKey=null;drawTable();hupdate()}
+function loadPreset(i){const p=HP[i];HSt.pi=i;HSt.layers=clone(p.layers);HSt.contact=p.contact;HSt.phiB=p.phiB||0.8;HSt.VG=p.VG||0;HSt.V=p.V||0;HSt.abr=!!p.abr;HSt.fig5=p.fig5;HSt.sun=!!p.sun;HSt.pch=p.pch||0;HSt.ptie=p.ptie||0;HSt.hq=!!p.hq;HSt.tr=p.tr?{...p.tr}:null;HSt.edited=false;HSt.view='active';warmKey=null;drawTable();hupdate()}
 function hinit(){
   const pr=$('hpresets');HP.forEach((p,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=p.name;b.onclick=()=>loadPreset(i);pr.appendChild(b)});
   $('hTable').addEventListener('input',onTable);$('hTable').addEventListener('change',onTable);
@@ -1376,11 +1439,93 @@ b:`<p>The InP HEMT is the fastest, quietest transistor in production. Cooled to 
 a:`<p>In<sub>0.52</sub>Al<sub>0.48</sub>As / In<sub>0.7</sub>Ga<sub>0.3</sub>As / In<sub>0.52</sub>Al<sub>0.48</sub>As on InP with a 7×10¹² cm⁻² Si δ-plane 3 nm above a 10 nm channel. ΔE<sub>C</sub> ≈ 0.63 eV and m* ≈ 0.034. The solution gives n<sub>s</sub> ≈ 2.9×10¹² cm⁻², with the first subband ≈180 meV below E<sub>F</sub> and the second just at E<sub>F</sub>, and V<sub>T</sub> ≈ −0.7 V. The large ΔE<sub>C</sub> and the light mass give a large subband spacing and a high quantum capacitance, so C<sub>g</sub> ≈ 620 nF/cm² is close to the geometric value.</p>
 <p>With L<sub>g</sub> = 100 nm, μ = 11,000 cm²/V·s and an effective v<sub>sat</sub> = 2.5×10⁷ cm/s, the model gives g<sub>m</sub> ≈ 1.1 S/mm and f<sub>T</sub> ≈ 240 GHz, the range of 100 nm cryogenic-LNA processes. Record devices with L<sub>g</sub> ≈ 25–35 nm and composite In<sub>0.7</sub>GaAs/InAs channels reach f<sub>T</sub> above 600 GHz and f<sub>max</sub> above 1 THz, where velocity overshoot and ballistic transport (not modeled) dominate. The InAlAs/InGaAs gate barrier is low, so gate leakage limits the usable V<sub>GS</sub> range, and impact ionization in the narrow-gap channel limits V<sub>DS</sub> to ≈1–1.5 V: hence the small drain-voltage axis.</p>
 <p class="lk"><b>Explore:</b> Lower the channel In fraction to 0.53 (lattice-matched) and compare ΔE<sub>C</sub>, n<sub>s</sub> and g<sub>m</sub>. Shorten L<sub>g</sub> to 35 nm and note how far the intrinsic f<sub>T</sub> rises. Read: <a href="https://dx.doi.org/10.1038/nature10677" target="_blank" rel="noopener">del Alamo, Nature 479, 317 (2011)</a>.</p>`}
+,
+'Metamorphic HEMT · InAlAs/InGaAs on GaAs':{
+b:`<p>InP HEMTs are the fastest transistors in production, but InP wafers are small, brittle and expensive. A <b>metamorphic HEMT</b> (mHEMT) grows the same InAlAs/InGaAs layers on a GaAs wafer instead. A thick buffer whose indium content rises gradually takes up the 4 % lattice mismatch, and the crystal defects stay in that buffer. mHEMTs are used in millimetre-wave low-noise amplifiers for radio links, radio astronomy and imaging, and in research circuits above 300 GHz.</p>
+<p>This structure has two silicon δ-doping planes, one above and one below the channel. The channel fills from both sides, so it holds about 3.4×10¹² electrons/cm², more than the single-sided pHEMT.</p>
+<p class="lk"><b>Look for:</b> Two occupied subbands in Fig. 2 (e1 and e2 both below E<sub>F</sub>) and the symmetric well. The two δ planes show as the sharp N<sub>D</sub>⁺ spikes in Fig. 3.</p>
+<p class="lk"><b>Try:</b> Delete the lower δ layer (layer 6) and see how much n<sub>s</sub> falls and how far the threshold moves.</p>`,
+a:`<p>In<sub>0.52</sub>Al<sub>0.48</sub>As / In<sub>0.53</sub>Ga<sub>0.47</sub>As / In<sub>0.52</sub>Al<sub>0.48</sub>As, lattice-matched to the relaxed top of the graded buffer (the buffer itself is not modeled). The upper δ-plane carries 5×10¹² cm⁻² and the lower one 2×10¹² cm⁻², each behind a 4 nm spacer. ΔE<sub>C</sub> ≈ 0.52 eV and m* ≈ 0.041. At V<sub>G</sub> = 0 the solution gives n<sub>s</sub> ≈ 3.4×10¹² cm⁻²: 2.2×10¹² in e1 (124 meV below E<sub>F</sub>) and 1.2×10¹² in e2 (63 meV below). The threshold is ≈ −0.85 V and C<sub>g</sub> ≈ 590 nF/cm².</p>
+<p>With L<sub>g</sub> = 70 nm, μ = 10,000 cm²/V·s and an effective v<sub>sat</sub> = 2.2×10⁷ cm/s, the model gives peak g<sub>m</sub> ≈ 0.95 S/mm, f<sub>T</sub> ≈ 270 GHz and I<sub>max</sub> ≈ 1.3 A/mm, the range of commercial 70 nm mHEMT processes. Research processes with 20–35 nm gates and In-rich composite channels reach f<sub>T</sub> above 500 GHz. The buffer sets the practical limits: residual threading dislocations, its poor thermal conductivity, and the lattice constant chosen at its top, which can be tuned to allow In<sub>0.7–0.8</sub> channels.</p>
+<p class="lk"><b>Explore:</b> Raise the channel In fraction to 0.7 and compare with the InP HEMT exemplar. Move both δ planes 2 nm closer to the channel and watch for parallel conduction in the InAlAs (Fig. 3).</p>`},
+'p-GaN gate HEMT · normally-off GaN-on-Si':{
+b:`<p>A power switch must be <b>off</b> when its gate is at 0 V, so that a failed driver cannot short the supply. An ordinary GaN HEMT is the opposite: polarization fills its channel with no gate voltage at all. The <b>p-GaN gate</b> fixes this and is the structure inside most commercial GaN power transistors, in phone and laptop chargers, data-centre power supplies, 48 V converters and lidar drivers. They are grown on cheap 150–200 mm silicon wafers.</p>
+<p>A 70 nm layer of magnesium-doped p-GaN sits under the gate. Its acceptors and the built-in voltage of the p-GaN/AlGaN/GaN junction lift the conduction band at the AlGaN/GaN interface above E<sub>F</sub>, so the channel is empty at V<sub>G</sub> = 0. A positive gate voltage pulls the band back down and the 2DEG forms above about +1.5 V.</p>
+<p class="lk"><b>Look for:</b> At V<sub>G</sub> = 0 the conduction band in Fig. 2 stays above E<sub>F</sub> at the channel and no electron states are filled. In Fig. 5 the drain current is essentially zero at V<sub>GS</sub> = 0.</p>
+<p class="lk"><b>Try:</b> Slide V<sub>G</sub> to +3 V and watch e1 drop below E<sub>F</sub>. Then compare the field inside the AlGaN barrier (Fig. 4) at the two voltages.</p>`,
+a:`<p>p-GaN (Mg 3×10¹⁹ cm⁻³, only partly ionized at 300 K) / 15 nm Al<sub>0.15</sub>Ga<sub>0.85</sub>N / GaN, with a lower Al fraction than an RF HEMT so that the ≈ 8×10¹² cm⁻² polarization sheet can be fully depleted. Here the p-GaN hole quasi-Fermi level is tied to the gate, as in an ohmic-contact gate (the Panasonic "gate injection transistor"). The solution gives n<sub>s</sub> ≈ 2×10¹⁰ cm⁻² at V<sub>G</sub> = 0 and a threshold of ≈ +1.5 V (extrapolated at peak g<sub>m</sub>; +1.7 V from the n<sub>s</sub> sweep). Commercial Schottky-gate devices sit at +1.2 to +1.8 V: the metal/p-GaN Schottky diode drops part of V<sub>G</sub>, shifting V<sub>T</sub> up and allowing a gate drive of 5–6 V.</p>
+<p>Above ≈ 3.5 V the p-GaN/AlGaN/GaN diode turns on and holes flood the channel (the sweep stops there). In a GIT this hole injection is used on purpose to modulate conductivity. With L<sub>g</sub> = 1 µm, μ = 1800 cm²/V·s and R<sub>s</sub> = R<sub>d</sub> = 1 Ω·mm, the model gives g<sub>m</sub> ≈ 230 mS/mm, I<sub>max</sub> ≈ 0.48 A/mm and R<sub>on</sub> ≈ 2.5 Ω·mm. Not modeled: the gate-to-drain drift region that sets breakdown (several µm for 650 V parts), dynamic R<sub>on</sub> from trapping in the carbon-doped buffer, and the strain-relief buffer on Si.</p>
+<p class="lk"><b>Explore:</b> Raise the barrier to Al<sub>0.25</sub>: n<sub>s</sub> rises but V<sub>T</sub> moves toward zero, the central trade-off of normally-off design. Read: Uemoto <i>et al.</i>, IEEE Trans. Electron Devices 54, 3393 (2007).</p>`},
+'InAlN/GaN HEMT · lattice-matched barrier':{
+b:`<p>Indium aluminium nitride with 17 % indium has exactly the lattice constant of GaN, so the barrier carries no strain. Its <i>spontaneous</i> polarization alone is large enough to put more than 2×10¹³ electrons/cm² in the channel, about twice an AlGaN/GaN HEMT, even with a barrier under 10 nm thick.</p>
+<p>A thin barrier means the gate sits close to the channel. That is what a short gate needs: the gate must stay closer to the channel than it is long, or it loses control. InAlN/GaN HEMTs are developed for millimetre-wave amplifiers (Ka band to W band), where the gate is well under 100 nm.</p>
+<p class="lk"><b>Look for:</b> The two polarization sheets (▲) in Fig. 4, from the 1 nm AlN interlayer, and the very deep triangular well in Fig. 2.</p>
+<p class="lk"><b>Try:</b> Compare n<sub>s</sub>, C<sub>g</sub> and f<sub>T</sub> with the AlGaN/GaN HEMT on SiC.</p>`,
+a:`<p>8 nm In<sub>0.17</sub>Al<sub>0.83</sub>N / 1 nm AlN / GaN. The InAlN/GaN polarization difference is taken as ≈ 2.7×10¹³ cm⁻² (spontaneous only), with ΔE<sub>C</sub> ≈ 0.9 eV to GaN. The solution gives n<sub>s</sub> ≈ 2.3×10¹³ cm⁻² at V<sub>G</sub> = 0, with e1 235 meV below E<sub>F</sub> and V<sub>T</sub> ≈ −3.9 V. C<sub>g</sub> ≈ 900 nF/cm² against ≈ 460 for the 18 nm AlGaN barrier. The field in the AlN interlayer approaches 7 MV/cm.</p>
+<p>With L<sub>g</sub> = 70 nm, μ = 1300 cm²/V·s, effective v<sub>sat</sub> = 0.9×10⁷ cm/s and R<sub>s</sub> = 0.35 Ω·mm, the model gives g<sub>m</sub> ≈ 590 mS/mm and f<sub>T</sub> ≈ 120 GHz. I<sub>max</sub> ≈ 2.9 A/mm is isothermal; measured values of 2–2.7 A/mm are limited by self-heating. Research devices with sub-50 nm gates and regrown ohmic contacts have reached f<sub>T</sub> above 300 GHz. Weak points: Schottky gate leakage through the thin barrier (often fixed with a thin dielectric), and the composition and indium segregation control that In-rich nitrides need. Proposed by Kuzmik, IEEE Electron Device Lett. 22, 510 (2001).</p>
+<p class="lk"><b>Explore:</b> Thin the barrier to 5 nm: V<sub>T</sub> moves toward zero and n<sub>s</sub> falls as the surface depletes more of the channel. Delete the AlN interlayer and compare.</p>`},
+'ScAlN/GaN HEMT · ferroelectric nitride barrier':{
+b:`<p>Adding scandium to AlN makes a nitride with very strong polarization, and above roughly 10 % Sc the polarization can even be switched: ScAlN is ferroelectric. With 18 % Sc it is lattice-matched to GaN, so it forms a strain-free barrier with about twice the polarization of InAlN.</p>
+<p>The result is the densest 2DEG in this collection: almost 4×10¹³ electrons/cm² under a 10 nm barrier. ScAlN/GaN HEMTs are a research topic aimed at higher power density at millimetre-wave frequencies, and the same material is used commercially in piezoelectric RF filters.</p>
+<p class="lk"><b>Look for:</b> The single, large polarization sheet in Fig. 4 and how far below E<sub>F</sub> the first subband sits in Fig. 2.</p>
+<p class="lk"><b>Try:</b> Push V<sub>G</sub> to −5 V: it takes far more negative gate voltage to empty this channel than any other exemplar.</p>`,
+a:`<p>10 nm Sc<sub>0.18</sub>Al<sub>0.82</sub>N / GaN. ScAlN parameters are much less settled than for AlGaN; here σ ≈ 4.8×10¹³ cm⁻² relative to GaN, ε<sub>r</sub> ≈ 14, ΔE<sub>C</sub> ≈ 1.1 eV. The solution gives n<sub>s</sub> ≈ 3.9×10¹³ cm⁻² at V<sub>G</sub> = 0 with three subbands occupied (e1 0.37 eV below E<sub>F</sub>), V<sub>T</sub> ≈ −5.4 V and C<sub>g</sub> ≈ 1.1 µF/cm². Early MBE and MOCVD heterostructures report 3–4×10¹³ cm⁻² with mobilities of 500–1000 cm²/V·s, lower than AlGaN/GaN because alloy disorder and interface roughness scatter more at this density.</p>
+<p>With L<sub>g</sub> = 75 nm, μ = 600 cm²/V·s, effective v<sub>sat</sub> = 0.45×10⁷ cm/s and R<sub>s</sub> = 1 Ω·mm, the model gives g<sub>m</sub> ≈ 310 mS/mm and f<sub>T</sub> ≈ 45 GHz. I<sub>max</sub> ≈ 2.0 A/mm is isothermal; a recent 75 nm ScAlN/GaN-on-Si device reached 1.35 A/mm, 284 mS/mm and 1 W/mm at 10 GHz (El Whibi <i>et al.</i>, Appl. Phys. Express 18, 046501 (2025)). Open problems: oxidation of the Sc-containing surface, gate leakage, and how the ferroelectric polarization drifts under high fields.</p>
+<p class="lk"><b>Explore:</b> Add a 2 nm GaN cap on top (use the AlₓGa₁₋ₓN family at x = 0). Read: <a href="https://www.iemn.fr/?p=76492" target="_blank" rel="noopener">IEMN summary of ScAlN/GaN HEMTs</a>.</p>`},
+'N-polar GaN deep-recess HEMT · W band':{
+b:`<p>GaN crystals have a top and a bottom. Grow the layers upside down, nitrogen face up, and the polarization charges flip sign. The 2DEG now forms in a GaN layer <i>above</i> an AlGaN back barrier, so the gate sits directly on the channel, separated only by a few nm of GaN and a thin silicon nitride dielectric.</p>
+<p>That geometry suits very short gates: the back barrier keeps electrons from escaping into the buffer, and the source and drain contact the channel without a barrier in between. Outside the gate, a thick GaN cap (removed under the gate, hence "deep recess") keeps traps away from the channel. These transistors hold the power-density record for GaN at 94 GHz (W band), around 8 W/mm.</p>
+<p class="lk"><b>Look for:</b> The order of layers in Figs. 1–2: dielectric, then channel, then barrier. In Fig. 4 the polarization sheets point the other way from the Ga-polar exemplars.</p>
+<p class="lk"><b>Try:</b> Thin the GaN channel (layer 2) from 10 to 6 nm and watch how n<sub>s</sub> and the subband energies change.</p>`,
+a:`<p>5 nm SiN / 10 nm GaN / 0.7 nm AlN / 15 nm Al<sub>0.38</sub>Ga<sub>0.62</sub>N / 20 nm AlGaN graded to GaN with Si 10¹⁹ cm⁻³ / GaN, all N-polar (the polarization of the Ga-polar model with its sign reversed). The graded, Si-doped layer cancels the ≈ −2×10¹³ cm⁻² bound charge that the back barrier would otherwise leave at its bottom. The SiN/GaN interface charge is assumed compensated. The solution gives n<sub>s</sub> ≈ 1.7×10¹³ cm⁻² at V<sub>G</sub> = 0 in a single subband (e1 0.20 eV below E<sub>F</sub>) and V<sub>T</sub> ≈ −4.7 V.</p>
+<p>With L<sub>g</sub> = 75 nm, μ = 1300 cm²/V·s, effective v<sub>sat</sub> = 1×10⁷ cm/s, R<sub>s</sub> = 0.3 Ω·mm and 0.2 fF/µm parasitics, the model gives g<sub>m</sub> ≈ 440 mS/mm and f<sub>T</sub> ≈ 110 GHz. UCSB devices of this design report 460 mS/mm, f<sub>T</sub> ≈ 113 GHz, f<sub>max</sub> ≈ 240 GHz and 8 W/mm at 94 GHz (Romanczyk <i>et al.</i>, IEEE Trans. Electron Devices, 2018). The model's 2.3 A/mm I<sub>max</sub> is isothermal; measured values are ≈ 1.8 A/mm. Not modeled: the GaN cap and the regrown n⁺ contacts outside the gate, which set R<sub>s</sub>.</p>
+<p class="lk"><b>Explore:</b> Remove the Si doping in layer 5 (set it undoped) and see the hole layer that forms at the bottom of the back barrier. Raise the back-barrier Al fraction to 0.5.</p>`},
+'β-(AlGa)₂O₃/Ga₂O₃ MODFET':{
+b:`<p>Gallium oxide has a band gap of about 4.8 eV and a breakdown field near 8 MV/cm, more than GaN or SiC, and its wafers can be grown from the melt like silicon. It is studied for high-voltage power switches. A modulation-doped (Al<sub>x</sub>Ga<sub>1−x</sub>)<sub>2</sub>O<sub>3</sub>/Ga<sub>2</sub>O<sub>3</sub> heterostructure is the oxide's version of the HEMT.</p>
+<p>Two things hold it back, and both show up here. The conduction-band step to the barrier is small (≈ 0.36 eV), so only about 10¹² electrons/cm² stay in the channel before the doped barrier starts to conduct. And the electrons are slow: polar optical phonons cap room-temperature mobility near 200 cm²/V·s.</p>
+<p class="lk"><b>Look for:</b> In Fig. 2, e1 sits <i>above</i> E<sub>F</sub>: the channel is not degenerate. In Fig. 5 the current is tens of mA/mm, not amperes.</p>
+<p class="lk"><b>Try:</b> Push V<sub>G</sub> to +0.6 V and watch n<sub>s</sub> stop rising in the n<sub>s</sub> view as electrons spill into the barrier.</p>`,
+a:`<p>20 nm β-(Al<sub>0.18</sub>Ga<sub>0.82</sub>)<sub>2</sub>O<sub>3</sub> cap / Si δ-layer (4×10¹² cm⁻²) / 4.5 nm spacer / Ga<sub>2</sub>O<sub>3</sub>, following Zhang <i>et al.</i> (2018). ΔE<sub>C</sub> ≈ 0.36 eV, m* ≈ 0.28. The solution gives n<sub>s</sub> ≈ 1.4×10¹² cm⁻² at V<sub>G</sub> = 0, with e1 29 meV above E<sub>F</sub>, and V<sub>T</sub> ≈ −0.7 V; measured Hall densities are 1.1–2.3×10¹² cm⁻² with μ = 160–180 cm²/V·s, and about 2×10¹² cm⁻² is the most the channel holds before a parasitic channel forms in the barrier.</p>
+<p>With L<sub>g</sub> = 0.7 µm, μ = 170 cm²/V·s and R<sub>s</sub> = 5 Ω·mm (oxide contacts are hard), the model gives ≈ 40 mA/mm and g<sub>m</sub> ≈ 40 mS/mm. The first modulation-doped device reached 5.5 mA/mm (Krishnamoorthy <i>et al.</i>, 2017). Higher Al content raises ΔE<sub>C</sub> but β-phase growth becomes difficult above ≈ 25 %. The usual route to current in Ga<sub>2</sub>O<sub>3</sub> is instead a heavily doped channel MESFET or MOSFET, trading mobility for density.</p>
+<p class="lk"><b>Explore:</b> Raise the barrier Al fraction to 0.3 and check how much more charge the channel holds. Read: <a href="https://arxiv.org/abs/1802.04426" target="_blank" rel="noopener">Zhang <i>et al.</i>, arXiv:1802.04426</a>; <a href="https://arxiv.org/abs/1706.09492" target="_blank" rel="noopener">Krishnamoorthy <i>et al.</i>, arXiv:1706.09492</a>.</p>`},
+'GaN/AlN p-channel HEMT (2DHG)':{
+b:`<p>GaN power chips need complementary logic (CMOS-like gate drivers on the same chip), and that needs a p-channel transistor. Holes in GaN are heavy and slow, and Mg doping is inefficient, so the best p-channel uses polarization instead: a thin GaN layer on AlN collects a dense <b>two-dimensional hole gas</b> (2DHG) at its bottom interface with no doping at all.</p>
+<p>Here the polarization sheet at the GaN/AlN interface is negative, about −5.4×10¹³ cm⁻², and it pulls in more than 4×10¹³ holes/cm².</p>
+<p class="lk"><b>Look for:</b> The hole subbands hh1, hh2 (blue) in the valence-band well in Fig. 2 and the negative ▼ sheet in Fig. 4. Fig. 5 plots −I<sub>D</sub> against V<sub>GS</sub>, the usual way to show p-channel devices.</p>
+<p class="lk"><b>Try:</b> Push V<sub>G</sub> to +6 V. The channel still holds more than 2×10¹³ holes: turning this transistor off is the hard part.</p>`,
+a:`<p>13 nm undoped GaN / AlN, Ga-polar, with the holes treated by self-consistent Schrödinger–Poisson on the heavy-hole band (m* ≈ 1.1). At V<sub>G</sub> = 0 the solution gives p<sub>s</sub> ≈ 4.4×10¹³ cm⁻², nearly all in hh1 (94 meV above E<sub>F</sub>), and fields near 10 MV/cm in the GaN. Chaudhuri <i>et al.</i> measured ≈ 5×10¹³ cm⁻² with μ ≈ 20 cm²/V·s at 300 K. The sheet resistance is ≈ 7 kΩ/□, about twenty times an AlGaN/GaN 2DEG.</p>
+<p>With L<sub>g</sub> = 200 nm and R<sub>s</sub> = 15 Ω·mm (ohmic contacts to p-GaN are poor), the model gives |I<sub>D</sub>| ≈ 0.43 A/mm at V<sub>GS</sub> = −2 V, g<sub>m</sub> ≈ 40 mS/mm, and the channel is still far from empty at +6 V: the p<sub>s</sub> sweep extrapolates to pinch-off near +11 V. The large positive turn-off voltage is a real problem: devices reach it by recessing the GaN under the gate or using thinner channels, at the cost of p<sub>s</sub>. Gate leakage under strong positive bias is not modeled.</p>
+<p class="lk"><b>Explore:</b> Thin the GaN channel to 8 nm: p<sub>s</sub> drops and the pinch-off voltage moves toward zero. Read: <a href="https://doi.org/10.1126/science.aau8623" target="_blank" rel="noopener">Chaudhuri <i>et al.</i>, Science 365, 1454 (2019)</a>.</p>`},
+'Strained Ge/SiGe hole quantum well':{
+b:`<p>A thin germanium layer grown on Si<sub>0.2</sub>Ge<sub>0.8</sub> is squeezed (compressively strained). The strain makes its holes light along the layer, and the room-temperature hole mobility reaches several thousand cm²/V·s, the highest of any group-IV material. The same heterostructure, cooled to millikelvin temperatures, holds the hole-spin qubits that several quantum-computing groups are developing.</p>
+<p>Boron dopants in the SiGe above the well give up their holes, which drop into the germanium. The valence-band step is small (≈ 0.15 eV), so the well holds only about 10¹² holes/cm².</p>
+<p class="lk"><b>Look for:</b> The hole states hh1, hh2 in the Ge well in Fig. 2 and, at negative gate voltage, a second hole layer forming in the doped SiGe (Fig. 3).</p>
+<p class="lk"><b>Try:</b> Slide V<sub>G</sub> negative and watch p<sub>s</sub> grow, then watch the doped layer start to conduct: the same parallel-conduction limit as the GaAs pHEMT, now for holes.</p>`,
+a:`<p>20 nm Si<sub>0.2</sub>Ge<sub>0.8</sub> / 2 nm B-doped SiGe (2×10¹² cm⁻²) / 10 nm spacer / 16 nm strained Ge / relaxed Si<sub>0.2</sub>Ge<sub>0.8</sub>. ΔE<sub>V</sub> ≈ 0.15 eV, and a single heavy-hole mass of 0.2 m₀ is used for both confinement and density of states (the real in-plane mass of strained Ge is lighter, ≈ 0.06–0.1 m₀, and strongly non-parabolic). At V<sub>G</sub> = 0 the solution gives ≈ 1×10¹² holes/cm² in the quantum region, with hh1 38 meV below E<sub>F</sub> (non-degenerate at 300 K) and pinch-off at ≈ +0.6 V. Below about −0.15 V the B-doped layer starts to hold holes of its own, which is why the sweep stops there.</p>
+<p>With L<sub>g</sub> = 100 nm, μ = 2500 cm²/V·s, effective v<sub>sat</sub> = 0.6×10⁷ cm/s and R<sub>s</sub> = 1 Ω·mm, the model gives ≈ 50 mA/mm at V<sub>GS</sub> = 0 and f<sub>T</sub> ≈ 40 GHz. Drift mobilities up to ≈ 4200 cm²/V·s at room temperature have been measured in reduced-pressure-CVD Ge wells (Myronov <i>et al.</i>, 2014), several times silicon's hole mobility. The small ΔE<sub>V</sub> limits the usable density; inverted structures (doping below the well) and undoped wells with an insulated gate avoid the doped-layer problem, and the undoped version is the platform for Ge hole-spin qubits.</p>
+<p class="lk"><b>Explore:</b> Raise the well's strain by lowering the buffer's Ge content: set layers 1–3 and 5 to x = 0.3 and compare ΔE<sub>V</sub> and p<sub>s</sub>. Read: <a href="https://doi.org/10.7567/JJAP.53.04EH02" target="_blank" rel="noopener">Myronov <i>et al.</i>, Jpn. J. Appl. Phys. 53, 04EH02 (2014)</a>.</p>`},
+'H-terminated diamond MOSFET (2DHG)':{
+b:`<p>Diamond has a 5.5 eV band gap, a breakdown field near 10 MV/cm and the highest thermal conductivity of any solid, so it is studied for high-power, high-frequency and high-temperature electronics. But its dopants are deep and hardly ionize at room temperature. The way around this is the surface: a diamond surface covered with hydrogen has its valence band so high that molecules or oxides on top take electrons from it, leaving a sheet of holes just below the surface. This is <b>surface transfer doping</b>.</p>
+<p>Here a sheet of negative charge in the Al<sub>2</sub>O<sub>3</sub> right at the interface stands in for those acceptors, and the same Al<sub>2</sub>O<sub>3</sub> serves as the gate dielectric.</p>
+<p class="lk"><b>Look for:</b> The 2DHG squeezed against the oxide in Fig. 2, with the hole subbands, and the huge valence-band step to Al<sub>2</sub>O<sub>3</sub>.</p>
+<p class="lk"><b>Try:</b> Change the acceptor sheet density (layer 2) and watch p<sub>s</sub> and the pinch-off voltage follow it.</p>`,
+a:`<p>10 nm Al<sub>2</sub>O<sub>3</sub> / 1 nm Al<sub>2</sub>O<sub>3</sub> holding 2×10¹³ cm⁻² fixed negative charge / undoped diamond. H-terminated diamond's valence-band maximum is taken at 4.2 eV below vacuum, giving ≈ 3.8 eV of valence-band offset to Al<sub>2</sub>O<sub>3</sub>. At V<sub>G</sub> = 0 the solution gives p<sub>s</sub> ≈ 1.7×10¹³ cm⁻², with hh1 61 meV above E<sub>F</sub>, and pinch-off at ≈ +3 to +4 V: the device is normally on, as most H-diamond FETs are. Measured sheet densities are 10¹³–10¹⁴ cm⁻² depending on the acceptor layer, with mobilities of 50–150 cm²/V·s limited by scattering from the same charged acceptors.</p>
+<p>With L<sub>g</sub> = 100 nm, μ = 120 cm²/V·s, v<sub>sat</sub> = 1×10⁷ cm/s and R<sub>s</sub> = 2.5 Ω·mm, the model gives f<sub>T</sub> ≈ 40 GHz and |I<sub>D</sub>| ≈ 1.5 A/mm at V<sub>GS</sub> = −4 V, which is in the range of the best reported devices. A 50 nm gate H-diamond FET reached f<sub>T</sub> = 53 GHz (Russell <i>et al.</i>, IEEE Electron Device Lett., 2012). Stability of the surface acceptors under bias and heat is the central engineering problem. Not modeled: the multiple heavy-, light- and split-off-hole bands of diamond (one heavy-hole band here).</p>
+<p class="lk"><b>Explore:</b> Thin the Al<sub>2</sub>O<sub>3</sub> to 5 nm and compare the gate capacitance. Raise the acceptor density to 5×10²⁰ cm⁻³ (5×10¹³ cm⁻²).</p>`}
 }};
 const TAKE={'tab-hs':{
 'GaAs pHEMT · AlGaAs/InGaAs':'Donors in the AlGaAs barrier supply ≈2×10¹² electrons/cm² to a strained InGaAs channel; the gate switches it off near −0.8 V. Start with Fig. 2, then the transfer curve in Fig. 5.',
 'AlGaN/GaN HEMT on SiC':'Polarization alone puts ≈10¹³ electrons/cm² in the channel, so the device carries over 1 A/mm and is normally on. See ▲ in Fig. 4 and the output curves in Fig. 5.',
-'InP HEMT · InAlAs/In₀.₇GaAs':'Light electrons in indium-rich InGaAs give transconductance above 1 S/mm and f<sub>T</sub> ≈ 240 GHz at a 100 nm gate. Compare Fig. 5 with the other two exemplars.'
+'InP HEMT · InAlAs/In₀.₇GaAs':'Light electrons in indium-rich InGaAs give transconductance above 1 S/mm and f<sub>T</sub> ≈ 240 GHz at a 100 nm gate. Compare Fig. 5 with the other two exemplars.',
+'Metamorphic HEMT · InAlAs/InGaAs on GaAs':'InP-type layers on a cheaper GaAs wafer, doped from both sides: ≈3.4×10¹² electrons/cm² in two subbands and f<sub>T</sub> ≈ 270 GHz at a 70 nm gate. See Fig. 2.',
+'p-GaN gate HEMT · normally-off GaN-on-Si':'A p-GaN layer under the gate empties the channel at 0 V, so the power switch is off by default and turns on near +1.5 V. Compare Fig. 2 at 0 V and +3 V.',
+'InAlN/GaN HEMT · lattice-matched barrier':'A strain-free barrier with strong spontaneous polarization: 2.3×10¹³ electrons/cm² under only 9 nm, for short-gate mm-wave devices. See Figs. 2 and 4.',
+'ScAlN/GaN HEMT · ferroelectric nitride barrier':'Scandium boosts the barrier\'s polarization to give ≈4×10¹³ electrons/cm², the densest channel here, under a 10 nm barrier. See Fig. 4.',
+'N-polar GaN deep-recess HEMT · W band':'Upside-down GaN: the barrier is below the channel and the gate sits right on it, the design behind the 94 GHz power record. Compare the layer order in Fig. 2.',
+'β-(AlGa)₂O₃/Ga₂O₃ MODFET':'An ultra-wide-gap oxide HEMT: a small band offset and slow electrons limit it to ≈10¹² electrons/cm² and tens of mA/mm. See e1 above E_F in Fig. 2.',
+'GaN/AlN p-channel HEMT (2DHG)':'Polarization at GaN/AlN gathers ≈4×10¹³ holes/cm² with no doping: the p-channel needed for GaN CMOS. See the hole subbands in Fig. 2.',
+'Strained Ge/SiGe hole quantum well':'Strain makes holes in Ge light and fast; the 0.15 eV valence-band step holds ≈10¹² holes/cm². See hh1 in Fig. 2 and the doped layer at negative V_G.',
+'H-terminated diamond MOSFET (2DHG)':'Negative charge at the oxide pulls ≈1.7×10¹³ holes/cm² into diamond\'s surface: transfer doping instead of dopants. See the 2DHG against the oxide in Fig. 2.'
 }};
 </script>
 <script>

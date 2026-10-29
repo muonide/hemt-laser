@@ -6,7 +6,12 @@ Live: https://muonide.github.io/hemt-laser/ (append `#hemt` or `#laser` to open 
 
 ## Status
 
-**HEMT tab (phase 1).** Self-consistent Schrödinger–Poisson cross-section under the gate, n_s and gate C–V versus V_G, and a deliberately simple transistor model (charge control from the solved n_s, velocity saturation, access resistance, parasitic capacitance) giving transfer and output curves, g_m and f_T. Exemplars: GaAs pHEMT, AlGaN/GaN HEMT on SiC, InP HEMT. Basic mode (introductory notes) and Advanced mode (graduate notes, full layer editing).
+**HEMT tab (phases 1–2).** Self-consistent Schrödinger–Poisson cross-section under the gate, with quantized electron *and* heavy-hole subbands; n_s (or p_s) and gate C–V versus V_G; and a deliberately simple transistor model (charge control from the solved sheet density, velocity saturation, access resistance, parasitic capacitance) giving transfer and output curves, g_m and f_T for n- and p-channel devices. Gate dielectrics (SiN, Al₂O₃) and p-GaN gates are supported. Twelve exemplars:
+
+- n-channel: GaAs pHEMT, metamorphic HEMT on GaAs, InP HEMT, AlGaN/GaN on SiC, p-GaN-gate normally-off GaN-on-Si, InAlN/GaN, ScAlN/GaN, N-polar GaN deep-recess, β-(AlGa)₂O₃/Ga₂O₃ MODFET
+- p-channel: GaN/AlN polarization 2DHG, strained Ge/SiGe hole quantum well, H-terminated diamond (surface-transfer-doped 2DHG)
+
+Basic mode (introductory notes) and Advanced mode (graduate notes, full layer editing).
 
 **Laser tab.** Placeholder; physics arrives in phase 3.
 
@@ -14,7 +19,7 @@ Live: https://muonide.github.io/hemt-laser/ (append `#hemt` or `#laser` to open 
 
 | Phase | Content |
 |---|---|
-| 2 | Self-consistent hole subbands; gate dielectrics and p-GaN gates. HEMT exemplars: p-GaN-gate normally-off GaN on Si, metamorphic HEMT, InAlN/GaN, ScAlN/GaN, N-polar GaN deep-recess, AlN/GaN p-channel (2DHG), β-(AlGa)₂O₃/Ga₂O₃ MODFET, strained Ge/SiGe hole quantum well, hydrogen-terminated diamond (surface-transfer-doped 2DHG) |
+| 2 ✓ | Self-consistent hole subbands; gate dielectrics and p-GaN gates; nine more HEMT exemplars (listed above) |
 | 3 | Laser physics: gain spectrum with strain, 1D waveguide mode and confinement factor, threshold and L–I. Exemplars: 9xx nm InGaAs/AlGaAs, 1310/1550 nm InP MQW, 450 nm InGaN |
 | 4 | 650 nm AlGaInP red, InGaN green, interband cascade (GaSb), AlGaN UV-C laser diode |
 | 5 | Model sections, UX pass, publish |
@@ -23,4 +28,4 @@ Live: https://muonide.github.io/hemt-laser/ (append `#hemt` or `#laser` to open 
 
 ## Model limits
 
-The transistor model has no short-channel effects, self-heating, trapping or gate leakage; f_T is an intrinsic estimate with a lumped parasitic capacitance. Holes are classical until phase 2. Material constants are 300 K literature values (Vurgaftman et al. 2001 and others cited in the page).
+The transistor model has no short-channel effects, self-heating, trapping or gate leakage; f_T is an intrinsic estimate with a lumped parasitic capacitance. Only the heavy-hole band is quantized. ScAlN, (AlGa)₂O₃ and H-diamond parameters are less settled than the III–V and AlGaN values. Material constants are 300 K literature values (Vurgaftman et al. 2001 and others cited in the page).

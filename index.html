@@ -321,13 +321,13 @@ svg .modet{fill:var(--ef)}
     <p>Composition-dependent parameters follow Vurgaftman, Meyer &amp; Ram-Mohan. Al<sub>x</sub>Ga<sub>1−x</sub>As uses ΔE<sub>V</sub> = 0.53x eV against GaAs, with Γ and X valleys (X is lowest above x ≈ 0.45). Pseudomorphic In<sub>x</sub>Ga<sub>1−x</sub>As on GaAs uses ΔE<sub>C</sub> ≈ 0.65ΔE<sub>g</sub>. On InP, In<sub>0.52</sub>Al<sub>0.48</sub>As (E<sub>g</sub> = 1.46 eV) and In<sub>x</sub>Ga<sub>1−x</sub>As give ΔE<sub>C</sub> ≈ 0.52 eV at the lattice-matched x = 0.53, rising to ≈0.63 eV for a strained In<sub>0.7</sub>Ga<sub>0.3</sub>As channel. Ga-face Al<sub>x</sub>Ga<sub>1−x</sub>N on GaN uses ΔE<sub>C</sub> ≈ 0.7ΔE<sub>g</sub> plus a polarization sheet at each interface,</p>
     <div class="eq"><span>σ<sub>pol</sub> = (P<sub>sp</sub> + P<sub>pz</sub>)<sub>below</sub> − (P<sub>sp</sub> + P<sub>pz</sub>)<sub>above</sub> ≈ 5.4×10¹³·x q/cm²</span><span class="eqn">(1)</span></div>
     <p>A 1 nm AlN interlayer, as in most commercial GaN HEMTs, raises the local sheet and pushes the electrons away from the alloy-disordered AlGaN, which raises mobility. N-polar AlGaN uses the same parameters with every polarization reversed, so the 2DEG forms in GaN <i>above</i> an AlGaN layer. Lattice-matched In<sub>0.17</sub>Al<sub>0.83</sub>N (σ ≈ 2.7×10¹³ cm⁻², ΔE<sub>C</sub> ≈ 0.9 eV) and Sc<sub>0.18</sub>Al<sub>0.82</sub>N (σ ≈ 4.8×10¹³ cm⁻², ΔE<sub>C</sub> ≈ 1.1 eV, ε<sub>r</sub> ≈ 14) are fixed-composition barriers; the ScAlN numbers are the least certain in the tab.</p>
-    <p>Other channels: β-(Al<sub>x</sub>Ga<sub>1−x</sub>)<sub>2</sub>O<sub>3</sub> with ΔE<sub>C</sub> ≈ 2x eV and m* ≈ 0.28 against Ga<sub>2</sub>O<sub>3</sub>; Si<sub>x</sub>Ge<sub>1−x</sub> on a relaxed Si<sub>0.2</sub>Ge<sub>0.8</sub> buffer, interpolated so that strained Ge (x = 0) has ΔE<sub>V</sub> ≈ 0.15 eV to the buffer; and H-terminated diamond with its valence-band maximum at 4.2 eV below vacuum. SiN (χ ≈ 2.1 eV, ε<sub>r</sub> 7.5) and Al<sub>2</sub>O<sub>3</sub> (χ ≈ 1.0 eV, ε<sub>r</sub> 9) are gate dielectrics. A p-doped Al<sub>2</sub>O<sub>3</sub> layer is a sheet of fixed negative charge, which stands in for the surface acceptors of transfer-doped diamond. At a dielectric/nitride interface the polarization charge is assumed to be compensated by interface donors, so no sheet appears there. Strain shifts of band gaps and the light-hole band are not included.</p>
+    <p>Other channels: β-(Al<sub>x</sub>Ga<sub>1−x</sub>)<sub>2</sub>O<sub>3</sub> with ΔE<sub>C</sub> ≈ 2x eV and m* ≈ 0.28 against Ga<sub>2</sub>O<sub>3</sub>; Si<sub>x</sub>Ge<sub>1−x</sub> on a relaxed Si<sub>0.2</sub>Ge<sub>0.8</sub> buffer, interpolated so that strained Ge (x = 0) has ΔE<sub>V</sub> ≈ 0.15 eV to the buffer; and H-terminated diamond with its valence-band maximum at 4.2 eV below vacuum. Al<sub>x</sub>In<sub>1−x</sub>Sb uses E<sub>g</sub>(InSb) = 0.17 eV, a valence-band offset of 0.41x eV and, for layers grown on a relaxed Al<sub>0.35</sub>In<sub>0.65</sub>Sb buffer, the biaxial-strain shifts described in the laser tab. SiN (χ ≈ 2.1 eV, ε<sub>r</sub> 7.5), SiO<sub>2</sub> (χ ≈ 0.95 eV, ε<sub>r</sub> 3.9) and Al<sub>2</sub>O<sub>3</sub> (χ ≈ 1.0 eV, ε<sub>r</sub> 9) are gate dielectrics. A p-doped Al<sub>2</sub>O<sub>3</sub> layer is a sheet of fixed negative charge, which stands in for the surface acceptors of transfer-doped diamond. At a dielectric/nitride interface the polarization charge is assumed to be compensated by interface donors, so no sheet appears there. Strain shifts of band gaps and the light-hole band are not included.</p>
 
     <h4>2 · Electrostatics and the quantized channel</h4>
     <p>Poisson's equation, d/dz(ε dφ/dz) = −q[p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup>] + dP/dz, is solved by Newton iteration on a mesh refined to 0.1 nm at interfaces. The Schottky gate fixes E<sub>C</sub> = E<sub>F,gate</sub> + qφ<sub>B</sub> at the surface. In the layers ticked Q, electrons obey the BenDaniel–Duke equation,</p>
     <div class="eq"><span>−<span class="fr"><span>ħ²</span><span>2</span></span><span class="fr"><span>d</span><span>dz</span></span>(<span class="fr"><span>1</span><span>m*(z)</span></span><span class="fr"><span>dψ</span><span>dz</span></span>) + E<sub>C</sub>(z)ψ = Eψ, &nbsp; n<sub>s</sub> = Σ<sub>i</sub> <span class="fr"><span>m*kT</span><span>πħ²</span></span>ln(1 + e<sup>(E<sub>F</sub> − E<sub>i</sub>)/kT</sup>)</span><span class="eqn">(2)</span></div>
     <p>and the two equations are iterated to self-consistency. The channel quasi-Fermi level is tied to the source (E<sub>F</sub> = 0); holes near the surface follow the gate, so no spurious hole inversion forms. In a p-GaN gate the hole quasi-Fermi level of the p-GaN and the barrier equals the gate's, as for an ohmic p-GaN contact.</p>
-    <p>For the p-channel exemplars the roles swap: holes are tied to the source, electrons near the gate follow the gate, and the heavy-hole band is quantized with the same equation (E<sub>C</sub> → −E<sub>V</sub>, m* → m<sub>hh</sub>), giving p<sub>s</sub> = Σ<sub>j</sub> (m<sub>hh</sub>kT/πħ²) ln(1 + e<sup>(E<sub>j</sub> − E<sub>F</sub>)/kT</sup>). Only one hole band is used; light and split-off holes, and the strong non-parabolicity of the 2DHG, are not.</p>
+    <p>For the p-channel exemplars the roles swap: holes are tied to the source, electrons near the gate follow the gate (and so do holes in an undoped gate barrier, as in the HIGFET), and the heavy-hole band is quantized with the same equation (E<sub>C</sub> → −E<sub>V</sub>, m* → m<sub>hh</sub>), giving p<sub>s</sub> = Σ<sub>j</sub> (m<sub>hh</sub>kT/πħ²) ln(1 + e<sup>(E<sub>j</sub> − E<sub>F</sub>)/kT</sup>). Only one hole band is used; light and split-off holes, and the strong non-parabolicity of the 2DHG, are not.</p>
 
     <h4>3 · Charge control</h4>
     <p>Above threshold the 2DEG and the gate form a parallel-plate capacitor,</p>
@@ -435,8 +435,8 @@ svg .modet{fill:var(--ef)}
 
     <h4>1 · Bands, strain and the operating point</h4>
     <p>The forward bias is applied as flat quasi-Fermi levels, E<sub>Fn</sub> − E<sub>Fp</sub> = qV, across the whole stack, which is accurate when the claddings block minority leakage. Poisson's equation and the BenDaniel–Duke equation for electrons and heavy holes (the layers ticked Q) are solved self-consistently, so injected carriers screen built-in fields, which matters for polar InGaN wells. Light holes are found on the converged potential. Biaxial strain in a well grown on a different lattice constant shifts the heavy-hole gap and splits the light holes off:</p>
-    <div class="eq"><span>ΔE<sub>g,hh</sub> ≈ 5.5 ε, &nbsp; E<sub>hh</sub> − E<sub>lh</sub> ≈ 7 ε &nbsp; (ε &gt; 0 compressive)</span><span class="eqn">(1)</span></div>
-    <p>These are lumped deformation potentials for III–V arsenides and phosphides. Compressive strain puts the heavy holes on top and lightens their in-plane mass, which lowers the density needed for gain. The warning badge flags wells thicker than an approximate critical thickness 0.4 nm/ε.</p>
+    <div class="eq"><span>ΔE<sub>g,hh</sub> ≈ K ε, &nbsp; E<sub>hh</sub> − E<sub>lh</sub> ≈ 7 ε &nbsp; (ε &gt; 0 compressive)</span><span class="eqn">(1)</span></div>
+    <p>These are lumped deformation potentials: K = 5.5 eV for most arsenides and phosphides, falling to K ≈ 5.5 − 6x eV for In<sub>x</sub>Ga<sub>1−x</sub>As on GaAs because InAs has smaller deformation potentials; this reproduces 976 nm emission from In<sub>0.18</sub> wells and ≈ 1.24 µm from In<sub>0.45</sub> wells. Compressive strain puts the heavy holes on top and lightens their in-plane mass, which lowers the density needed for gain. The warning badge flags wells thicker than an approximate critical thickness 0.4 nm/ε.</p>
 
     <h4>2 · Optical gain</h4>
     <p>For each electron subband i and hole subband j, with envelope overlap O<sub>ij</sub> = |⟨ψ<sub>e,i</sub>|ψ<sub>h,j</sub>⟩|², reduced in-plane mass m<sub>r</sub> and Kane energy E<sub>p</sub>, the modal gain is</p>
@@ -551,7 +551,7 @@ const FAMS={
       const Nc=NC0*(meG**1.5*Math.exp(-(EcG-Ec)/kT)+mX**1.5*Math.exp(-(EcX-Ec)/kT));
       return {Ec,EcG,Ev,Eg,EgG,er:12.9-2.84*x,meG,mhC:0.35+0.12*x,Nc,Nv:NC0*(0.51+0.25*x)**1.5,Pz:0,Ed:0.006+0.04*x,Ea:0.027+0.02*x,ind:EgX<EgG,Brad:EgX<EgG?1e-12:2e-10*(1-1.2*x),Cau:1e-30,tau:5e-9,Ep:28.8-7.7*x,mhp:0.15,mlh:0.082+0.07*x}}},
   InGaAs:{name:'InₓGa₁₋ₓAs (on GaAs)',x:[0,0.5],lab:x=>x<=0?'GaAs':`In${sub(fx(x))}Ga${sub(fx(1-x))}As`,
-    eps:x=>0.0716*x/(1+0.0716*x),
+    eps:x=>0.0716*x/(1+0.0716*x),kg:x=>5.5-6*x, // hh-gap strain coefficient falls with In content (InAs has smaller deformation potentials)
     prop(x){const Eg=1.424-1.53*x+0.45*x*x,Ec=-4.07-0.65*(1.424-Eg),Ev=Ec-Eg,meG=0.067-0.044*x;
       return {Ec,EcG:Ec,Ev,Eg,EgG:Eg,er:12.9+2.25*x,meG,mhC:0.35,Nc:NC0*meG**1.5,Nv:NC0*(0.51-0.1*x)**1.5,Pz:0,Ed:0.006,Ea:0.028,ind:false,Brad:1.5e-10,Cau:3e-30,tau:5e-9,Ep:28.8-7.3*x,mhp:0.11,mlh:0.082-0.05*x}}},
   AlGaN:{name:'AlₓGa₁₋ₓN (on GaN)',x:[0,1],lab:x=>x<=0?'GaN':`Al${sub(fx(x))}Ga${sub(fx(1-x))}N`,
@@ -583,6 +583,12 @@ const FAMS={
     prop(x){const Ev=-4.60-0.75*x,Eg=0.6+1.75*x,mh=0.2+0.1*x;return {Ec:Ev+Eg,EcG:Ev+Eg,Ev,Eg,EgG:Eg,er:16.2-4.5*x,meG:0.2,mhC:mh,Nc:1.0e19,Nv:NC0*(0.3+0.2*x)**1.5,Pz:0,Ed:0.012,Ea:0.011+0.02*x,ind:true,Brad:1e-14}}},
   Dia:{name:'Diamond (H-terminated surface)',fixed:true,x:[0,0],lab:()=>'diamond',
     prop(){const Ev=-4.2,Eg=5.47;return {Ec:Ev+Eg,EcG:Ev+Eg,Ev,Eg,EgG:Eg,er:5.7,meG:0.57,mhC:0.6,Nc:1e20,Nv:NC0*0.8**1.5,Pz:0,Ed:0.6,Ea:0.37,ind:true,Brad:1e-14}}},
+  AlInSb:{name:'AlₓIn₁₋ₓSb (on relaxed Al₀.₃₅In₀.₆₅Sb)',x:[0,0.6],lab:x=>x<=0?'InSb':`Al${sub(fx(x))}In${sub(fx(1-x))}Sb`,
+    eps:x=>0.343*(0.35-x)/6.359,
+    prop(x){const Eg=0.17*(1-x)+2.30*x-0.43*x*(1-x),Ev=-4.76-0.41*x,meG=0.014+0.126*x;
+      return {Ec:Ev+Eg,EcG:Ev+Eg,Ev,Eg,EgG:Eg,er:16.8-4.8*x,meG,mhC:0.3,Nc:NC0*meG**1.5,Nv:NC0*0.4**1.5,Pz:0,Ed:0.002,Ea:0.01,ind:false,Brad:1e-10,mhp:0.1,mlh:0.016+0.1*x}}},
+  SiO2:{name:'SiO₂ (dielectric)',fixed:true,ins:true,x:[0,0],lab:()=>'SiO₂',
+    prop(){const Ec=-0.95,Eg=9.0;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:3.9,meG:0.5,mhC:1,Nc:2e19,Nv:2e19,Pz:0,Ed:0,Ea:0,fullIon:true,ind:false,Brad:0}}},
   SiN:{name:'SiN (dielectric)',fixed:true,ins:true,x:[0,0],lab:()=>'SiN',
     prop(){const Ec=-2.1,Eg=5.3;return {Ec,EcG:Ec,Ev:Ec-Eg,Eg,EgG:Eg,er:7.5,meG:0.5,mhC:1,Nc:2e19,Nv:2e19,Pz:0,Ed:0,Ea:0,fullIon:true,ind:false,Brad:0}}},
   Al2O3:{name:'Al₂O₃ (dielectric; p = fixed negative charge)',fixed:true,ins:true,x:[0,0],lab:()=>'Al₂O₃',
@@ -610,7 +616,7 @@ function nref(f,x,E){const F=FAMS[f],p=F.prop(x);
   if(f==='InGaAsP'||f==='InP'){const y=f==='InP'?0:x;return mso(3.391-1.652*y+0.863*y*y-0.123*y**3,28.91-9.278*y+5.626*y*y)}
   if(f==='InGaAsInP'||f==='InAlAs')return mso(2.479+(p.Eg-0.75),25.26);
   if(f==='AlGaN'||f==='InGaN'||f==='AlGaNN')return mso(6.55+0.9*(p.Eg-3.42),27.8);
-  if(F.ins)return f==='SiN'?2.0:1.65;
+  if(F.ins)return f==='SiN'?2.0:f==='SiO2'?1.45:1.65;
   return Math.sqrt(p.er)}
 const compAt=(ly,dz)=>ly.x2==null||ly.x2===''?+ly.x:+ly.x+(+ly.x2-+ly.x)*Math.min(Math.max(dz/ly.t,0),1);
 
@@ -631,7 +637,7 @@ function build(layers){
     const hmin=Math.min(0.1,t/8),hmax=t>3000?t/150:Math.min(4,Math.max(t/12,0.2)),r=t>3000?1.12:1.15;
     const half=[];let acc=0,h=hmin;while(acc<t/2-1e-9){half.push(h);acc+=h;h=Math.min(h*r,hmax)}
     const st=half.concat(half.slice().reverse()),s=st.reduce((a,b)=>a+b,0);
-    const F=FAMS[ly.f],stn=ly.s&&F.eps?(p,x)=>{const e=F.eps(x);return {...p,Ec:p.Ec+4.5*e,EcG:p.EcG+4.5*e,Ev:p.Ev-1.0*e,Eg:p.Eg+5.5*e,EgG:p.EgG+5.5*e,dlh:7*e,epsc:e}}:p=>p; // biaxial strain: hydrostatic + shear shifts of the hh gap; lh split by 7ε
+    const F=FAMS[ly.f],stn=ly.s&&F.eps?(p,x)=>{const e=F.eps(x),K=F.kg?F.kg(x):5.5;return {...p,Ec:p.Ec+0.8*K*e,EcG:p.EcG+0.8*K*e,Ev:p.Ev-0.2*K*e,Eg:p.Eg+K*e,EgG:p.EgG+K*e,dlh:7*e,epsc:e}}:p=>p; // biaxial strain: hydrostatic + shear shifts of the hh gap; lh split by 7ε
     let zz=z0;for(const hh of st){const za=zz,zb=zz+hh*t/s;zz=zb;const xa=compAt(ly,za-z0),xb=compAt(ly,zb-z0);
       const pa=stn(shp(F.prop(xa),sh),xa),pb=stn(shp(F.prop(xb),sh),xb);
       E.push({li,za,zb,h:zb-za,pa,pb,eps:(pa.er+pb.er)/2*EPS0,Pz:(pa.Pz+pb.Pz)/2,d:ly.d,N:ly.d==='i'?0:+ly.N,me:(pa.meG+pb.meG)/2,mh:(pa.mhC+pb.mhC)/2,ml:((pa.mlh||pa.mhC*0.25)+(pb.mlh||pb.mhC*0.25))/2});z.push(zb)}
@@ -828,7 +834,7 @@ function gummel(S,phi,EFn,EFp,info,EL,ER,cfg){
 function run(S,cfg,warm){
   const info=biasInfo(S.layers,cfg.contact);
   const V=info.mode==='bipolar'||info.mode==='unipolar'||info.mode==='oled'?cfg.V:0;
-  const {EFn,EFp,EL,ER}=info.mode==='gate'?{EFn:cfg.pch?Float64Array.from(S.z,z=>z<cfg.pch-1e-9?-cfg.VG:0):new Float64Array(S.nn),EFp:cfg.pch?new Float64Array(S.nn):cfg.ptie?Float64Array.from(S.z,z=>z<cfg.ptie-1e-9?-cfg.VG:0):Float64Array.from(S.z,z=>-cfg.VG*(1-z/S.len)),EL:0,ER:0}:qfl(S,info,V);
+  const {EFn,EFp,EL,ER}=info.mode==='gate'?{EFn:cfg.pch?Float64Array.from(S.z,z=>z<cfg.pch-1e-9?-cfg.VG:0):new Float64Array(S.nn),EFp:cfg.pch?(cfg.ptie?Float64Array.from(S.z,z=>z<cfg.ptie-1e-9?-cfg.VG:0):new Float64Array(S.nn)):cfg.ptie?Float64Array.from(S.z,z=>z<cfg.ptie-1e-9?-cfg.VG:0):Float64Array.from(S.z,z=>-cfg.VG*(1-z/S.len)),EL:0,ER:0}:qfl(S,info,V);
   const nn=S.nn,E=S.E;
   let phi;
   if(warm&&warm.length===nn)phi=Float64Array.from(warm);
@@ -923,7 +929,7 @@ return {FAMS,build,run,genProfile,transmission,tsuEsaki,biasInfo,windowOf,schr,s
 const {FAMS,build,run,transmission,tsuEsaki,biasInfo,windowOf,compAt}=HS;
 const $=id=>document.getElementById(id);
 const kT=VT;
-const Ly=(f,x,t,d,N,q,x2)=>({f,x,x2:x2==null?'':x2,t,d,N:N||0,q:!!q});
+const Ly=(f,x,t,d,N,q,x2)=>({f,x,x2:x2==null?'':x2,t,d,N:N||0,q:!!q}),Ls=(...a)=>({...Ly(...a),s:1}); // Ls: strained layer (pseudomorphic shifts applied)
 const HP=[
  {name:'GaAs pHEMT · AlGaAs/InGaAs',cat:'2DEG · pHEMT',contact:'gate',phiB:0.8,VG:0,vg:[-1.6,0.6],fig5:'tr',
   tr:{Lg:150,mu:6500,vsat:1.5,Rs:0.35,Cp:0.15,VDS:2,VDSmax:3},
@@ -953,8 +959,14 @@ const HP=[
   tr:{Lg:700,mu:170,vsat:1.0,Rs:5,Cp:0.3,VDS:10,VDSmax:20},
   layers:[Ly('AlGaO',0.18,20,'i',0,0),Ly('AlGaO',0.18,2,'n',2e19,0),Ly('AlGaO',0.18,4.5,'i',0,1),Ly('AlGaO',0,300,'n',1e15,1)],view:[0,70],about:''},
  {name:'GaN/AlN p-channel HEMT (2DHG)',cat:'2DHG · polarization',contact:'gate',phiB:1.0,pch:1,hq:1,VG:0,vg:[-2,6],fig5:'tr',
-  tr:{Lg:200,mu:20,vsat:0.4,Rs:15,Cp:0.3,VDS:10,VDSmax:15},
-  layers:[Ly('AlGaN',0,13,'i',0,1),Ly('AlGaN',1,10,'i',0,1),Ly('AlGaN',1,290,'i',0,0)],view:[0,40],about:''},
+  tr:{Lg:120,mu:15,vsat:0.45,Rs:9,Cp:0.05,VDS:10,VDSmax:12},
+  layers:[Ly('AlGaN',0,15,'i',0,1),Ly('AlGaN',1,10,'i',0,1),Ly('AlGaN',1,490,'i',0,0)],view:[0,40],about:''},
+ {name:'InSb/AlInSb p-channel quantum-well FET',cat:'2DHG · antimonide',contact:'gate',phiB:0.65,pch:1,hq:1,VG:0,vg:[-0.5,0.4],fig5:'tr',
+  tr:{Lg:40,mu:1230,vsat:0.7,Rs:0.8,Cp:0.15,VDS:0.5,VDSmax:1},
+  layers:[Ls('AlInSb',0.35,4,'i',0,0),Ls('AlInSb',0.35,1,'p',3e19,1),Ls('AlInSb',0.35,5,'i',0,1),Ls('AlInSb',0,5,'i',0,1),Ls('AlInSb',0.35,300,'n',1e15,0)],view:[0,40],about:''},
+ {name:'AlGaAs/InGaAs p-channel HIGFET · complementary GaAs',cat:'2DHG · undoped, gate-induced',contact:'gate',phiB:1.0,pch:1,ptie:25,hq:1,VG:-1.2,vg:[-1.7,0.3],fig5:'tr',
+  tr:{Lg:800,mu:600,vsat:0.8,Rs:1.0,Cp:0.2,VDS:2,VDSmax:3},
+  layers:[Ly('AlGaAs',0.75,25,'i',0,0),Ly('InGaAs',0.25,10,'i',0,1),Ly('AlGaAs',0,500,'n',1e15,0)],view:[0,60],about:''},
  {name:'Strained Ge/SiGe hole quantum well',cat:'2DHG · modulation-doped',contact:'gate',phiB:0.7,pch:1,hq:1,VG:0,vg:[-0.15,0.8],fig5:'tr',
   tr:{Lg:100,mu:2500,vsat:0.6,Rs:1.0,Cp:0.2,VDS:1,VDSmax:2},
   layers:[Ly('SiGe',0.2,20,'i',0,1),Ly('SiGe',0.2,2,'p',1e19,1),Ly('SiGe',0.2,10,'i',0,1),Ly('SiGe',0,16,'i',0,1),Ly('SiGe',0.2,300,'n',1e15,0)],view:[0,80],about:''},
@@ -1018,7 +1030,7 @@ function viewRange(R){
   if(R.win){const pad=Math.max(10,0.2*(R.win.zb-R.win.za));return [Math.max(0,R.win.za-pad),Math.min(len,R.win.zb+pad)]}
   return [0,len];
 }
-const famColor=f=>({AlGaAs:'lyA',InGaAs:'lyB',AlGaN:'lyC',AlGaNN:'lyC',InGaN:'lyD',InAlN:'lyB',ScAlN:'lyE',AlGaO:'lyD',SiGe:'lyA',InGaAsInP:'lyB',InAlAs:'lyA',InP:'lyC',SiN:'lyF',Al2O3:'lyF',ITO:'lyF',ITOt:'lyF',ITOo:'lyF',cSi:'lyA',aSi:'lyB',MAPI:'lyD'}[f]||(FAMS[f].metal?'lyG':'lyE'));
+const famColor=f=>({AlGaAs:'lyA',InGaAs:'lyB',AlGaN:'lyC',AlGaNN:'lyC',InGaN:'lyD',InAlN:'lyB',ScAlN:'lyE',AlGaO:'lyD',SiGe:'lyA',InGaAsInP:'lyB',InAlAs:'lyA',InP:'lyC',SiN:'lyF',Al2O3:'lyF',SiO2:'lyF',AlInSb:'lyD',ITO:'lyF',ITOt:'lyF',ITOo:'lyF',cSi:'lyA',aSi:'lyB',MAPI:'lyD'}[f]||(FAMS[f].metal?'lyG':'lyE'));
 const isMetalEl=(S,e)=>!!FAMS[S.layers[S.E[e].li].f].metal;
 const isMetalNode=(S,i)=>(i===0||isMetalEl(S,i-1))&&(i===S.ne||isMetalEl(S,i));
 function shadeLayers(R,xs,top,bot,v0,v1,labels){
@@ -1294,7 +1306,7 @@ function drawTr(R,k){const d=nsTab(),T=HSt.tr,sg=sgV(),pc=sg<0,car=pc?'p':'n';if
     $('hf5').innerHTML=plotXY({x:pc?[-g1,-g0]:[g0,g1],y:[0,Imx*1.12||1],ylab:`${mI} (mA/mm)`,xlab:'gate voltage V_GS (volts) →',y2:{r:[0,(gpk[1]||1)*1.15],lab:'g_m (mS/mm)'},
       series:[{pts:P,cls:'iv'},{pts:G,cls:'ivn',right:true}],leg:[['iv',`${pc?'hole current −I_D':'drain current'} at V_DS = ${vds} V`],['ivn','transconductance g_m (right axis)']],dot:[HSt.VG,M.I(u0,T.VDS)*100],label:'Transfer characteristic'});
     const fpk=M.fT(gpk[0],T.VDS)/1e9;
-    $('hf5kv').innerHTML=kvs([[`${mI} at V_GS, V_DS`,`${(M.I(u0,T.VDS)*100).toFixed(0)} mA/mm`],['Peak g_m',`${gpk[1].toFixed(0)} mS/mm at V_GS = ${fv(gpk[0])} V`],[pc?'Pinch-off (extrapolated at peak g_m)':'Threshold (extrapolated at peak g_m)',`${fv(Vth)} V`],['f_T at peak g_m',`≈ ${fpk.toFixed(fpk<10?1:0)} GHz`],['Velocity-limited f_T = v_sat/2πL_g',`${(T.vsat*1e7/(2*Math.PI*T.Lg*1e-7)/1e9).toFixed(0)} GHz`]])}
+    $('hf5kv').innerHTML=kvs([[`${mI} at V_GS, V_DS`,`${(M.I(u0,T.VDS)*100).toFixed(0)} mA/mm`],['Peak g_m',`${gpk[1].toFixed(0)} mS/mm at V_GS = ${fv(gpk[0])} V`],[pc?'Threshold / pinch-off (extrapolated at peak g_m)':'Threshold (extrapolated at peak g_m)',`${fv(Vth)} V`],['f_T at peak g_m',`≈ ${fpk.toFixed(fpk<10?1:0)} GHz`],['Velocity-limited f_T = v_sat/2πL_g',`${(T.vsat*1e7/(2*Math.PI*T.Lg*1e-7)/1e9).toFixed(0)} GHz`]])}
   else{const us=[];const nC=5;for(let i=0;i<nC;i++)us.push(g1-(g1-g0)*0.18*i);const ser=[];let mx=0;
     const curve=u=>{const pts=[];for(let i=0;i<=40;i++){const x=T.VDSmax*(i/40)**1.6;const y=M.I(u,x)*100;pts.push([x,y]);mx=Math.max(mx,y)}return pts};
     for(const u of us)if(Math.abs(u-u0)>0.04*(g1-g0))ser.push({pts:curve(u),cls:'iv',lab:`V_GS = ${fv(u)} V`});
@@ -1395,9 +1407,9 @@ function drawF5Sweep(){const R=lastR;if(!R)return;const k=HSt.fig5;
   $('hf5').innerHTML=k==='ns'?drawNsCV(sweep.kind===k?sweep.data:null,cur):hdrawSweep(k,sweep.kind===k?sweep.data:null,cur);
   if(k==='ns'&&sweep.done&&sweep.data.length>3){const d=nsTab()||sweep.data;let best=0,bi=1;for(let i=1;i<d.length;i++){const s=(d[i][1]-d[i-1][1])/(d[i][0]-d[i-1][0]);if(s>best){best=s;bi=i}}
     const Vth=d[bi][0]-d[bi][1]/best;$('hf5kv').innerHTML=kvs([['n_s at V_G',`${sci(R.nsW)} cm⁻²`],['Threshold (linear extrapolation)',`${f2(Vth)} V`],['Max dn_s/dV_G',`${sci(best)} cm⁻²/V`],['Gate capacitance q·dn_s/dV_G',`${(Q*best*1e9).toFixed(1)} nF/cm²`]])}
-  if(k==='ps'&&sweep.done&&sweep.data.length>3){const d=sweep.data.filter(p=>p[0]>=-1e-9);let n=0,sx=0,sy=0,sxx=0,sxy=0;for(const [x,y] of d){if(y<=0)continue;n++;sx+=x;sy+=y;sxx+=x*x;sxy+=x*y}
+  if(k==='ps'&&sweep.done&&sweep.data.length>3){const pm=Math.max(...sweep.data.map(p=>p[1])),d=sweep.data.filter(p=>p[1]>0.15*pm&&p[1]<0.85*pm); /* linear region of p_s(V_G) */ let n=0,sx=0,sy=0,sxx=0,sxy=0;for(const [x,y] of d){if(y<=0)continue;n++;sx+=x;sy+=y;sxx+=x*x;sxy+=x*y}
     const sl=n>1?(n*sxy-sx*sy)/(n*sxx-sx*sx):0,ic=n?(sy-sl*sx)/n:0,Vth=sl<0?-ic/sl:NaN,mx=Math.max(...sweep.data.map(p=>p[0]));
-    $('hf5kv').innerHTML=kvs([['p_s at V_G',`${sci(R.psW)} cm⁻²`],['Pinch-off (linear extrapolation)',isFinite(Vth)?`+${Vth.toFixed(1)} V${Vth>mx?' (beyond sweep)':''}`:'—'],['dp_s/dV_G',`${sci(sl)} cm⁻²/V`],['Gate capacitance q·|dp_s/dV_G|',`${(Q*Math.abs(sl)*1e9).toFixed(0)} nF/cm²`],[`Sheet resistance at μ_p = ${HSt.tr?HSt.tr.mu:10} cm²/V·s`,`${(1/(Q*R.psW*(HSt.tr?HSt.tr.mu:10))/1e3).toFixed(2)} kΩ/□`]])}
+    $('hf5kv').innerHTML=kvs([['p_s at V_G',`${sci(R.psW)} cm⁻²`],['Threshold / pinch-off (linear extrapolation)',isFinite(Vth)?`${Vth>=0?'+':'−'}${Math.abs(Vth).toFixed(2)} V${Vth>mx?' (beyond sweep)':''}`:'—'],['dp_s/dV_G',`${sci(sl)} cm⁻²/V`],['Gate capacitance q·|dp_s/dV_G|',`${(Q*Math.abs(sl)*1e9).toFixed(0)} nF/cm²`],[`Sheet resistance at μ_p = ${HSt.tr?HSt.tr.mu:10} cm²/V·s`,`${(1/(Q*R.psW*(HSt.tr?HSt.tr.mu:10))/1e3).toFixed(2)} kΩ/□`]])}
   if(k==='JV'&&sweep.done){const d=sweep.data;let pk=0,pi=0;d.forEach((p,i)=>{if(p[1]>pk){pk=p[1];pi=i}});let vl=pk,vi=pi;for(let i=pi;i<d.length;i++)if(d[i][1]<vl){vl=d[i][1];vi=i}
     $('hf5kv').innerHTML=kvs([['Peak current',`${sci(pk)} A/cm² at ${f2(d[pi][0])} V`],['Valley current',`${sci(vl)} A/cm² at ${f2(d[vi][0])} V`],['Peak-to-valley ratio (coherent)',vl>0?sci(pk/vl):'—']])}}
 const kvs=items=>items.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
@@ -1531,7 +1543,8 @@ const isWell=(S)=>{const L=S.layers,q=L.map((l,i)=>l.q?i:-1).filter(i=>i>=0);if(
 
 /* operating point: flat quasi-Fermi levels split by V, self-consistent electron and heavy-hole subbands, light holes post hoc */
 function opPoint(S,V,warm,nst){
-  const R=run(S,{contact:'ohmic',V,sp:true,nst:nst||12,tol:1e-4,maxOuter:90,hq:true},warm);
+  if(!nst){if(S._nst==null)S._nst=Math.min(24,Math.max(12,isWell(S).length+8));nst=S._nst}
+  const R=run(S,{contact:'ohmic',V,sp:true,nst,tol:1e-4,maxOuter:90,hq:true},warm);
   R.lst=R.win&&!S.layers.some(l=>FAMS[l.f].prop(0).wz)?schr(S,R.phi,R.win.i0,R.win.i1,'l',6):[];
   const i=Math.round((R.win.i0+R.win.i1)/2);R.Fn=R.EFn[i];R.Fp=R.EFp[i];return R;
 }
@@ -1597,10 +1610,19 @@ const kT=VT;
 const Ly=(f,x,t,d,N,q,x2)=>({f,x,x2:x2==null?'':x2,t,d,N:N||0,q:!!q,s:1});
 const MQW=(n,w,b)=>{const o=[b];for(let k=0;k<n;k++){o.push(w,b)}return o.map(l=>({...l}))};
 const LP=[
- {name:'976 nm InGaAs/AlGaAs pump laser',cat:'Strained QW · high power',V:1.30,gam:0.0066,
+ {name:'976 nm InGaAs/AlGaAs pump laser',cat:'Strained QW · high power',V:1.29,gam:0.0066,
   cav:{L:4000,W:95,R1:0.01,R2:0.98,ai:1,ei:0.95},
   layers:[Ly('AlGaAs',0.3,1200,'p',1e18),Ly('AlGaAs',0.1,150,'i'),...MQW(1,Ly('InGaAs',0.18,8,'i',0,1),Ly('AlGaAs',0,10,'i',0,1)),Ly('AlGaAs',0.1,150,'i'),Ly('AlGaAs',0.3,1200,'n',1e18)]},
- {name:'1550 nm InGaAs/InGaAsP MQW telecom laser',cat:'Strained MQW · InP',V:0.825,gam:0.0066,
+ {name:'1.24 µm highly strained InGaAs/GaAs MQW laser',cat:'Strained MQW · O-band edge',V:1.017,gam:0.0066,
+  cav:{L:1000,W:50,R1:0.32,R2:0.32,ai:3,ei:0.85},
+  layers:[Ly('AlGaAs',0.3,1500,'p',1e18),Ly('AlGaAs',0,100,'i'),...MQW(3,Ly('InGaAs',0.45,7,'i',0,1),Ly('AlGaAs',0,20,'i',0,1)),Ly('AlGaAs',0,100,'i'),Ly('AlGaAs',0.3,1500,'n',1e18)]},
+ {name:'1.53 µm InGaAs/InP MQW laser · binary + ternary',cat:'Lattice-matched MQW · InP',V:0.915,gam:0.0066,
+  cav:{L:380,W:50,R1:0.32,R2:0.32,ai:15,ei:0.75},
+  layers:[Ly('InP',0,1500,'p',1e18),Ly('InP',0,50,'i'),...MQW(4,Ly('InGaAsInP',0.53,7,'i',0,1),Ly('InP',0,15,'i',0,1)),Ly('InP',0,50,'i'),Ly('InP',0,1500,'n',1e18)]},
+ {name:'1.52 µm InGaAs/InAlAs MQW laser · all ternary',cat:'Lattice-matched MQW · InP',V:0.843,gam:0.0066,
+  cav:{L:380,W:50,R1:0.32,R2:0.32,ai:15,ei:0.75},
+  layers:[Ly('InAlAs',0,1500,'p',1e18),Ly('InAlAs',0,14,'i',0,1),...MQW(8,Ly('InGaAsInP',0.53,9,'i',0,1),Ly('InAlAs',0,6,'i',0,1)).slice(1),Ly('InAlAs',0,14,'i',0,1),Ly('InAlAs',0,1500,'n',1e18)]},
+ {name:'1550 nm InGaAs/InGaAsP MQW telecom laser',cat:'Strained MQW · InP · quaternary SCH',V:0.828,gam:0.0066,
   cav:{L:300,W:2,R1:0.32,R2:0.32,ai:15,ei:0.75},
   layers:[Ly('InP',0,1500,'p',1e18),Ly('InGaAsP',0.45,100,'i'),...MQW(5,Ly('InGaAsInP',0.6,5,'i',0,1),Ly('InGaAsP',0.6,10,'i',0,1)),Ly('InGaAsP',0.45,100,'i'),Ly('InP',0,1500,'n',1e18)]},
  {name:'450 nm InGaN/GaN blue laser diode',cat:'Polar QW · nitride',V:2.82,gam:0.025,
@@ -1867,9 +1889,25 @@ b:`<p>GaN power chips need complementary logic (CMOS-like gate drivers on the sa
 <p>Here the polarization sheet at the GaN/AlN interface is negative, about −5.4×10¹³ cm⁻², and it pulls in more than 4×10¹³ holes/cm².</p>
 <p class="lk"><b>Look for:</b> The hole subbands hh1, hh2 (blue) in the valence-band well in Fig. 2 and the negative ▼ sheet in Fig. 4. Fig. 5 plots −I<sub>D</sub> against V<sub>GS</sub>, the usual way to show p-channel devices.</p>
 <p class="lk"><b>Try:</b> Push V<sub>G</sub> to +6 V. The channel still holds more than 2×10¹³ holes: turning this transistor off is the hard part.</p>`,
-a:`<p>13 nm undoped GaN / AlN, Ga-polar, with the holes treated by self-consistent Schrödinger–Poisson on the heavy-hole band (m* ≈ 1.1). At V<sub>G</sub> = 0 the solution gives p<sub>s</sub> ≈ 4.4×10¹³ cm⁻², nearly all in hh1 (94 meV above E<sub>F</sub>), and fields near 10 MV/cm in the GaN. Chaudhuri <i>et al.</i> measured ≈ 5×10¹³ cm⁻² with μ ≈ 20 cm²/V·s at 300 K. The sheet resistance is ≈ 7 kΩ/□, about twenty times an AlGaN/GaN 2DEG.</p>
-<p>With L<sub>g</sub> = 200 nm and R<sub>s</sub> = 15 Ω·mm (ohmic contacts to p-GaN are poor), the model gives |I<sub>D</sub>| ≈ 0.43 A/mm at V<sub>GS</sub> = −2 V, g<sub>m</sub> ≈ 40 mS/mm, and the channel is still far from empty at +6 V: the p<sub>s</sub> sweep extrapolates to pinch-off near +11 V. The large positive turn-off voltage is a real problem: devices reach it by recessing the GaN under the gate or using thinner channels, at the cost of p<sub>s</sub>. Gate leakage under strong positive bias is not modeled.</p>
-<p class="lk"><b>Explore:</b> Thin the GaN channel to 8 nm: p<sub>s</sub> drops and the pinch-off voltage moves toward zero. Read: <a href="https://doi.org/10.1126/science.aau8623" target="_blank" rel="noopener">Chaudhuri <i>et al.</i>, Science 365, 1454 (2019)</a>.</p>`},
+a:`<p>15 nm undoped GaN on AlN, Ga-polar, following the Cornell–Intel device of Nomoto <i>et al.</i> (IEDM 2020). The holes are treated by self-consistent Schrödinger–Poisson on the heavy-hole band (m* ≈ 1.1). At V<sub>G</sub> = 0 the solution gives p<sub>s</sub> ≈ 4.5×10¹³ cm⁻², nearly all in hh1 (98 meV above E<sub>F</sub>), and fields near 10 MV/cm in the GaN. Measured densities are 5–6×10¹³ cm⁻² with μ ≈ 10–20 cm²/V·s at 300 K (Chaudhuri <i>et al.</i>, 2019), a sheet resistance near 10 kΩ/□, roughly twenty times an AlGaN/GaN 2DEG.</p>
+<p>With L<sub>g</sub> = 120 nm, μ = 15 cm²/V·s and R<sub>s</sub> = R<sub>d</sub> = 9 Ω·mm, the model gives R<sub>on</sub> ≈ 19 Ω·mm, |I<sub>D</sub>| ≈ 0.49 A/mm at V<sub>GS</sub> = 0, V<sub>DS</sub> = −10 V, g<sub>m</sub> ≈ 57 mS/mm and f<sub>T</sub> ≈ 13 GHz. The measured device reached 428 mA/mm, R<sub>on</sub> = 18.6 Ω·mm, 66 mS/mm and f<sub>T</sub>/f<sub>max</sub> ≈ 20/23 GHz, the first GaN p-channel FETs in the gigahertz range. Its heavily Mg-doped InGaN cap under the contacts is what brings R<sub>on</sub> down. The channel is still far from empty at +6 V; the p<sub>s</sub> sweep extrapolates to pinch-off beyond +10 V. Turning these devices off is the open problem: recessing the GaN under the gate gives enhancement mode, at a large cost in current (Bader <i>et al.</i>, 2018). Gate leakage under strong positive bias is not modeled.</p>
+<p class="lk"><b>Explore:</b> Thin the GaN channel to 8 nm: p<sub>s</sub> drops and the pinch-off voltage moves toward zero. Read: <a href="https://doi.org/10.1126/science.aau8623" target="_blank" rel="noopener">Chaudhuri <i>et al.</i>, Science 365, 1454 (2019)</a>; <a href="https://djena.engineering.cornell.edu/papers-new/2020/nomoto2020gan.pdf" target="_blank" rel="noopener">Nomoto <i>et al.</i>, IEDM 2020</a>; <a href="https://arxiv.org/abs/1809.04012" target="_blank" rel="noopener">Bader <i>et al.</i>, arXiv:1809.04012</a>.</p>`},
+'InSb/AlInSb p-channel quantum-well FET':{
+b:`<p>Silicon logic is limited by how fast holes move: p-channel transistors are always the slower half of CMOS. Indium antimonide has the lightest carriers of any common semiconductor, and squeezing a thin InSb layer makes its holes lighter still. In 2009 Intel and the UK QinetiQ team built a 40 nm-gate InSb p-channel transistor that switched as fast as a silicon one at about a tenth of the power.</p>
+<p>The channel is a 5 nm InSb well between Al<sub>0.35</sub>In<sub>0.65</sub>Sb barriers, which are wider in gap but still narrow by most standards (≈ 0.8 eV). Beryllium dopants in the upper barrier supply about 10¹² holes/cm². Because InSb's lattice is 1.9 % larger than the barrier's, the well is compressed, which lifts the heavy holes and lightens them.</p>
+<p class="lk"><b>Look for:</b> The shallow valence-band well in Fig. 2 (only ≈ 0.14 eV deep) and how little gate voltage it takes to empty it (Fig. 5).</p>
+<p class="lk"><b>Try:</b> Slide V<sub>G</sub> from −0.5 to +0.3 V: the whole on–off swing fits in well under a volt, which is the point of a low-power logic transistor.</p>`,
+a:`<p>4 nm Al<sub>0.35</sub>In<sub>0.65</sub>Sb / 1 nm Be-doped layer (3×10¹² cm⁻²) / 5 nm spacer / 5 nm InSb well under 1.9 % biaxial compression / relaxed Al<sub>0.35</sub>In<sub>0.65</sub>Sb buffer, giving the 10 nm gate-to-channel spacing of the published device. Band parameters: E<sub>g</sub>(InSb) = 0.17 eV, a 0.41x eV valence-band offset to AlSb, and the strain shifts of the laser tab. At V<sub>G</sub> = 0 the solution gives p<sub>s</sub> ≈ 8×10¹¹ cm⁻² with hh1 46 meV below E<sub>F</sub> (non-degenerate) and pinch-off near +0.1 V. Below about −0.2 V the Be-doped layer starts to hold holes of its own.</p>
+<p>With L<sub>g</sub> = 40 nm, μ = 1230 cm²/V·s (the measured value), an effective v<sub>sat</sub> = 0.7×10⁷ cm/s and R<sub>s</sub> = 0.8 Ω·mm, the model gives peak g<sub>m</sub> ≈ 520 mS/mm and f<sub>T</sub> ≈ 130 GHz at |V<sub>DS</sub>| = 0.5 V. The measured device reached 510 µS/µm (= mS/mm) and f<sub>T</sub> = 140 GHz (Radosavljevic <i>et al.</i>, IEDM 2009). The narrow gaps bring large gate and band-to-band leakage, and the large lattice mismatch to Si or GaAs substrates is why InSb never left the research lab; (In)GaSb channels on AlGaSb are the follow-on route to III–V p-channel logic.</p>
+<p class="lk"><b>Explore:</b> Raise the barrier Al fraction to 0.45 and compare the well depth and p<sub>s</sub>. Read: <a href="https://compoundsemiconductor.net/article/85215/InSb_speeds_up_p-channel_MOSFETs" target="_blank" rel="noopener">Compound Semiconductor news summary of the 2009 device</a>.</p>`},
+'AlGaAs/InGaAs p-channel HIGFET · complementary GaAs':{
+b:`<p>In the late 1980s Honeywell and Motorola built <b>complementary GaAs</b> (CGaAs) logic: n- and p-channel heterostructure FETs side by side on one GaAs chip, for fast, low-power circuits in space and military systems. The p-channel half used the same layers as the n-channel half: an undoped InGaAs well under a high-aluminium AlGaAs "insulator", with no dopants in the channel at all.</p>
+<p>Holes come in from the p⁺ source and drain only when the gate pulls them: this transistor is <b>normally off</b> and turns on at about −1 V. The well is pseudomorphic InGaAs, whose compressive strain lightens the holes.</p>
+<p class="lk"><b>Look for:</b> At V<sub>G</sub> = −1.2 V the hole states in Fig. 2 drop toward E<sub>F</sub> and the well fills. At 0 V the channel is empty.</p>
+<p class="lk"><b>Try:</b> Move V<sub>G</sub> to 0 and back to −1.6 V, then switch Fig. 5 to the transfer curve to read the threshold.</p>`,
+a:`<p>25 nm Al<sub>0.75</sub>Ga<sub>0.25</sub>As / 10 nm undoped In<sub>0.25</sub>Ga<sub>0.75</sub>As / GaAs, with a refractory-metal gate (qφ<sub>B</sub> ≈ 1 eV to the AlGaAs conduction band). Near the gate the hole quasi-Fermi level follows the gate, so the high-Al barrier does not invert at its surface. ΔE<sub>V</sub> ≈ 0.52 eV to the barrier. The solution gives a threshold between −0.65 V (from the p<sub>s</sub> sweep) and −1.0 V (extrapolated at peak g<sub>m</sub>) and C<sub>g</sub> ≈ 370 nF/cm² once the well fills; beyond about −1.8 V holes spill into the barrier and the sweep stops.</p>
+<p>With L<sub>g</sub> = 0.8 µm, μ = 600 cm²/V·s and R<sub>s</sub> = 1 Ω·mm, the model gives g<sub>m</sub> ≈ 107 mS/mm and ≈ 70 mA/mm at V<sub>GS</sub> = −1.7 V. Ruden <i>et al.</i> (Honeywell, 1988) reported 113 mS/mm, 94 mA/mm and a field-effect hole mobility of 860 cm²/V·s at 300 K for 0.8 µm gates, then a record for p-channel III–V FETs. Holes stay roughly ten times slower than the electrons of the matching n-channel FET, which set the speed of complementary GaAs and limited it to niche applications. The p<sup>+</sup> implanted source and drain and their resistance are lumped into R<sub>s</sub>.</p>
+<p class="lk"><b>Explore:</b> Raise the In fraction to 0.3 and watch for the critical-thickness warning; then lower qφ<sub>B</sub> and see the threshold move. Read: P. P. Ruden <i>et al.</i>, IEEE Trans. Electron Devices 35, 2440 (1988).</p>`},
 'Strained Ge/SiGe hole quantum well':{
 b:`<p>A thin germanium layer grown on Si<sub>0.2</sub>Ge<sub>0.8</sub> is squeezed (compressively strained). The strain makes its holes light along the layer, and the room-temperature hole mobility reaches several thousand cm²/V·s, the highest of any group-IV material. The same heterostructure, cooled to millikelvin temperatures, holds the hole-spin qubits that several quantum-computing groups are developing.</p>
 <p>Boron dopants in the SiGe above the well give up their holes, which drop into the germanium. The valence-band step is small (≈ 0.15 eV), so the well holds only about 10¹² holes/cm².</p>
@@ -1893,9 +1931,33 @@ b:`<p>A diode laser is a forward-biased p–n junction built to do two jobs at o
 <p>The well only amplifies light once enough current has been pushed in. The gain has to beat two losses: absorption and scattering inside the chip, and the light that leaves through the mirrors (which is the useful output). The current at which gain equals loss is the <b>threshold</b>. Above it, nearly every extra electron becomes a photon.</p>
 <p class="lk"><b>Look for:</b> The optical mode in Fig. 1 centred on the well, and the two quasi-Fermi levels in Fig. 2, one inside each band. In Fig. 3 the gain spectrum just touches the loss line; in Fig. 5 the light switches on at the threshold current.</p>
 <p class="lk"><b>Try:</b> Lower E<sub>Fn</sub> − E<sub>Fp</sub> to 1.25 eV and watch the gain turn into absorption (Fig. 3). Then shorten the cavity to 1 mm: the mirror loss rises and so does the threshold.</p>`,
-a:`<p>Separate-confinement heterostructure: Al<sub>0.3</sub>Ga<sub>0.7</sub>As claddings (1.2 µm, 10¹⁸ cm⁻³), 150 nm Al<sub>0.1</sub>Ga<sub>0.9</sub>As waveguide layers and one 8 nm In<sub>0.18</sub>Ga<sub>0.82</sub>As well between GaAs barriers. The well is under 1.3 % biaxial compression; strain raises its heavy-hole gap by ≈ 70 meV and splits light holes ≈ 90 meV below the heavy holes, so e1–hh1 is at 969 nm and e1–lh1 at 913 nm. Compression also lightens the in-plane hole mass, which lowers the transparency density (Adams; Yablonovitch &amp; Kane, 1986). The fundamental TE mode has n<sub>eff</sub> ≈ 3.40 and Γ ≈ 2.1 %.</p>
-<p>For a 4 mm × 95 µm broad-area emitter with R<sub>1</sub> = 1 %, R<sub>2</sub> = 98 % and α<sub>i</sub> = 1 cm⁻¹, α<sub>m</sub> ≈ 5.8 cm⁻¹. Threshold is reached at E<sub>Fn</sub> − E<sub>Fp</sub> ≈ 1.302 eV with ≈ 1.3×10¹² electrons/cm² in the well, giving J<sub>th</sub> ≈ 100 A/cm², I<sub>th</sub> ≈ 0.38 A, λ ≈ 965 nm and 1.04 W/A, in line with commercial 9xx nm emitters (J<sub>th</sub> ≈ 100–200 A/cm², 1.0–1.2 W/A). Real devices roll over at several watts per emitter from heating and facet damage, which this model leaves out. The low α<sub>i</sub> comes from the thick, lightly doped waveguide that keeps the mode out of the doped claddings.</p>
+a:`<p>Separate-confinement heterostructure: Al<sub>0.3</sub>Ga<sub>0.7</sub>As claddings (1.2 µm, 10¹⁸ cm⁻³), 150 nm Al<sub>0.1</sub>Ga<sub>0.9</sub>As waveguide layers and one 8 nm In<sub>0.18</sub>Ga<sub>0.82</sub>As well between GaAs barriers. The well is under 1.3 % biaxial compression; strain raises its heavy-hole gap by ≈ 55 meV and splits light holes ≈ 90 meV below the heavy holes, so e1–hh1 is at 979 nm and e1–lh1 at 920 nm. Compression also lightens the in-plane hole mass, which lowers the transparency density (Adams; Yablonovitch &amp; Kane, 1986). The fundamental TE mode has n<sub>eff</sub> ≈ 3.40 and Γ ≈ 2.0 %.</p>
+<p>For a 4 mm × 95 µm broad-area emitter with R<sub>1</sub> = 1 %, R<sub>2</sub> = 98 % and α<sub>i</sub> = 1 cm⁻¹, α<sub>m</sub> ≈ 5.8 cm⁻¹. Threshold is reached at E<sub>Fn</sub> − E<sub>Fp</sub> ≈ 1.29 eV with ≈ 1.3×10¹² electrons/cm² in the well, giving J<sub>th</sub> ≈ 96 A/cm², I<sub>th</sub> ≈ 0.36 A, λ ≈ 974 nm and 1.03 W/A, in line with commercial 9xx nm emitters (J<sub>th</sub> ≈ 100–200 A/cm², 1.0–1.2 W/A). Real devices roll over at several watts per emitter from heating and facet damage, which this model leaves out. The low α<sub>i</sub> comes from the thick, lightly doped waveguide that keeps the mode out of the doped claddings.</p>
 <p class="lk"><b>Explore:</b> Raise the In fraction to 0.22 and track e1–hh1 toward 1030 nm (Yb pumping) and the strain warning. Thin the Al<sub>0.1</sub> layers to 50 nm: Γ falls, threshold rises. Read: Coldren, Corzine &amp; Mašanović, <i>Diode Lasers and Photonic Integrated Circuits</i>, ch. 2 and 4.</p>`},
+'1.24 µm highly strained InGaAs/GaAs MQW laser':{
+b:`<p>Data-centre links and short fibre runs use the O-band around 1.3 µm, where standard fibre has zero dispersion. Lasers there are normally grown on InP, but GaAs wafers are cheaper and allow the AlGaAs mirrors used in vertical-cavity lasers. The trick is to put as much indium as possible into InGaAs wells on GaAs: about 40 %, which stretches the wavelength to roughly 1.2 µm.</p>
+<p>InGaAs with that much indium has a lattice 3 % larger than GaAs, so the wells are under heavy compression. They only survive if kept thin (≈ 7 nm) and grown carefully; too thick and the strain relaxes through dislocations that kill the laser. Only binaries and ternaries are used: GaAs, InGaAs and AlGaAs.</p>
+<p class="lk"><b>Look for:</b> Three deep wells in Fig. 2, and the light-hole states pushed so far down by the strain that they no longer appear near E<sub>Fp</sub>.</p>
+<p class="lk"><b>Try:</b> Raise the well thickness to 15 nm and watch the strain warning appear.</p>`,
+a:`<p>Three 7 nm In<sub>0.45</sub>Ga<sub>0.55</sub>As wells (3.1 % compressive) with 20 nm GaAs barriers in a 100 nm GaAs waveguide and Al<sub>0.3</sub>Ga<sub>0.7</sub>As claddings. The In fraction is set slightly above the ≈ 0.4 of the published structures so that the model, with its lumped strain coefficients, lases at the measured ≈ 1.24 µm. Γ ≈ 4.9 % for the three wells; light holes sit ≈ 0.2 eV below the heavy holes.</p>
+<p>For a 1 mm × 50 µm broad-area device with cleaved facets and α<sub>i</sub> = 3 cm⁻¹ the model gives J<sub>th</sub> ≈ 200 A/cm² (≈ 67 A/cm² per well), I<sub>th</sub> ≈ 100 mA and λ ≈ 1237 nm. Sundgren <i>et al.</i> (KTH, 2005) reported under 70 A/cm² per well at 1240 nm for up to five such wells grown by MOVPE at low temperature and high V/III ratio. Going further, to 1.3 µm, needs dilute nitrides (GaInNAs) or InAs quantum dots, both outside this tab's binary/ternary set.</p>
+<p class="lk"><b>Explore:</b> Add a fourth and fifth well and compare J<sub>th</sub> and Γ. Read: P. Sundgren <i>et al.</i>, Appl. Phys. Lett. 87, 071104 (2005).</p>`},
+'1.53 µm InGaAs/InP MQW laser · binary + ternary':{
+b:`<p>The simplest way to reach the 1.55 µm telecom band uses just two materials on an InP wafer: In<sub>0.53</sub>Ga<sub>0.47</sub>As wells, which match InP's lattice, and InP itself for the barriers and claddings. Bell Labs made this laser by molecular-beam epitaxy in 1984, among the first quantum-well lasers at the telecom wavelength.</p>
+<p>With no intermediate-index layers, the waveguide is formed only by the wells themselves, which are slightly higher in index than InP. That gives a weak guide and a small confinement factor, so the threshold current density is high.</p>
+<p class="lk"><b>Look for:</b> The weak index step in Fig. 1 (four thin spikes) and the broad mode that spills into the InP claddings.</p>
+<p class="lk"><b>Try:</b> Thicken the two 50 nm undoped InP layers next to the wells, or replace them with InGaAsP (Advanced), and see what a proper waveguide does to Γ and J<sub>th</sub>.</p>`,
+a:`<p>Four 7 nm In<sub>0.53</sub>Ga<sub>0.47</sub>As wells and five 15 nm InP barriers between InP claddings, all lattice-matched. ΔE<sub>C</sub> ≈ 0.25 eV and ΔE<sub>V</sub> ≈ 0.35 eV; e1–hh1 ≈ 1526 nm at threshold. The only index contrast is the wells themselves (n ≈ 3.55 against 3.17), so Γ ≈ 2.0 % for all four wells, half of what the quaternary-guide 1550 nm exemplar gets from five thinner wells.</p>
+<p>For a 380 µm × 50 µm broad-area device with cleaved facets and α<sub>i</sub> = 15 cm⁻¹ the model gives J<sub>th</sub> ≈ 2.9 kA/cm² at λ ≈ 1494 nm. The 1984 Bell Labs device (4 × 7 nm wells, 15 nm InP barriers) reached J<sub>th</sub> = 2.7 kA/cm² at 1.53 µm with T<sub>0</sub> ≈ 45 K. The difference in wavelength reflects band filling at this high threshold density and the model's lattice-matched band edges. The low T<sub>0</sub> comes from Auger recombination and leakage over the shallow conduction-band step, the reason later designs moved to InGaAsP and AlGaInAs guides.</p>
+<p class="lk"><b>Explore:</b> Double the number of wells and compare. Read: Bell Labs, "Ga<sub>0.47</sub>In<sub>0.53</sub>As/InP multiquantum well heterostructure lasers grown by molecular beam epitaxy operating at 1.53 µm" (1984).</p>`},
+'1.52 µm InGaAs/InAlAs MQW laser · all ternary':{
+b:`<p>A telecom laser built entirely from ternary alloys lattice-matched to InP: In<sub>0.53</sub>Ga<sub>0.47</sub>As wells and In<sub>0.52</sub>Al<sub>0.48</sub>As barriers and claddings. Both alloys are easy to grow by molecular-beam epitaxy (no phosphorus), the same pair used in InP HEMTs. This design comes from a 1983 Bell Labs patent.</p>
+<p>The InAlAs barriers give a much deeper conduction-band well than InP, which holds electrons better, and eight 9 nm wells make a thick active region with a large confinement factor.</p>
+<p class="lk"><b>Look for:</b> Eight wells in Fig. 2 with a deep conduction-band step (≈ 0.5 eV) and a shallow valence-band step, the opposite split to InGaAs/InP. Compare Γ in Fig. 1 with the InGaAs/InP laser.</p>
+<p class="lk"><b>Try:</b> Thin the barriers from 6 nm to 2 nm: the wells couple and the subbands spread into minibands.</p>`,
+a:`<p>Eight 9 nm In<sub>0.53</sub>Ga<sub>0.47</sub>As wells with 6 nm In<sub>0.52</sub>Al<sub>0.48</sub>As barriers inside InAlAs claddings. ΔE<sub>C</sub> ≈ 0.52 eV and ΔE<sub>V</sub> ≈ 0.20 eV. The 120 nm active stack gives Γ ≈ 11 %. At threshold e1–hh1 ≈ 1587 nm and the gain peak, pushed up by band filling, lies at ≈ 1523 nm.</p>
+<p>For a 380 µm × 50 µm broad-area device with cleaved facets and α<sub>i</sub> = 15 cm⁻¹ the model gives J<sub>th</sub> ≈ 1.2 kA/cm², I<sub>th</sub> ≈ 230 mA and λ ≈ 1523 nm. The patent's MBE lasers (8–13 wells of 9–12 nm, 3–12 nm barriers) lased near 1.52 µm with broad-area thresholds of 2.4–7 kA/cm²; the model's lower value omits leakage, interface roughness and the 1980s material quality. The weak valence-band step lets holes pile up unevenly across the wells (see the hole densities in the band diagram's wells), a known drawback of InGaAs/InAlAs active regions.</p>
+<p class="lk"><b>Explore:</b> Cut to four wells and compare Γ and J<sub>th</sub>. Read: K. Alavi, A. Y. Cho, T. P. Pearsall and H. Temkin, "Multi-quantum well laser emitting at 1.5 µm," US Patent 4,599,728 (1986).</p>`},
 '1550 nm InGaAs/InGaAsP MQW telecom laser':{
 b:`<p>Light at 1550 nm travels farther in optical fibre than any other wavelength, so this is the colour of long-distance internet links. The lasers are grown on indium phosphide: five 5 nm InGaAs wells separated by InGaAsP barriers, in an InGaAsP waveguide between InP claddings.</p>
 <p>The chip is short (300 µm) and its ends are just the cleaved crystal, which reflects about a third of the light. That gives a large mirror loss, so several wells are needed to supply enough gain. Narrow-gap materials also lose many electrons to <b>Auger recombination</b>, which is why these lasers need about ten times the current density of the 976 nm pump laser.</p>
@@ -1925,11 +1987,16 @@ const TAKE={'tab-hs':{
 'N-polar GaN deep-recess HEMT · W band':'Upside-down GaN: the barrier is below the channel and the gate sits right on it, the design behind the 94 GHz power record. Compare the layer order in Fig. 2.',
 'β-(AlGa)₂O₃/Ga₂O₃ MODFET':'An ultra-wide-gap oxide HEMT: a small band offset and slow electrons limit it to ≈10¹² electrons/cm² and tens of mA/mm. See e1 above E_F in Fig. 2.',
 'GaN/AlN p-channel HEMT (2DHG)':'Polarization at GaN/AlN gathers ≈4×10¹³ holes/cm² with no doping: the p-channel needed for GaN CMOS. See the hole subbands in Fig. 2.',
+'InSb/AlInSb p-channel quantum-well FET':'A compressed InSb well gives light, fast holes: ≈520 mS/mm and f<sub>T</sub> ≈ 130 GHz at a 40 nm gate with under a volt of swing. See the shallow hole well in Fig. 2.',
+'AlGaAs/InGaAs p-channel HIGFET · complementary GaAs':'An undoped InGaAs well that the gate fills with holes: normally off, on near −1 V, the p-channel half of complementary GaAs logic. Compare Fig. 2 at 0 and −1.2 V.',
 'Strained Ge/SiGe hole quantum well':'Strain makes holes in Ge light and fast; the 0.15 eV valence-band step holds ≈10¹² holes/cm². See hh1 in Fig. 2 and the doped layer at negative V_G.',
 'H-terminated diamond MOSFET (2DHG)':'Negative charge at the oxide pulls ≈1.7×10¹³ holes/cm² into diamond\'s surface: transfer doping instead of dopants. See the 2DHG against the oxide in Fig. 2.'
 },
 'tab-ls':{
 '976 nm InGaAs/AlGaAs pump laser':'One strained InGaAs well inside a broad AlGaAs waveguide: ≈100 A/cm² threshold and ≈1 W/A. Start with the gain spectrum touching the loss line (Fig. 3), then Fig. 5.',
+'1.24 µm highly strained InGaAs/GaAs MQW laser':'Pushing indium to ≈40 % in thin, heavily strained wells stretches a GaAs-based laser to ≈1.24 µm with only ≈67 A/cm² per well. See the deep wells in Fig. 2.',
+'1.53 µm InGaAs/InP MQW laser · binary + ternary':'Only InGaAs and InP: the wells themselves form a weak waveguide, so Γ is small and the threshold high (≈2.9 kA/cm²). Compare Fig. 1 with the 1550 nm exemplar.',
+'1.52 µm InGaAs/InAlAs MQW laser · all ternary':'An all-ternary telecom laser: InAlAs gives a deep electron well, and eight wells give Γ ≈ 11 %. Compare the band offsets in Fig. 2 with InGaAs/InP.',
 '1550 nm InGaAs/InGaAsP MQW telecom laser':'Five wells supply the gain that a short, uncoated chip needs; Auger losses push the threshold to ≈1.2 kA/cm². Compare Γ in Fig. 1 with the 976 nm laser.',
 '450 nm InGaN/GaN blue laser diode':'Polarization tilts the InGaN wells; injected carriers screen it and shift the emission blue. See Fig. 2 and the e1–hh1 readout as you raise the injection.'}
 };

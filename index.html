@@ -442,6 +442,7 @@ svg .modet{fill:var(--ef)}
     <p>For each electron subband i and hole subband j, with envelope overlap O<sub>ij</sub> = |⟨ψ<sub>e,i</sub>|ψ<sub>h,j</sub>⟩|², reduced in-plane mass m<sub>r</sub> and Kane energy E<sub>p</sub>, the modal gain is</p>
     <div class="eq"><span>Γg(ħω) = Σ<sub>ij</sub> <span class="fr"><span>q²</span><span>ε<sub>0</sub>ħc</span></span><span class="fr"><span>E<sub>p</sub> F<sub>pol</sub> m<sub>r</sub></span><span>n<sub>r</sub> ħω</span></span> O<sub>ij</sub> Ī<sub>ij</sub> ∫ [f<sub>c</sub>(E′) − f<sub>v</sub>(E′)] L(ħω − E′) dE′</span><span class="eqn">(2)</span></div>
     <p>where Ī<sub>ij</sub> is the mode intensity averaged over the pair (normalized so ∫|E|²dz = 1), F<sub>pol</sub> = 1/4 for TE heavy holes, 1/12 for TE and 1/3 for TM light holes, and L is a sech line shape of width ħ/τ<sub>in</sub>. Gain appears where f<sub>c</sub> &gt; f<sub>v</sub>, which needs E<sub>Fn</sub> − E<sub>Fp</sub> to exceed the transition energy (Bernard–Duraffourg). Heavy holes give TE gain and light holes mostly TM, which is why compressive wells lase TE.</p>
+    <p>A thick active layer (a classic double heterostructure, marked as a bulk active layer) has no subbands: its gain uses the 3D joint density of states, g(ħω) ∝ Σ<sub>hh,lh</sub> (E<sub>p</sub>/6) m<sub>r</sub><sup>3/2</sup> √(ħω − E<sub>g</sub>) [f<sub>c</sub> − f<sub>v</sub>], with the same prefactor and line shape as equation (2), multiplied by that layer's confinement factor. Bulk gain is unpolarized, so TE and TM coincide.</p>
 
     <h4>3 · Waveguide</h4>
     <p>The fundamental TE mode of the layer stack solves d²E/dz² + k<sub>0</sub>²n²(z)E = β²E (finite differences, largest eigenvalue). Indices come from the Afromowitz model for (Al,In)GaAs, the Broberg–Lindgren single oscillator for InGaAsP/InP, and a single oscillator fitted to GaN, AlN and InGaN near 450 nm. The confinement factor Γ is the share of |E|² inside the wells.</p>
@@ -1538,15 +1539,21 @@ window.__H={HSt,HP,loadPreset,hupdateNow,get R(){return lastR},get sweep(){retur
 window.LZ=(function(){
 const {FAMS,build,run,schr,compAt,nref}=HS;
 const kT=VT,ALPHA4PI=0.091701; // q²/(ε0 ħ c) = 4π α_fs
-const isWell=(S)=>{const L=S.layers,q=L.map((l,i)=>l.q?i:-1).filter(i=>i>=0);if(!q.length)return [];
-  const eg=i=>{const l=L[i];return FAMS[l.f].prop(compAt(l,+l.t/2)).Eg};const mn=Math.min(...q.map(eg));return q.filter(i=>eg(i)<mn+0.06)};
+const bulkAct=S=>S.layers.map((l,i)=>l.b?i:-1).filter(i=>i>=0); // thick (bulk) active layers of a double heterostructure
+const isWell=(S)=>{const L=S.layers,q=L.map((l,i)=>l.q?i:-1).filter(i=>i>=0),b=bulkAct(S);if(!q.length)return b;
+  const eg=i=>{const l=L[i];return FAMS[l.f].prop(compAt(l,+l.t/2)).Eg};const mn=Math.min(...q.map(eg));return q.filter(i=>eg(i)<mn+0.06).concat(b)};
+const midNode=(S,li)=>{const l=S.layers[li],zc=l.z0+ +l.t/2;let k=0;while(k<S.nn-1&&S.z[k]<zc)k++;return k};
+/* lowest transition energy: e1–hh1 of the quantum region, or the band gap at the centre of a bulk active layer */
+function edge(S,R){const c=[];if(R.est&&R.est[0]&&R.hst&&R.hst[0])c.push(R.est[0].E-R.hst[0].E);
+  for(const li of bulkAct(S)){const k=midNode(S,li),p=S.E[Math.min(k,S.ne-1)].pa;c.push(p.EcG-p.Ev)}return c.length?Math.min(...c):1}
 
 /* operating point: flat quasi-Fermi levels split by V, self-consistent electron and heavy-hole subbands, light holes post hoc */
 function opPoint(S,V,warm,nst){
   if(!nst){if(S._nst==null)S._nst=Math.min(24,Math.max(12,isWell(S).length+8));nst=S._nst}
   const R=run(S,{contact:'ohmic',V,sp:true,nst,tol:1e-4,maxOuter:90,hq:true},warm);
   R.lst=R.win&&!S.layers.some(l=>FAMS[l.f].prop(0).wz)?schr(S,R.phi,R.win.i0,R.win.i1,'l',6):[];
-  const i=Math.round((R.win.i0+R.win.i1)/2);R.Fn=R.EFn[i];R.Fp=R.EFp[i];return R;
+  if(!R.win){R.est=R.est||[];R.hst=R.hst||[]}
+  const i=R.win?Math.round((R.win.i0+R.win.i1)/2):(bulkAct(S).length?midNode(S,bulkAct(S)[0]):0);R.Fn=R.EFn[i];R.Fp=R.EFp[i];return R;
 }
 /* node weights (nm) and the layer property at a node */
 function wts(S){if(S._w)return S._w;const w=new Float64Array(S.nn);for(let e=0;e<S.ne;e++){w[e]+=S.E[e].h/2;w[e+1]+=S.E[e].h/2}S._w=w;return w}
@@ -1572,17 +1579,24 @@ function mode(S,E){
 /* modal gain spectrum (cm⁻¹), TE and TM, from the subband pairs of an operating point */
 function gain(S,R,M,o){o=o||{};const g=o.gam||0.0066,w=wts(S),win=R.win,ME=0.0;
   const e=R.est,h=R.hst.map(s=>({...s,k:'h'})).concat((R.lst||[]).map(s=>({...s,k:'l'})));
-  const pairs=[];let Emin=Infinity;
-  for(const a of e)for(const b of h){let ov=0,Ib=0,pk=0,ip=win.i0;for(let i=win.i0;i<=win.i1;i++){ov+=a.psi[i]*b.psi[i]*w[i];Ib+=M.Inode[i]*(a.psi2[i]+b.psi2[i])/2*w[i];const q=a.psi2[i]*b.psi2[i];if(q>pk){pk=q;ip=i}}
+  const pairs=[],bulk=[];let Emin=Infinity;
+  for(const li of bulkAct(S)){const l=S.layers[li],k=midNode(S,li),p=S.E[Math.min(k,S.ne-1)].pa,Ec=p.EcG-R.phi[k],Ev=p.Ev-R.phi[k];let G=0;
+    for(let i=0;i<S.nn;i++)if(S.z[i]>=l.z0-1e-9&&S.z[i]<=l.z0+ +l.t+1e-9)G+=M.Inode[i]*w[i]*1e-7; // confinement factor of this layer
+    const me=p.meG,bands=[[p.mhC,0],[p.mlh||0.09,p.dlh||0]];bulk.push({Ec,Ev,G,me,bands,Ep:p.Ep||20,nr:nref(l.f,compAt(l,+l.t/2),Ec-Ev)});Emin=Math.min(Emin,Ec-Ev)}
+  for(const a of (win?e:[]))for(const b of h){let ov=0,Ib=0,pk=0,ip=win.i0;for(let i=win.i0;i<=win.i1;i++){ov+=a.psi[i]*b.psi[i]*w[i];Ib+=M.Inode[i]*(a.psi2[i]+b.psi2[i])/2*w[i];const q=a.psi2[i]*b.psi2[i];if(q>pk){pk=q;ip=i}}
     const O=ov*ov;if(O<1e-3)continue;const p=propAt(S,ip),mh=b.k==='h'?(p.mhp||p.mhC):(p.mlh||0.09),me=a.m,mr=me*mh/(me+mh),E0=a.E-b.E;
     const fTE=b.k==='h'?0.25:1/12,fTM=b.k==='h'?0:1/3;pairs.push({a,b,O,Ib,mr,me,mh,E0,Ep:p.Ep||20,fTE,fTM,ip,k:b.k});Emin=Math.min(Emin,E0)}
-  if(!pairs.length)return null;
+  if(!pairs.length&&!bulk.length)return null;
   const dE=0.001,E0=Emin-0.12,E1=Emin+(o.span||0.35),N=Math.round((E1-E0)/dE)+1,Es=Float64Array.from({length:N},(_,k)=>E0+k*dE);
   const raw=[new Float64Array(N),new Float64Array(N)],Fn=R.Fn,Fp=R.Fp;
   for(const P of pairs){const nr=nref(S.layers[S.E[Math.min(P.ip,S.ne-1)].li].f,compAt(S.layers[S.E[Math.min(P.ip,S.ne-1)].li],S.z[P.ip]-S.layers[S.E[Math.min(P.ip,S.ne-1)].li].z0),P.E0);
     const base=ALPHA4PI*P.Ep*P.mr/nr*P.O*P.Ib; // × fac/E × (fc − fv)
     for(let k=Math.max(0,Math.ceil((P.E0-E0)/dE));k<N;k++){const x=Es[k]-P.E0,Ee=P.a.E+x*P.mr/P.me,Eh=P.b.E-x*P.mr/P.mh;
       const fc=1/(1+Math.exp((Ee-Fn)/kT)),fv=1/(1+Math.exp((Eh-Fp)/kT)),v=base*(fc-fv);raw[0][k]+=v*P.fTE;raw[1][k]+=v*P.fTM}}
+  // bulk active layers: 3D joint density of states, polarization-averaged |M|² = m0Ep/6 per hole band (unpolarized gain)
+  for(const B of bulk)for(const [mh,dl] of B.bands){const mr=B.me*mh/(B.me+mh),Eg=B.Ec-B.Ev+dl,base=B.G*ALPHA4PI*B.Ep/6/B.nr*1.63e7*mr**1.5;
+    for(let k=Math.max(0,Math.ceil((Eg-E0)/dE));k<N;k++){const x=Es[k]-Eg,Ee=B.Ec+x*mr/B.me,Eh=B.Ev-dl-x*mr/mh;
+      const v=base*Math.sqrt(x)*(1/(1+Math.exp((Ee-Fn)/kT))-1/(1+Math.exp((Eh-Fp)/kT)));raw[0][k]+=v;raw[1][k]+=v}}
   // sech line shape (intraband relaxation ħ/τ_in), then ÷ photon energy
   const K=Math.ceil(12*g/dE),ker=[];let ks=0;for(let j=-K;j<=K;j++){const v=1/Math.cosh(j*dE/g);ker.push(v);ks+=v}
   const out=[new Float64Array(N),new Float64Array(N)];
@@ -1599,7 +1613,7 @@ const alphaM=c=>Math.log(1/(c.R1*c.R2))/(2*c.L*1e-4);
 function threshold(sw,c){const loss=c.ai+alphaM(c);for(let i=1;i<sw.length;i++){const a=sw[i-1],b=sw[i];if(a.G<loss&&b.G>=loss){const t=(loss-a.G)/(b.G-a.G),lj=Math.log(a.J)+t*(Math.log(b.J)-Math.log(a.J));return {J:Math.exp(lj),V:a.V+t*(b.V-a.V),E:a.Epk+t*(b.Epk-a.Epk),loss,i}}}return {J:null,loss}}
 function LI(th,c){if(!th.J)return null;const am=alphaM(c),eta=c.ei*am/(c.ai+am),F1=(1-c.R1)/((1-c.R1)+Math.sqrt(c.R1/c.R2)*(1-c.R2)),A=c.L*1e-4*c.W*1e-4,Ith=th.J*A,hv=th.E;
   return {Ith,eta,F1,slope:eta*hv*F1,A,P:I=>I>Ith?eta*hv*F1*(I-Ith):0,am}}
-return {opPoint,mode,gain,recomb,threshold,LI,alphaM,isWell};
+return {opPoint,mode,gain,recomb,threshold,LI,alphaM,isWell,edge};
 })();
 </script>
 <script>
@@ -1619,6 +1633,9 @@ const LP=[
  {name:'1.53 µm InGaAs/InP MQW laser · binary + ternary',cat:'Lattice-matched MQW · InP',V:0.915,gam:0.0066,
   cav:{L:380,W:50,R1:0.32,R2:0.32,ai:15,ei:0.75},
   layers:[Ly('InP',0,1500,'p',1e18),Ly('InP',0,50,'i'),...MQW(4,Ly('InGaAsInP',0.53,7,'i',0,1),Ly('InP',0,15,'i',0,1)),Ly('InP',0,50,'i'),Ly('InP',0,1500,'n',1e18)]},
+ {name:'1.65 µm InGaAs/InP double heterostructure · bulk active layer',cat:'Double heterostructure · bulk',V:0.766,gam:0.0066,
+  cav:{L:380,W:50,R1:0.32,R2:0.32,ai:15,ei:0.7},
+  layers:[{...Ly('InP',0,2000,'p',1e18),s:0},{...Ly('InGaAsInP',0.53,600,'i'),b:true},{...Ly('InP',0,2000,'n',1e18),s:0}]},
  {name:'1.52 µm InGaAs/InAlAs MQW laser · all ternary',cat:'Lattice-matched MQW · InP',V:0.843,gam:0.0066,
   cav:{L:380,W:50,R1:0.32,R2:0.32,ai:15,ei:0.75},
   layers:[Ly('InAlAs',0,1500,'p',1e18),Ly('InAlAs',0,14,'i',0,1),...MQW(8,Ly('InGaAsInP',0.53,9,'i',0,1),Ly('InAlAs',0,6,'i',0,1)).slice(1),Ly('InAlAs',0,14,'i',0,1),Ly('InAlAs',0,1500,'n',1e18)]},
@@ -1636,7 +1653,7 @@ let S=null,Skey=null,M=null,warm=null,sw={key:null,data:[],done:false,th:null,gt
 /* ---------- table ---------- */
 const OK=['AlGaAs','InGaAs','InGaAsInP','InGaAsP','InAlAs','InP','AlGaN','InGaN'];
 const famOpts=sel=>OK.map(k=>`<option value="${k}" ${k===sel?'selected':''}>${FAMS[k].name}</option>`).join('');
-function layerLabel(l){const F=FAMS[l.f];const g=l.x2!==''&&l.x2!=null&&+l.x2!==+l.x;const nm=F.fixed?F.lab():g?`${F.lab(+l.x)} → ${F.lab(+l.x2)}`:F.lab(+l.x);return nm+(l.d==='i'?' · undoped':` · ${l.d} ${sci(+l.N)}`)}
+function layerLabel(l){const F=FAMS[l.f];const g=l.x2!==''&&l.x2!=null&&+l.x2!==+l.x;const nm=F.fixed?F.lab():g?`${F.lab(+l.x)} → ${F.lab(+l.x2)}`:F.lab(+l.x);return nm+(l.d==='i'?' · undoped':` · ${l.d} ${sci(+l.N)}`)+(l.b?' · bulk active layer':'')}
 function drawTable(){
   const rows=St.layers.map((l,i)=>{const F=FAMS[l.f];return `<tr data-i="${i}"><td class="num">${i+1}</td>
     <td><select data-k="f" aria-label="Layer ${i+1} material">${famOpts(l.f)}</select></td>
@@ -1664,12 +1681,12 @@ function onTable(e){const tr=e.target.closest('tr');if(!tr)return;const i=+tr.da
 const skey=()=>JSON.stringify(St.layers);
 const cav=()=>({...St.cav});
 function ensure(){const k=skey();if(k===Skey&&S)return false;S=build(clone(St.layers));Skey=k;warm=null;
-  const R0=LZ.opPoint(S,St.V,null);warm=R0.phi;const E0=R0.est[0]&&R0.hst[0]?R0.est[0].E-R0.hst[0].E:1;M=LZ.mode(S,E0+0.01);return true}
+  const R0=LZ.opPoint(S,St.V,null);warm=R0.phi;const E0=LZ.edge(S,R0);M=LZ.mode(S,E0+0.01);return true}
 function solveV(V){const R=LZ.opPoint(S,V,warm);warm=R.phi;return R}
 
 /* background sweep of the injection level: gain peak and recombination current */
 function runSweep(){const key=skey()+St.gam;if(sw.key===key)return;const my=++tok;sw={key,data:[],done:false,th:null,gth:null};
-  const R0=LZ.opPoint(S,St.V,null);const E0=R0.est[0].E-R0.hst[0].E;let V=E0-0.1,w=null;const loss=()=>St.cav.ai+LZ.alphaM(St.cav);
+  const R0=LZ.opPoint(S,St.V,null);const E0=LZ.edge(S,R0);let V=E0-0.1,w=null;const loss=()=>St.cav.ai+LZ.alphaM(St.cav);
   const step=()=>{if(my!==tok)return;const t0=performance.now();
     while(performance.now()-t0<40){const R=LZ.opPoint(S,V,w);w=R.phi;const g=LZ.gain(S,R,M,{gam:St.gam}),rc=LZ.recomb(S,R);
       sw.data.push({V,G:g?g.peak:0,Epk:g?g.Epk:E0,J:Math.max(rc.J,1e-6),nw:rc.nw});V+=0.012;
@@ -1691,7 +1708,7 @@ function drawMode(){const W=420,H=440,top=24,bot=H-60,px0=52,px1=410,len=S.len,x
   o+=T(px1,bot+34,'depth z (µm) →','mut','end')+T(px0,top-8,'p side ←','mut')+T(px1,top-8,'→ n side','mut','end');
   o+=T(px0+6,bot-8,`|E|², Γ = ${(M.Gam*100).toFixed(2)} %`,'m halo modet');
   return svg(W,H,o,'Refractive-index profile and fundamental TE mode intensity')}
-function viewRange(){if(St.view==='full')return [0,S.len];const w=HS.windowOf(S);if(!w)return [0,S.len];const pad=Math.max(40,0.6*(w.zb-w.za));return [Math.max(0,w.za-pad),Math.min(S.len,w.zb+pad)]}
+function viewRange(){if(St.view==='full')return [0,S.len];let w=HS.windowOf(S);if(!w){const b=S.layers.filter(l=>l.b);if(!b.length)return [0,S.len];w={za:b[0].z0,zb:b[b.length-1].z0+ +b[b.length-1].t}}const pad=Math.max(40,0.6*(w.zb-w.za));return [Math.max(0,w.za-pad),Math.min(S.len,w.zb+pad)]}
 function drawBands(R){const W=640,H=440,top=22,bot=H-50,px0=62,px1=628,[v0,v1]=viewRange(),phi=R.phi,xs=z=>px0+(z-v0)/(v1-v0)*(px1-px0);
   let lo=Infinity,hi=-Infinity;const seg=[];for(let i=0;i<S.ne;i++){const e=S.E[i];if(e.zb<v0||e.za>v1)continue;const ec=[e.pa.Ec-phi[i],e.pb.Ec-phi[i+1]],ev=[e.pa.Ev-phi[i],e.pb.Ev-phi[i+1]];
     seg.push({za:Math.max(e.za,v0),zb:Math.min(e.zb,v1),ec,ev});lo=Math.min(lo,ev[0],ev[1]);hi=Math.max(hi,ec[0],ec[1])}
@@ -1768,13 +1785,13 @@ function readouts(){const R=lastR,g=lastG,c=St.cav,am=LZ.alphaM(c),loss=c.ai+am,
   $('lwarns').innerHTML=w.map(x=>`<span class="warn">${x}</span>`).join(' ');
   const e1=R.est[0],h1=R.hst[0],l1=(R.lst||[])[0];const rc=LZ.recomb(S,R);
   const it=[['E_Fn − E_Fp',`${(R.Fn-R.Fp).toFixed(3)} eV`],['Peak modal gain Γg · at λ',g?`${g.peak.toFixed(1)} cm⁻¹ · ${lam(g.Epk).toFixed(0)} nm`:'—'],['Loss α_i + α_m',`${c.ai.toFixed(1)} + ${am.toFixed(1)} = ${loss.toFixed(1)} cm⁻¹`],
-    ['Recombination current J',`${rc.J<1?rc.J.toPrecision(2):rc.J.toFixed(0)} A/cm²`],['Electrons per well',sci(rc.nw.reduce((a,b)=>a+b.n,0)/Math.max(rc.nw.length,1))+' cm⁻²'],
-    ['e1–hh1'+(l1?' · e1–lh1':''),e1&&h1?`${lam(e1.E-h1.E).toFixed(0)} nm`+(l1?` · ${lam(e1.E-l1.E).toFixed(0)} nm`:''):'—'],['Confinement Γ · n_eff',`${(M.Gam*100).toFixed(2)} % · ${M.neff.toFixed(3)}`]];
+    ['Recombination current J',`${rc.J<1?rc.J.toPrecision(2):rc.J.toFixed(0)} A/cm²`],...(S.layers.some(l=>l.b)?[['Electron density in active layer',sci(rc.nw.reduce((a,b)=>a+b.n/(b.t*1e-7),0)/Math.max(rc.nw.length,1))+' cm⁻³'],['Band-edge wavelength',`${lam(LZ.edge(S,R)).toFixed(0)} nm`]]:[['Electrons per well',sci(rc.nw.reduce((a,b)=>a+b.n,0)/Math.max(rc.nw.length,1))+' cm⁻²']]),
+    ...(e1&&h1||!S.layers.some(l=>l.b)?[['e1–hh1'+(l1?' · e1–lh1':''),e1&&h1?`${lam(e1.E-h1.E).toFixed(0)} nm`+(l1?` · ${lam(e1.E-l1.E).toFixed(0)} nm`:''):'—']]:[]),['Confinement Γ · n_eff',`${(M.Gam*100).toFixed(2)} % · ${M.neff.toFixed(3)}`]];
   if(sw.th&&sw.th.J)it.push(['Threshold E_Fn − E_Fp',`${sw.th.V.toFixed(3)} eV`]);
   $('lkv').innerHTML=kvs(it);
   let t=St.edited?'You have edited this structure, so the exemplar notes describe the original preset. ':'';
-  if(g){if(g.peak<=0)t+=`At this injection the quantum wells still absorb at every wavelength: E_Fn − E_Fp (${(R.Fn-R.Fp).toFixed(3)} eV) is below the lowest transition (${(e1.E-h1.E).toFixed(3)} eV), the Bernard–Duraffourg condition for gain is not met.`;
-    else if(g.peak<loss)t+=`The wells now amplify between the transition edge and E_Fn − E_Fp, but the peak modal gain (${g.peak.toFixed(1)} cm⁻¹) is below the cavity loss (${loss.toFixed(1)} cm⁻¹): the device glows (spontaneous emission) but does not lase.`;
+  if(g){if(g.peak<=0)t+=`At this injection the active region still absorbs at every wavelength: E_Fn − E_Fp (${(R.Fn-R.Fp).toFixed(3)} eV) is below the lowest transition (${LZ.edge(S,R).toFixed(3)} eV), the Bernard–Duraffourg condition for gain is not met.`;
+    else if(g.peak<loss)t+=`The active region now amplifies between the transition edge and E_Fn − E_Fp, but the peak modal gain (${g.peak.toFixed(1)} cm⁻¹) is below the cavity loss (${loss.toFixed(1)} cm⁻¹): the device glows (spontaneous emission) but does not lase.`;
     else t+=`The modal gain (${g.peak.toFixed(1)} cm⁻¹) exceeds the cavity loss (${loss.toFixed(1)} cm⁻¹). In a real laser the carrier density cannot rise this far: stimulated emission clamps it at threshold${sw.th&&sw.th.J?` (E_Fn − E_Fp = ${sw.th.V.toFixed(3)} eV)`:''}, and extra current becomes light (Fig. 5).`}
   $('lstory').textContent=t}
 
@@ -1950,6 +1967,14 @@ b:`<p>The simplest way to reach the 1.55 µm telecom band uses just two material
 a:`<p>Four 7 nm In<sub>0.53</sub>Ga<sub>0.47</sub>As wells and five 15 nm InP barriers between InP claddings, all lattice-matched. ΔE<sub>C</sub> ≈ 0.25 eV and ΔE<sub>V</sub> ≈ 0.35 eV; e1–hh1 ≈ 1526 nm at threshold. The only index contrast is the wells themselves (n ≈ 3.55 against 3.17), so Γ ≈ 2.0 % for all four wells, half of what the quaternary-guide 1550 nm exemplar gets from five thinner wells.</p>
 <p>For a 380 µm × 50 µm broad-area device with cleaved facets and α<sub>i</sub> = 15 cm⁻¹ the model gives J<sub>th</sub> ≈ 2.9 kA/cm² at λ ≈ 1494 nm. The 1984 Bell Labs device (4 × 7 nm wells, 15 nm InP barriers) reached J<sub>th</sub> = 2.7 kA/cm² at 1.53 µm with T<sub>0</sub> ≈ 45 K. The difference in wavelength reflects band filling at this high threshold density and the model's lattice-matched band edges. The low T<sub>0</sub> comes from Auger recombination and leakage over the shallow conduction-band step, the reason later designs moved to InGaAsP and AlGaInAs guides.</p>
 <p class="lk"><b>Explore:</b> Double the number of wells and compare. Read: Bell Labs, "Ga<sub>0.47</sub>In<sub>0.53</sub>As/InP multiquantum well heterostructure lasers grown by molecular beam epitaxy operating at 1.53 µm" (1984).</p>`},
+'1.65 µm InGaAs/InP double heterostructure · bulk active layer':{
+b:`<p>The simplest laser on an InP wafer: one 0.6 µm thick layer of In<sub>0.53</sub>Ga<sub>0.47</sub>As sandwiched between two layers of InP, p-type on one side and n-type on the other. This is a <b>double heterostructure</b>, the design that made room-temperature semiconductor lasers possible in 1970 (in GaAs/AlGaAs). The two InP layers do both jobs at once: their larger band gap traps electrons and holes in the InGaAs, and their lower refractive index traps the light there too.</p>
+<p>Bell Labs grew this InGaAs/InP version by molecular-beam epitaxy in 1978. The active layer is far too thick for quantum effects, so there are no subbands: electrons and holes fill the ordinary bulk bands, and the laser emits near InGaAs's band gap, about 1.65 µm.</p>
+<p class="lk"><b>Look for:</b> The flat-bottomed active layer in Fig. 2 with no quantized states, and in Fig. 1 a mode almost entirely inside the InGaAs (Γ ≈ 87 %). Compare the gain spectrum in Fig. 3 with a quantum-well laser: it starts at the band edge and rises smoothly.</p>
+<p class="lk"><b>Try:</b> Thin the active layer from 600 nm to 200 nm (Advanced, layer 2). Fewer carriers are needed to reach the same density, so the threshold falls by more than half, the step that eventually led to quantum wells.</p>`,
+a:`<p>p-InP / 600 nm undoped In<sub>0.53</sub>Ga<sub>0.47</sub>As / n-InP, lattice-matched. ΔE<sub>C</sub> ≈ 0.25 eV, ΔE<sub>V</sub> ≈ 0.36 eV, n ≈ 3.55 against 3.17. Gain is computed from the 3D joint density of states (heavy and light holes, |M|² = m<sub>0</sub>E<sub>p</sub>/6 each) with flat quasi-Fermi levels. Transparency needs ≈ 9×10¹⁷ cm⁻³ in the active layer; at threshold n ≈ 10¹⁸ cm⁻³ and the gain peaks at ≈ 1655 nm.</p>
+<p>For a 380 µm × 50 µm broad-area device with cleaved facets and α<sub>i</sub> = 15 cm⁻¹, the model gives J<sub>th</sub> ≈ 3.9 kA/cm² and I<sub>th</sub> ≈ 0.7 A. Miller, McFee, Martin and Tien (Bell Labs, 1978) reported pulsed room-temperature operation at 1.65 µm with J<sub>th</sub> as low as 3.2 kA/cm². The current density scales with active thickness d because J ≈ qd(An + Bn² + Cn³) at a roughly fixed threshold density, so most of the current here goes into simply filling 0.6 µm of material; Shockley–Read–Hall and Auger recombination take most of it. Later DH lasers thinned the active layer to 0.1–0.2 µm (Γ falls, but J<sub>th</sub> still drops) and switched to quaternary InGaAsP to reach 1.3 and 1.55 µm, the fibre windows; quantum wells took the same thinning to its limit.</p>
+<p class="lk"><b>Explore:</b> Compare with the 1.53 µm InGaAs/InP MQW exemplar: the same two materials, but four 7 nm wells instead of one 600 nm layer. Read: B. I. Miller, J. H. McFee, R. J. Martin and P. K. Tien, Appl. Phys. Lett. 33, 44 (1978).</p>`},
 '1.52 µm InGaAs/InAlAs MQW laser · all ternary':{
 b:`<p>A telecom laser built entirely from ternary alloys lattice-matched to InP: In<sub>0.53</sub>Ga<sub>0.47</sub>As wells and In<sub>0.52</sub>Al<sub>0.48</sub>As barriers and claddings. Both alloys are easy to grow by molecular-beam epitaxy (no phosphorus), the same pair used in InP HEMTs. This design comes from a 1983 Bell Labs patent.</p>
 <p>The InAlAs barriers give a much deeper conduction-band well than InP, which holds electrons better, and eight 9 nm wells make a thick active region with a large confinement factor.</p>
@@ -1996,6 +2021,7 @@ const TAKE={'tab-hs':{
 '976 nm InGaAs/AlGaAs pump laser':'One strained InGaAs well inside a broad AlGaAs waveguide: ≈100 A/cm² threshold and ≈1 W/A. Start with the gain spectrum touching the loss line (Fig. 3), then Fig. 5.',
 '1.24 µm highly strained InGaAs/GaAs MQW laser':'Pushing indium to ≈40 % in thin, heavily strained wells stretches a GaAs-based laser to ≈1.24 µm with only ≈67 A/cm² per well. See the deep wells in Fig. 2.',
 '1.53 µm InGaAs/InP MQW laser · binary + ternary':'Only InGaAs and InP: the wells themselves form a weak waveguide, so Γ is small and the threshold high (≈2.9 kA/cm²). Compare Fig. 1 with the 1550 nm exemplar.',
+'1.65 µm InGaAs/InP double heterostructure · bulk active layer':'One thick InGaAs layer between InP: the classic double heterostructure, with bulk gain and no quantum states. Threshold ≈ 3.9 kA/cm². Compare Figs. 1–3 with the MQW lasers.',
 '1.52 µm InGaAs/InAlAs MQW laser · all ternary':'An all-ternary telecom laser: InAlAs gives a deep electron well, and eight wells give Γ ≈ 11 %. Compare the band offsets in Fig. 2 with InGaAs/InP.',
 '1550 nm InGaAs/InGaAsP MQW telecom laser':'Five wells supply the gain that a short, uncoated chip needs; Auger losses push the threshold to ≈1.2 kA/cm². Compare Γ in Fig. 1 with the 976 nm laser.',
 '450 nm InGaN/GaN blue laser diode':'Polarization tilts the InGaN wells; injected carriers screen it and shift the emission blue. See Fig. 2 and the e1–hh1 readout as you raise the injection.'}
